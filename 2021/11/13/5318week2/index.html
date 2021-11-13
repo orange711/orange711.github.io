@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>COMP5318 Week2 Review | 今でもあなたはわたしの光</title><meta name="author" content="Gary Liu"><meta name="copyright" content="Gary Liu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="K邻近问题在使用KNN之前要normalization 这么做的目的是为了防止某些属性数值过大，导致某些数值小的属性变得无关紧要。 Computational complexity训练速度快，不建立模型；仅仅存储训练样本 · Training is fast-no model is built; just storing training examples· Classification(pred">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP5318 Week2 Review">
+<meta property="og:url" content="https://orange711.github.io.git/2021/11/13/5318week2/index.html">
+<meta property="og:site_name" content="今でもあなたはわたしの光">
+<meta property="og:description" content="K邻近问题在使用KNN之前要normalization 这么做的目的是为了防止某些属性数值过大，导致某些数值小的属性变得无关紧要。 Computational complexity训练速度快，不建立模型；仅仅存储训练样本 · Training is fast-no model is built; just storing training examples· Classification(pred">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
+<meta property="article:published_time" content="2021-11-13T06:54:03.352Z">
+<meta property="article:modified_time" content="2021-11-13T06:50:30.664Z">
+<meta property="article:author" content="Gary Liu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/11/13/5318week2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'COMP5318 Week2 Review',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-13 14:50:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">COMP5318 Week2 Review</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-13T06:54:03.352Z" title="发表于 2021-11-13 14:54:03">2021-11-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-13T06:50:30.664Z" title="更新于 2021-11-13 14:50:30">2021-11-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="COMP5318 Week2 Review"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="K邻近问题"><a href="#K邻近问题" class="headerlink" title="K邻近问题"></a>K邻近问题</h1><p>在使用KNN之前要normalization</p>
+<p>这么做的目的是为了防止某些属性数值过大，导致某些数值小的属性变得无关紧要。</p>
+<h2 id="Computational-complexity"><a href="#Computational-complexity" class="headerlink" title="Computational complexity"></a>Computational complexity</h2><p><strong>训练速度快，不建立模型；仅仅存储训练样本</strong></p>
+<p>· Training is fast-no model is built; just storing training examples<br>· Classification(prediction for a new example)<br>· Compare each unseen example with each training example<br>. If m training examples with dimensionality n=&gt; lookup for 1 unseen example takes m*n computations,i.e.O(mn)<br>· Memory requirements-you need to remember each training example, O(mn)<br>· Impractical for large data due to time and memory requirements<br>· However, there are variations allowing to find the nearest neighbours more efficiently<br>.e.g. by using more efficient data stfactures such as KD-trees and ball trees, see Witten p.136-141</p>
+<p><strong>KNN 不适合数据量大的数据集</strong>（由于时间和存储需求）</p>
+<p>对于高维度的数据集 需要更多计算时间（m*n） m为训练样本 n为维度</p>
+<p>KNN对于K的选择很敏感</p>
+<p><strong>Rule of thumb(经验法则): k&lt;=sqrt(#training_examples)</strong></p>
+<p>commercial packages typically use <strong>k=10</strong></p>
+<p><strong>用更多邻居可以减少noise的影响</strong></p>
+<p><strong>KNN可以用在分类问题，也可以用在回归问题。</strong></p>
+<p>The prediction will be the average value of the class values(numerical) of the k nearest neighbors</p>
+<p>预测值是几个邻居的均值</p>
+<h2 id="Weighted-nearest-neighbor"><a href="#Weighted-nearest-neighbor" class="headerlink" title="Weighted nearest neighbor"></a>Weighted nearest neighbor</h2><p>·Idea: Closer neighbors should count more than distant neighbors<br>·Distance-weighted nearest-neighbor algorithm<br>·Find the k nearest neighbors<br>·Weight their contribution based on their distance to the new example<br>·bigger weight if they are closer<br>·smaller weight if they are further<br>·e.g. the vote can be weighted according to the distance-weight W=1/d2</p>
+<p>例如：</p>
+<p>更近的邻居权重高、远的邻居权重低</p>
+<h2 id="Decision-boundary-of-1-nearest-neighbor"><a href="#Decision-boundary-of-1-nearest-neighbor" class="headerlink" title="Decision boundary of 1-nearest neighbor"></a>Decision boundary of 1-nearest neighbor</h2><p>·Nearest neighbor classifiers produced decision boundaries with an arbitrary shape<br>·The 1-nearest neighbor boundary is formed by the edges of the Voronoi diagram that separate the points of the two classes<br>·Voronoi region:<br>·Each training example has an associated Voronoi region;it contains the data points for which this is the closest example</p>
+<p><img src="D:\MarkdownIMG\image-20211113003053713.png" alt="image-20211113003053713"></p>
+<h2 id="K-nearest-neighbor-discussion"><a href="#K-nearest-neighbor-discussion" class="headerlink" title="K-nearest neighbor-discussion"></a>K-nearest neighbor-discussion</h2><p>·Often very accurate （通常很准确）<br>·Has been used in statistics since 1950s<br>·Slow for big datasets（大数据集慢）<br>·Distance-based-requires normalization（需要normalization）<br>·Produces arbitrarily shaped decision boundary defined by a subset of the Voronoi edges<br>·Not effective for high-dimensional data(data with many features)（不适用于高维度数据集）<br>·The notion of”nearness”is not effective in high dimensional data<br>·Solution-dimensionality reduction and feature selection *（可以用降维来解决这个问题（PCA））<br>·Sensitive to the value of k （对K值很敏感）</p>
+<h1 id="Rule-base-Algorithms"><a href="#Rule-base-Algorithms" class="headerlink" title="Rule-base Algorithms"></a>Rule-base Algorithms</h1><p>1R stands for 1-rule</p>
+<p><img src="D:\MarkdownIMG\image-20211113003802400.png" alt="image-20211113003802400"></p>
+<h3 id="Q1-How-to-determine-the-class-label-for-the-leaves"><a href="#Q1-How-to-determine-the-class-label-for-the-leaves" class="headerlink" title="Q1: How to determine the class label for the leaves?"></a>Q1: How to determine the class label for the leaves?</h3><p>选择这一属性属性最多的class作为叶子节点</p>
+<h3 id="Q2-How-to-select-the-best-rule"><a href="#Q2-How-to-select-the-best-rule" class="headerlink" title="Q2:How to select the best rule?"></a>Q2:How to select the best rule?</h3><p>选择错误最少的rule；==准确率最好的rule</p>
+<h2 id="1R-discusion"><a href="#1R-discusion" class="headerlink" title="1R  discusion"></a>1R  discusion</h2><p>·Simple algorithm<br>·Produces rules that are easy to understand<br>·In contrast to “black-box”models such as neural networks<br>·Sometimes produces surprisingly good results<br>·It is useful to try the simple algorithms first and compare their<br>performance with more sophisticated algorithms<br>·Numerical datasets require discretization<br>·1R has an in-built procedure to do this</p>
+<blockquote>
+<p>·简单的算法  </p>
+<p>·制定易于理解的规则  </p>
+<p>·与神经网络等“黑盒”模型相比  </p>
+<p>·有时会产生意想不到的好结果  </p>
+<p>·首先尝试简单的算法并比较它们是有用的  </p>
+<p>性能与更复杂的算法  </p>
+<p>·数值数据集需要离散化  </p>
+<p>·1R有一个内置的程序来做到这一点  </p>
+</blockquote>
+<h2 id="Covering-rule-based-algorithm"><a href="#Covering-rule-based-algorithm" class="headerlink" title="Covering rule-based algorithm"></a>Covering rule-based algorithm</h2><p>· PRISM is an example of rule-based covering algorithm<br>· This type of algorithms:<br>· consider each class in turn and<br>· construct a set of if-then rules that cover all examples from this class and do not cover any examples from the other classes.<br>· Called covering algorithms because:<br>· At each stage of the algorithm,a rule is identified that “covers”some of the、 examples<br>· if part of the rules<br>· contains conditions that test the value of an attribute<br>. initially empty, tests are added incrementally in order to create a rule with maximum accuracy</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ? then <span class="class"><span class="keyword">class</span> <span class="title">a</span> </span></span><br><span class="line"><span class="class"><span class="title">if</span> ×1&gt;2 <span class="title">then</span> <span class="title">class</span> <span class="title">a</span> </span></span><br><span class="line"><span class="class"><span class="title">if</span> ×1&gt;2&amp; ×2&lt;5 <span class="title">then</span> <span class="title">class</span> <span class="title">a</span> </span></span><br><span class="line"><span class="class"><span class="title">if</span> ×1&gt;2&amp; ×2&lt;5&amp; ×3&lt;3 <span class="title">then</span> <span class="title">class</span> <span class="title">a</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="PRISM-algorithm-棱镜算法"><a href="#PRISM-algorithm-棱镜算法" class="headerlink" title="PRISM algorithm 棱镜算法"></a>PRISM algorithm 棱镜算法</h2><p>Idea: Generate a rule by adding tests that maximize the rule’s accuracy</p>
+<p>For each class:<br>· Start with an empty rule and gradually add conditions<br>· Each condition tests the value of 1 attribute<br>· By adding a new test, the rule coverage is reduced(i.e.<br>the rule becomes more specific)<br>Finish when p/t=1(i.e. the rule covers only examples from the same class,i.e. is “perfect”)</p>
+<p>Which test to add at each step? The one that maximizes accuracy p/t:<br>·t: total number of examples(from all classes) covered by the rule(t comes from total)<br>·p: examples from the class under consideration, covered by the rule(p comes from positive)<br>.t-p: number of errors made bv the rule</p>
+<p>Select the test that maximises the accuracy p/t</p>
+<p><img src="D:\MarkdownIMG\image-20211113010903536.png" alt="image-20211113010903536"></p>
+<h2 id="PRISM-discussion"><a href="#PRISM-discussion" class="headerlink" title="PRISM-discussion"></a>PRISM-discussion</h2><p>·When applying the PRISM rules to classify a new example:<br>·Does the order in which the rules for a given class are applied matter?<br>·No,the rules are order-independent(隔离性)<br>·Problem-some test examples may not be covered by the PRISM rules and will not receive classification（对于不在规则中的数据无法分类 模型泛化能力差、？？）<br>·Default rule is needed-assign them to the class with the most training examples<br>·Dealing with numeric attributes-discretization is needed（对数值型数据离散化操作）</p>
+<h2 id="Covering-vs-divide-and-conquer-algorithms"><a href="#Covering-vs-divide-and-conquer-algorithms" class="headerlink" title="Covering vs divide-and-conquer algorithms"></a>Covering vs divide-and-conquer algorithms</h2><p>· PRISM is an example of the covering approach for constructing classification rules<br>· Takes each class in turn and generates a rule that covers all examples in it while excluding the examples not in the class<br>· It is a sequential covering algorithm<br>· Decision Trees(DT)-we will study them later-are an example of the divide-and-conquer approach<br>· They are top-down method; start with all examples, at each stage find the attribute that best separates the classes; then recursively processing the sub-problems that result from the attribute split<br>· Both PRISM and DT select the best test to add to the current rule or tree but the criterion is different<br>· PRISM maximizes the accuracy p/t<br>· DT maximizes the separation between classes(i.e. maximizes Information Gain)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Gary Liu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://orange711.github.io.git/2021/11/13/5318week2/">https://orange711.github.io.git/2021/11/13/5318week2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://orange711.github.io.git" target="_blank">今でもあなたはわたしの光</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/11/12/5318week1/"><img class="next-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">COMP5318 Week1 Review</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gary Liu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange711"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客仅个人学习使用，禁止非授权转载</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#K%E9%82%BB%E8%BF%91%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">K邻近问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Computational-complexity"><span class="toc-number">1.1.</span> <span class="toc-text">Computational complexity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Weighted-nearest-neighbor"><span class="toc-number">1.2.</span> <span class="toc-text">Weighted nearest neighbor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decision-boundary-of-1-nearest-neighbor"><span class="toc-number">1.3.</span> <span class="toc-text">Decision boundary of 1-nearest neighbor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K-nearest-neighbor-discussion"><span class="toc-number">1.4.</span> <span class="toc-text">K-nearest neighbor-discussion</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Rule-base-Algorithms"><span class="toc-number">2.</span> <span class="toc-text">Rule-base Algorithms</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-How-to-determine-the-class-label-for-the-leaves"><span class="toc-number">2.0.1.</span> <span class="toc-text">Q1: How to determine the class label for the leaves?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-How-to-select-the-best-rule"><span class="toc-number">2.0.2.</span> <span class="toc-text">Q2:How to select the best rule?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1R-discusion"><span class="toc-number">2.1.</span> <span class="toc-text">1R  discusion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Covering-rule-based-algorithm"><span class="toc-number">2.2.</span> <span class="toc-text">Covering rule-based algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PRISM-algorithm-%E6%A3%B1%E9%95%9C%E7%AE%97%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">PRISM algorithm 棱镜算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PRISM-discussion"><span class="toc-number">2.4.</span> <span class="toc-text">PRISM-discussion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Covering-vs-divide-and-conquer-algorithms"><span class="toc-number">2.5.</span> <span class="toc-text">Covering vs divide-and-conquer algorithms</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/13/5318week2/" title="COMP5318 Week2 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week2 Review"/></a><div class="content"><a class="title" href="/2021/11/13/5318week2/" title="COMP5318 Week2 Review">COMP5318 Week2 Review</a><time datetime="2021-11-13T06:54:03.352Z" title="发表于 2021-11-13 14:54:03">2021-11-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/12/5318week1/" title="COMP5318 Week1 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week1 Review"/></a><div class="content"><a class="title" href="/2021/11/12/5318week1/" title="COMP5318 Week1 Review">COMP5318 Week1 Review</a><time datetime="2021-11-12T15:46:53.304Z" title="发表于 2021-11-12 23:46:53">2021-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/08/%E5%85%AB%E8%82%A1%E6%96%87/" title="Img test"><img src="https://github.com/orange711/orange711.github.io/blob/main/img/mario.jpg?raw=true" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Img test"/></a><div class="content"><a class="title" href="/2021/11/08/%E5%85%AB%E8%82%A1%E6%96%87/" title="Img test">Img test</a><time datetime="2021-11-08T14:51:12.102Z" title="发表于 2021-11-08 22:51:12">2021-11-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/08/Hexo%20%E4%B8%AA%E4%BA%BABlog%20%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/" title="Hexo 个人Blog 安装部署流程"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo 个人Blog 安装部署流程"/></a><div class="content"><a class="title" href="/2021/11/08/Hexo%20%E4%B8%AA%E4%BA%BABlog%20%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/" title="Hexo 个人Blog 安装部署流程">Hexo 个人Blog 安装部署流程</a><time datetime="2021-11-08T12:41:45.776Z" title="发表于 2021-11-08 20:41:45">2021-11-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/08/hello-world/" title="Hello World"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2021/11/08/hello-world/" title="Hello World">Hello World</a><time datetime="2021-11-08T11:44:08.378Z" title="发表于 2021-11-08 19:44:08">2021-11-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Gary Liu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
