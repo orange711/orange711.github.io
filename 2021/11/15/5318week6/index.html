@@ -1,0 +1,252 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>COMP5318 Week5 Review | 今でもあなたはわたしの光</title><meta name="author" content="Gary Liu"><meta name="copyright" content="Gary Liu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="COMP5318 Week 6支持向量机Separation by a hyperplane  超平面分离   Why”vectors”?On the previous slides we saw only the tips of the support vectors;here we can see the actual vectors Remember that the given train">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP5318 Week5 Review">
+<meta property="og:url" content="https://orange711.github.io.git/2021/11/15/5318week6/index.html">
+<meta property="og:site_name" content="今でもあなたはわたしの光">
+<meta property="og:description" content="COMP5318 Week 6支持向量机Separation by a hyperplane  超平面分离   Why”vectors”?On the previous slides we saw only the tips of the support vectors;here we can see the actual vectors Remember that the given train">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
+<meta property="article:published_time" content="2021-11-15T08:27:09.238Z">
+<meta property="article:modified_time" content="2021-11-15T08:25:11.338Z">
+<meta property="article:author" content="Gary Liu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/11/15/5318week6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'COMP5318 Week5 Review',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-15 16:25:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">COMP5318 Week5 Review</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-15T08:27:09.238Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-15T08:25:11.338Z" title="更新于 2021-11-15 16:25:11">2021-11-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="COMP5318 Week5 Review"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="COMP5318-Week-6"><a href="#COMP5318-Week-6" class="headerlink" title="COMP5318 Week 6"></a>COMP5318 Week 6</h1><h1 id="支持向量机"><a href="#支持向量机" class="headerlink" title="支持向量机"></a>支持向量机</h1><p>Separation by a hyperplane</p>
+<ul>
+<li>超平面分离</li>
+</ul>
+<p><img src="D:\MarkdownIMG\image-20211115004612032.png" alt="image-20211115004612032"></p>
+<h2 id="Why”vectors”"><a href="#Why”vectors”" class="headerlink" title="Why”vectors”?"></a>Why”vectors”?</h2><p>On the previous slides we saw only the tips of the support vectors;here we can see the actual vectors Remember that the given training examples are vectors(input vectors)<br>where each dimension corresponds to 1 feature The support vectors are a subset of the input vectors<br>=&gt;they are also vectors THEU</p>
+<blockquote>
+<p>在之前的幻灯片中，我们只看到了支持向量的提示，这里我们看到了实际的向量，记住，给定的训练示例是向量(输入向量)  </p>
+<p>支持向量是输入向量的子集  </p>
+<p>=&gt;它们也是向量  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211115004818476.png" alt="image-20211115004818476"></p>
+<h2 id="Maximum-margin-hyperplane"><a href="#Maximum-margin-hyperplane" class="headerlink" title="Maximum margin hyperplane"></a>Maximum margin hyperplane</h2><p>· The hyperplane with the biggest margin is called the maximum margin hyperplane<br>. It is the hyperplane with the highest possible distance to the training examples SVM selects the maximum margin hyperplane<br>· Decision boundaries with large marains(i.e. farthest away from the training data) are better than those with small margins as they typically are more accurate on new examples</p>
+<p>If the margin is small,then any slight change in the hyperplane or the training examples at the boundary is more likely to affect the classification as there is very narrow room to allow data perturbations<br>=&gt;small margin is more susceptible to overfitting On the other hand,if the margin is big,there is more leeway to be robust to minor changes in the datg</p>
+<p>·=&gt;likely to have better generalization performance D<br>·There is also justification from statisticallearning theory,the so called structural risk minimization principle</p>
+<blockquote>
+<p>如果边界很小，那么超平面或边界上训练示例的任何微小变化都更有可能影响分类，因为允许数据扰动的空间非常狭窄  </p>
+<p>另一方面，如果裕度较大，则对datg中的微小变化有更大的灵活性  </p>
+<p>·=&gt;可能具有更好的泛化性能D  </p>
+<p>·统计学习理论，也就是所谓的结构风险最小化原则，也提供了理由  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211115011354351.png" alt="image-20211115011354351"></p>
+<h2 id="调优问题"><a href="#调优问题" class="headerlink" title="调优问题"></a>调优问题</h2><p>·This is an optimization problem that can be solved using Quadratic Programming（QP）and the Lagrange multiplier method<br>·Firstly，the problem is transformed into an equivalent form using Lagrange multipliers λ：</p>
+<blockquote>
+<p>·这是一个可以用二次规划(QP)和拉格朗日乘子法求解的优化问题  </p>
+<p>·首先，利用拉格朗日乘子λ将问题转化为等价形式:  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211115011907221.png" alt="image-20211115011907221"></p>
+<h2 id="SVM-with-soft-margin"><a href="#SVM-with-soft-margin" class="headerlink" title="SVM with soft-margin"></a>SVM with soft-margin</h2><p><img src="D:\MarkdownIMG\image-20211115120538272.png" alt="image-20211115120538272"></p>
+<h2 id="Non-linear-SVM"><a href="#Non-linear-SVM" class="headerlink" title="Non-linear SVM"></a>Non-linear SVM</h2><p><img src="D:\MarkdownIMG\image-20211115121440259.png" alt="image-20211115121440259"></p>
+<h3 id="Non-linear-SVM-Idea"><a href="#Non-linear-SVM-Idea" class="headerlink" title="Non-linear SVM-Idea"></a>Non-linear SVM-Idea</h3><p>·Transform the data from its original feature space to a new space where a linear boundary can be used to separate the data<br>·If the transformation is non-linear and to a higher dimensional space,it is more likely than a linear decision boundary can be found in it<br>·The learned linear decision boundary in the new feature space is mapped back to the original feature space,resulting in a non-linear decision boundary in the original space</p>
+<blockquote>
+<p>·将数据从原始特征空间转换为一个新的空间，在新的空间中可以使用线性边界来分离数据  </p>
+<p>·如果转换是非线性的，并且是向高维空间的，那么它比线性决策边界更有可能在其中找到  </p>
+<p>·将新特征空间中学习到的线性决策边界映射回原特征空间，导致原空间中的决策边界呈非线性  </p>
+</blockquote>
+<h2 id="SVM-summary"><a href="#SVM-summary" class="headerlink" title="SVM-summary"></a>SVM-summary</h2><p>· Very popular classification method<br>· Can form arbitrary decision boundaries(both linear and non-linear)<br>· Three key concepts:<br>. The decision boundary is the maximum margin hyperplane-the task is formulated as an optimization problem<br>· Transform data into a new(typically higher dimensional space) where it is more likely to be linearly separable<br>. Kernel trick-do the calculations in the original, not in the new higher dimensional space<br>· Can be applied to multi-class classification problems too-they are transformed into 2-class problems<br>· There is an extension for regression tasks-Support Vector Regression</p>
+<blockquote>
+<p>·非常流行的分类方法  </p>
+<p>·可以形成任意的决策边界(线性和非线性)  </p>
+<p>·三个关键概念:  </p>
+<p>．  决策边界是最大边界超平面——这个任务被表述为一个优化问题  </p>
+<p>·将数据转换到一个新的(通常是更高维度的空间)，在那里数据更有可能是线性可分的  </p>
+<p>．  内核在原始空间中进行计算，而不是在新的更高维度空间中  </p>
+<p>·也可以应用于多类分类问题——它们被转化为两类问题  </p>
+<p>·回归任务有一个扩展-支持向量回归  </p>
+</blockquote>
+<h1 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h1><h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>· Some ML problems involve thousands of features<br>· Problems with high dimensional data<br>· Slower training<br>· Unreliable classification-examples are far away from each other; high dimensional data is very sparse<br>· Overfitting is more likely in high dimensional data<br>· Building interpretable models is not possible-we would like to build compact and easier to interpret classification models<br>· Visualizing-humans can only interpret low dimensional data,e.g.<br>max 3 dimensions<br>· Not all features are important-it is desirable to find a smaller set of features that are necessary and sufficient for good classification<br>· Dimensionality reduction removes redundant and highly correlated features and reduces noise in the data</p>
+<blockquote>
+<p>·一些ML问题涉及数千个特性  </p>
+<p>·高维数据问题  </p>
+<p>慢·培训  </p>
+<p>·分类不可靠——例子之间距离太远; 高维数据非常稀疏  </p>
+<p>·在高维数据中更有可能出现过拟合  </p>
+<p>·构建可解释模型是不可能的——我们希望构建紧凑且易于解释的分类模型  </p>
+<p>·可视化——人类只能解释低维数据，例如。  </p>
+<p>max三维  </p>
+<p>·并非所有的特征都是重要的——我们希望找到一组更小的特征，这些特征对于良好的分类是必要的和充分的  </p>
+<p><strong>·降维去除数据中冗余和高度相关的特征，降低数据中的噪声</strong>  </p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>·PCA is the most popular dimensionality reduction method<br>·It is often called a feature projecton method<br>·The main idea is to find a new set of dimensions(axes)and project the data into it<br>·The dimensionality of the new space is smaller than the dimensionality of the original space<br>·The new axes capture the essence of the data(the variability of the data)<br>·The resulting dataset(the projection)can be used as an input to train a ML algorithm<br>·In summary,we construct new features;the number of new features is smaller than the number of the original features</p>
+<blockquote>
+<p>·PCA是目前最流行的降维方法  </p>
+<p>·它通常被称为特征投影方法  </p>
+<p>·主要思路是找到一组新的维度(轴)，并将数据投影到其中  </p>
+<p>·新空间维数小于原空间维数  </p>
+<p>·新坐标轴捕捉数据的本质(数据的可变性)  </p>
+<p>·得到的数据集(投影)可以作为训练ML算法的输入  </p>
+<p>·综上所述，我们构建了新特征，新特征的数量小于原始特征的数量  </p>
+</blockquote>
+<h2 id="Main-idea"><a href="#Main-idea" class="headerlink" title="Main idea"></a>Main idea</h2><p>Given:N examples with dimensionality(m i.e.m features)<br>Find:m new axes Z1.., Zm orthogonal to each other such that Var(Z1)&gt;Var(Z2)….&gt;Var(Zm)<br>Z1., Zm are called principal components The principal components are vectors that define a new coordinate system They are ordered based on how much variance they capture<br>. The first axis goes in the direction of the highest variance in the data<br>. The second axis is orthogonal to the first one and goes in the direction of the second highest variance<br>· The third one is orthogonal to both the first and second and goes in the direction of the third highest variance, and so on</p>
+<blockquote>
+<p>给定:N个带有维度的例子(m即m特征)  </p>
+<p>找到:m个新轴Z1.. ， Zm相互正交，使Var(Z1)&gt;Var(Z2)….&gt;Var(Zm)  </p>
+<p>Z1。 主分量是定义一个新坐标系的向量，它们的顺序是基于它们捕获的方差的多少  </p>
+<p>．  第一个轴是数据中最大方差的方向  </p>
+<p>．  第二个轴与第一个轴正交，并朝着第二个最大方差的方向  </p>
+<p>·第三个与第一个和第二个正交，并向第三个方差最高的方向，以此类推  </p>
+</blockquote>
+<h2 id="PCA如何运作"><a href="#PCA如何运作" class="headerlink" title="PCA如何运作"></a>PCA如何运作</h2><p>Select the k largest pripcipal components Z1,Z2… Zk and project our dat points on them(k&lt;m)<br>For our 2-dim data in Example 2, we can select only Z1-&gt;1-dim data The red points are projections of the original green points on the first principal component Z1<br>To describe the red points we need only one coordinate instead of two-<br>the coordinate with respect to Z1 </p>
+<blockquote>
+<p>选择k个最大的主成分Z1,Z2，… Zk，并将我们的dat点投射到它们上(k&lt;m)  </p>
+<p>对于例2中的2-dim数据，我们只能选择Z1-&gt;1-dim数据。红点是原始绿点在第一个主分量Z1上的投影  </p>
+<p>为了描述红点，我们只需要一个坐标而不是两个-  </p>
+<p>关于Z1的坐标  </p>
+</blockquote>
+<h2 id="PCA选择"><a href="#PCA选择" class="headerlink" title="PCA选择"></a>PCA选择</h2><p>· Method 1: Set min % of variance that should be preserved,e.g.95%<br>· Choose k such that Z1,Z2,.. Zk capture 95% of the variance<br>· Method 2:(Elbow method)<br>· Plot number of dimensions as a function of variance<br>· There is usually an elbow in the curve where the variance stops growing fast</p>
+<blockquote>
+<p>·方法1:设置应保留的最小方差%，例如95%  </p>
+<p>·选择k，使Z1,Z2，.. Zk捕获95%的方差  </p>
+<p>·方法二:(肘法)  </p>
+<p>·Plot number of dimensions作为方差的函数  </p>
+<p>·在变化停止快速增长的时候，曲线通常会出现弯折  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211115154405834.png" alt="image-20211115154405834"></p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>· PCA is a method for dimensionality reduction<br>· It is an unsupervised method-it doesn’t use the class information<br>· It projects the data into a lower dimensional space that still captures the important information<br>· The new axes are ordered based on how much variance they capture<br>. The first axis goes in the direction of the highest variance in the data<br>. The second axis is orthogonal to the first one and goes in the direction of th second highest variance and so on<br>· The new axes are called principal components and represent patterns ir data<br>· The data dimensionality is reduced by eliminating the weakest axes(the ones with low variance)=&gt;we use only the first principal components<br>· The resulting dataset(the projection) can be used as an input to train a ML algorithm<br>· PCA can also be used for compression</p>
+<blockquote>
+<p>·PCA是一种降维方法  </p>
+<p>·它是一个非监督方法——它不使用类信息  </p>
+<p>·它将数据投射到仍然捕获重要信息的低维空间  </p>
+<p>·新轴是根据它们捕获的方差来排序的  </p>
+<p>．  第一个轴是数据中最大方差的方向  </p>
+<p>．  第二个轴与第一个轴正交并朝着第二大方差的方向，以此类推  </p>
+<p>·新的轴称为主分量，表示模式数据  </p>
+<p>·通过消除最弱的轴(方差低的轴)来降低数据维数=&gt;我们只使用第一个主成分  </p>
+<p>·得到的数据集(投影)可以作为训练ML算法的输入  </p>
+<p>·PCA也可以用于压缩  </p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Gary Liu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://orange711.github.io.git/2021/11/15/5318week6/">https://orange711.github.io.git/2021/11/15/5318week6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://orange711.github.io.git" target="_blank">今でもあなたはわたしの光</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/11/15/5318week5/"><img class="next-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">COMP5318 Week5 Review</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gary Liu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange711"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客仅个人学习使用，禁止非授权转载</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#COMP5318-Week-6"><span class="toc-number">1.</span> <span class="toc-text">COMP5318 Week 6</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">支持向量机</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why%E2%80%9Dvectors%E2%80%9D"><span class="toc-number">2.1.</span> <span class="toc-text">Why”vectors”?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Maximum-margin-hyperplane"><span class="toc-number">2.2.</span> <span class="toc-text">Maximum margin hyperplane</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%83%E4%BC%98%E9%97%AE%E9%A2%98"><span class="toc-number">2.3.</span> <span class="toc-text">调优问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM-with-soft-margin"><span class="toc-number">2.4.</span> <span class="toc-text">SVM with soft-margin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Non-linear-SVM"><span class="toc-number">2.5.</span> <span class="toc-text">Non-linear SVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Non-linear-SVM-Idea"><span class="toc-number">2.5.1.</span> <span class="toc-text">Non-linear SVM-Idea</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM-summary"><span class="toc-number">2.6.</span> <span class="toc-text">SVM-summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PCA"><span class="toc-number">3.</span> <span class="toc-text">PCA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA"><span class="toc-number">3.1.</span> <span class="toc-text">动机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-idea"><span class="toc-number">3.3.</span> <span class="toc-text">Main idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCA%E5%A6%82%E4%BD%95%E8%BF%90%E4%BD%9C"><span class="toc-number">3.4.</span> <span class="toc-text">PCA如何运作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCA%E9%80%89%E6%8B%A9"><span class="toc-number">3.5.</span> <span class="toc-text">PCA选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">3.6.</span> <span class="toc-text">Summary</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week6/" title="COMP5318 Week5 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week5 Review"/></a><div class="content"><a class="title" href="/2021/11/15/5318week6/" title="COMP5318 Week5 Review">COMP5318 Week5 Review</a><time datetime="2021-11-15T08:27:09.238Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week5/" title="COMP5318 Week5 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week5 Review"/></a><div class="content"><a class="title" href="/2021/11/15/5318week5/" title="COMP5318 Week5 Review">COMP5318 Week5 Review</a><time datetime="2021-11-15T08:27:09.237Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week4/" title="无题"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2021/11/15/5318week4/" title="无题">无题</a><time datetime="2021-11-15T08:27:09.235Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week3/" title="无题"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2021/11/15/5318week3/" title="无题">无题</a><time datetime="2021-11-15T08:27:09.233Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/13/5318week2/" title="COMP5318 Week2 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week2 Review"/></a><div class="content"><a class="title" href="/2021/11/13/5318week2/" title="COMP5318 Week2 Review">COMP5318 Week2 Review</a><time datetime="2021-11-13T06:54:03.352Z" title="发表于 2021-11-13 14:54:03">2021-11-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Gary Liu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

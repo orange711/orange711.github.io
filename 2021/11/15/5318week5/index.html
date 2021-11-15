@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>COMP5318 Week5 Review | 今でもあなたはわたしの光</title><meta name="author" content="Gary Liu"><meta name="copyright" content="Gary Liu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="COMP5318 Week5决策树构建决策树 Strategy:top-down learning using recursive divide-and-conquer process:·First:Select the best attribute for root node and create branch for each possible attribute value—·Then:Sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP5318 Week5 Review">
+<meta property="og:url" content="https://orange711.github.io.git/2021/11/15/5318week5/index.html">
+<meta property="og:site_name" content="今でもあなたはわたしの光">
+<meta property="og:description" content="COMP5318 Week5决策树构建决策树 Strategy:top-down learning using recursive divide-and-conquer process:·First:Select the best attribute for root node and create branch for each possible attribute value—·Then:Sp">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
+<meta property="article:published_time" content="2021-11-15T08:27:09.237Z">
+<meta property="article:modified_time" content="2021-11-14T16:43:13.828Z">
+<meta property="article:author" content="Gary Liu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/11/15/5318week5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'COMP5318 Week5 Review',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-15 00:43:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">COMP5318 Week5 Review</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-15T08:27:09.237Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-14T16:43:13.828Z" title="更新于 2021-11-15 00:43:13">2021-11-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="COMP5318 Week5 Review"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="COMP5318-Week5"><a href="#COMP5318-Week5" class="headerlink" title="COMP5318 Week5"></a>COMP5318 Week5</h1><h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><p>构建决策树</p>
+<p>Strategy:top-down learning using recursive divide-and-conquer process:<br>·First:Select the best attribute for root node and create branch for each possible attribute value—<br>·Then:Split examples into subsets,one for each branch extending from the node<br>·Finally:Repeat recursively for each branch,using only the examples that reach the branch</p>
+<p>·Stop if all examples have the same class<br>·Make a leaf node for this class</p>
+<h2 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h2><p>·The measure of purity that we will use is called information gain<br>·It is based on another measure called entropy<br>·Given a set of examples with their class,entropy measures the homogeneity<br>(purity)of this set with respect to the class-<br>·The smaller the entropy,the greater the purity of the data set<br>·Entropy is used also in signal compression,information theory and physics</p>
+<p>When calculating entropy,we will assume that 1og2 0=0</p>
+<p>计算Gain </p>
+<p>Gain最高者是最好的root</p>
+<p>Gain = S - (S sub)</p>
+<h2 id="决策树剪枝"><a href="#决策树剪枝" class="headerlink" title="决策树剪枝"></a>决策树剪枝</h2><p>· If we grow the decision tree to perfectly classify the training set, the tree may become too specific and overfit the data<br>· Overfitting-high accuracy on the training data but low accuracy on new data<br>· The tree has become too specific, mainly memorizing data, instead of extracting patterns<br>· When does overfitting occurs in decision trees?<br>· Training data is too small-&gt;not enough representative examples to build a model that can generalize well on new data<br>· Noise in the training data,e.g. incorrectly labelled examples-&gt;the decision tree learns them by adding new braches and making the tree overly specific<br>· Use tree pruning to avoid overfitting</p>
+<blockquote>
+<p>·如果我们生长决策树来完美地分类训练集，树可能会变得太具体和过拟合数据  </p>
+<p>·过拟合——训练数据精度高，新数据精度低  </p>
+<p>·树变得过于具体，主要是记忆数据，而不是提取模式  </p>
+<p>·决策树什么时候发生过拟合?  </p>
+<p>·训练数据太小——&gt;没有足够的代表性例子来建立一个可以很好地概括新数据的模型  </p>
+<p>·训练数据中的噪声，例如 标记错误的例子——&gt;决策树通过添加新的分支和使树过于具体来学习它们  </p>
+<p>·对树进行修剪，避免过拟合  </p>
+</blockquote>
+<p>· Two main strategies<br>· Pre-pruning-stop growing tbe tree earlier, before it reaches the point where it perfectly classifies the training data<br>· Post-pruning-fully grow the tree, allowing it to perfectly cover the training data, and then prune it<br>· Post-pruning is preferred in practice<br>· Different post-pruning methods,e.g.:<br>· sub-tree replacement<br>· sub-tree raising<br>· converting the tree to rules and then pruning them<br>· How much to prune? Use a validation set to decide<br>·=&gt;the available data is split into 3 sets: training, validation and test set<br>· training set-to build the tree<br>· validation set-to evaluate the impact of pruning and decide when to stop<br>· test data-to evaluate how good the tree is</p>
+<blockquote>
+<p>·两种主要策略  </p>
+<p>·预修剪-在树达到完美分类训练数据的点之前，提前停止生长  </p>
+<p>·修剪后-将树完全生长，使其完全覆盖训练数据，然后进行修剪  </p>
+<p>·实践中优先选择后期修剪  </p>
+<p>·不同的后剪枝方法，例如:  </p>
+<p>更换·子树  </p>
+<p>·子树提高  </p>
+<p>·将树转换为规则，然后进行修剪  </p>
+<p>·修剪多少钱? 使用验证集来决定  </p>
+<p>·=&gt;将可用数据分成3组:训练集、验证集和测试集  </p>
+<p>·训练集——构建树  </p>
+<p>·验证集——评估修剪的影响并决定何时停止  </p>
+<p>·测试数据——评估树的好坏  </p>
+</blockquote>
+<h3 id="Pruning-by-sub-tree-replacement-idea"><a href="#Pruning-by-sub-tree-replacement-idea" class="headerlink" title="Pruning by sub-tree replacement-idea"></a>Pruning by sub-tree replacement-idea</h3><p>· Bottom-up-from the bottom of the tree to the root<br>· Each non-leaf node is a candidate for pruning, for each node:<br>· Remove the sub-tree rooted at it<br>· Replace it with a leaf with class=majority class of examples that go along the candidate node<br>· Compare the new tree with the old tree by calculating the accuracy on the validation set for both<br>· If the accuracy of the new tree is better or the same as the accuracy of the old tree, keep the new tree(i.e. prune the candidate node)<br>· For more information see Witten ch.6.1</p>
+<blockquote>
+<p>·自下而上——从树的底部到根部  </p>
+<p>·每个非叶节点都是一个剪枝候选节点，对于每个节点:  </p>
+<p>·删除其根的子树  </p>
+<p>·用一个带有class=majority类的叶子替换它，这些类包含沿着候选节点的示例  </p>
+<p>·通过计算新旧树验证集的准确性来比较新树和老树  </p>
+<p>·如果新树的精度优于或与老树的精度相同，则保留新树(即 修剪候选节点)  </p>
+<p>·更多信息请参阅Witten ch.6.1  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211114212111386.png" alt="image-20211114212111386"></p>
+<h3 id="Discretizing-numeric-atributes"><a href="#Discretizing-numeric-atributes" class="headerlink" title="Discretizing numeric atributes"></a>Discretizing numeric atributes</h3><p>· Numerical atributes need to be discretized,i.e. converted into nominal<br>· Standard method: binary splits,e.g. temp&lt;45<br>· Unlike nominal atributes, every numeal attribute has many possible splits<br>· Discretization procedure:<br>· Sort the examples according the values of the numerical attribute<br>· Split points-whenever the class changes, halfway<br>· Evaluate information gain or other measure for every possible split point and choose the best one<br>· Information gain for best split point=information gain for the attribute</p>
+<blockquote>
+<p>·数值属性需要离散化，即 转化为名义  </p>
+<p>·标准方法:二进制分割，例如: 临时&lt; 45  </p>
+<p>·不同于名义属性，每个numeal属性有许多可能的分割  </p>
+<p>·离散化过程:  </p>
+<p>·根据数值属性的值对示例进行排序  </p>
+<p>·分点——当课程改变时，中途  </p>
+<p>·评估每一个可能的分裂点的信息增益或其他度量，并选择最佳的  </p>
+<p>·最佳分割点信息增益=属性的信息增益  </p>
+</blockquote>
+<h3 id="Highly-branching-attributes-are-problematic"><a href="#Highly-branching-attributes-are-problematic" class="headerlink" title="Highly branching attributes are problematic"></a>Highly branching attributes are problematic</h3><ul>
+<li>高度分支属性是有问题的</li>
+</ul>
+<p>·If an attribute is highly-branching(with a large number of values), information gain will select it!<br>·Reason:highly-branching attributes are more likely to create pure subsets<br>·=&gt;pure subsets have low entropy -&gt;high information gain<br>·Example:imagine using ID code as one of the attributes;it will split the training data into 1-example subsets,its information gain will be high and it will be selected as the best attribute<br>·This is likely to lead to overfitting</p>
+<blockquote>
+<p>·如果一个属性是高度分支的(有大量的值)，信息增益会选择它!  </p>
+<p>·原因:高分支属性更有可能创建纯子集  </p>
+<p>·=&gt;纯子集具有低熵-&gt;高信息增益  </p>
+<p>·示例:假设使用ID代码作为属性之一，将训练数据分割为1-example子集，其信息增益较高，将被选为最佳属性  </p>
+<p>·这可能会导致过度拟合  </p>
+</blockquote>
+<h2 id="Gain-ratio"><a href="#Gain-ratio" class="headerlink" title="Gain ratio"></a>Gain ratio</h2><p>略</p>
+<h3 id="Decision-trees-summary"><a href="#Decision-trees-summary" class="headerlink" title="Decision trees-summary"></a>Decision trees-summary</h3><p>· Very popular ML technique<br>· Top-down learning using recursive divide-and-conquer process<br>· Easy to implement<br>· Interpretable<br>· The produced tree is easy to visualize and understand by non-<br>experts and clients<br>· Interpretability increases the trust in using the machine learning model in practice<br>· Uses pruning to prevent overfitting<br>· Numeric attributes are converted into nominal(binary split)<br>· Selecting the best attribute -information gain, gain ratio, others<br>· Variations: purity can be measured in different ways,e.g. CART uses Gini Index not entropy</p>
+<blockquote>
+<p>·非常流行的ML技术  </p>
+<p>·使用递归分治过程进行自顶向下学习  </p>
+<p>·易于实施  </p>
+<p>·可翻译的  </p>
+<p>·生成的树很容易被非-视觉化和理解  </p>
+<p>专家和客户  </p>
+<p>·可解释性增加了在实践中使用机器学习模型的信任度  </p>
+<p>·使用修剪，防止过拟合  </p>
+<p>·数字属性转换为名义属性(二进制分割)  </p>
+<p>·选择最佳属性-信息增益、增益比等  </p>
+<p>·变化:纯度可以用不同的方法测量，例如: CART使用的是基尼系数而不是熵  </p>
+</blockquote>
+<h1 id="Ensemble-methods"><a href="#Ensemble-methods" class="headerlink" title="Ensemble methods"></a>Ensemble methods</h1><h2 id="What-is-an-ensemble-method"><a href="#What-is-an-ensemble-method" class="headerlink" title="What is an ensemble method?"></a>What is an ensemble method?</h2><p>· An ensemble combines the predictions of multiple classifiers<br>· The classifiers that are combined are called base classifiers, they are created using the training data<br>· There are various ways to make a prediction for new examples,e.g. by taking the majority vote gf the base classifiers, the weighed vote, etc.· Ensembles tends to work better than the base classifiers they combine<br>· Example of an ensemble:<br>·3base classifiers are trained on the training data,e.g.k nearest neighbor, logistic regression and decision tree<br>· To classify a new example, the individual predictions are combined by taking the majority vote</p>
+<blockquote>
+<p>·集成结合了多个分类器的预测  </p>
+<p>·组合的分类器称为基分类器，它们是使用训练数据创建的  </p>
+<p>·对新例子进行预测有多种方法，例如: 通过采用多数投票gf、基分类器、加权投票等。·集成器往往比它们组合的基分类器工作得更好  </p>
+<p>·合奏示例:  </p>
+<p>·在训练数据上训练3base分类器，例如 K最近邻，logistic回归和决策树  </p>
+<p>·为了对一个新的例子进行分类，通过采取多数投票将各个预测结合起来  </p>
+</blockquote>
+<h2 id="Motivation-for-ensembles"><a href="#Motivation-for-ensembles" class="headerlink" title="Motivation for ensembles"></a>Motivation for ensembles</h2><p>· When do ensemble methods work?<br>· Let’s consider an example which illustrates how ensembles can improve the performance of a single classifier:<br>· An ensemble of 25 binary classifiers. Each base classifier has an error rate s =0.35 on the test set(i.e. accuracy=0.65). To predict the class ofa new example, the predictions of the base classifiers are combined by majority vote.<br>· Case 1: The base classifiers are identical,i.e. make the same mistakes.<br>What will be the error rate of the ensemble on the test set?<br>·0.35</p>
+<blockquote>
+<p>·合奏方法什么时候起作用?  </p>
+<p>·让我们考虑一个例子来说明集成如何提高单个分类器的性能:  </p>
+<p>·由25个二进制分类器组成的集合。 每个基分类器在测试集上有一个错误率s =0.35(即。 精度= 0.65)。 为了预测一个新例子的类别，基本分类器的预测被多数投票组合。  </p>
+<p>·案例1:基分类器相同，即 犯同样的错误。  </p>
+<p>测试集上集成的错误率是多少?  </p>
+<p>·0.35  </p>
+</blockquote>
+<p>Case 2: The base classifiers are independent,i.e. their errors are not correlated. What will be the error rate of the ensemble on the test set?<br>When will a new example be misclassified? Only if more than half of the base classifiers predict incorrectly.<br>It can be shown that the error rate of the ensemble will be:<br>(235)/0-)*1=006<br>eenseanlble<br>\i<br>0.06&lt;0.35,i.e. the error rate of the ensemble is much lower than the error rate of the base classifiers</p>
+<blockquote>
+<p>情况2:基分类器是独立的，即。 他们的错误并不相关。 测试集上集成的错误率是多少?  </p>
+<p>什么时候一个新的例子会被错误分类? 只有当超过一半的基本分类器预测错误时。  </p>
+<p>可以看出，集成的错误率为:  </p>
+<p>(235) / 0 -) * 1 = 006  </p>
+<p>eenseanlble  </p>
+<p>我\  </p>
+<p>0.06 &lt; 0.35,也就是说。 集成的错误率大大低于基分类器的错误率  </p>
+</blockquote>
+<p>在单个分类器准确率大于0.5时候集合分类器表现更好</p>
+<h2 id="When-ensembles-work-well"><a href="#When-ensembles-work-well" class="headerlink" title="When ensembles work well"></a>When ensembles work well</h2><p>· Conditions for an ensemble to perform better than a single classifier:<br>· The base classifiers should be good enough,i.e. better than a random guessing(s&lt;0.5 for binary classifiers)<br>· The base classifiers are independent of each other<br>· Independence-in practice:<br>· It is not possible to ensure total independence among the base<br>classifiers<br>· Good results have been achieved in ensemble methods when the base classifiers are slightly correlated</p>
+<blockquote>
+<p>·集成优于单一分类器的条件:  </p>
+<p>·基分类器应该足够好，即。 比随机猜测更好(对于二进制分类器s&lt;0.5)  </p>
+<p>·基分类器彼此独立  </p>
+<p>·独立实践:  </p>
+<p>·基地之间不可能完全独立  </p>
+<p>分类器  </p>
+<p>·当基分类器的相关性很小时，集成方法取得了良好的结果  </p>
+</blockquote>
+<h2 id="Methods-for-constructing-ensembles"><a href="#Methods-for-constructing-ensembles" class="headerlink" title="Methods for constructing ensembles"></a>Methods for constructing ensembles</h2><p>· Effective ensemble consists of base classifiers that are reasonably correct and also diverse(i.e. independent)<br>· Metheds for creating ensembles focus on generating disagreement among the base classifiers by:<br>√Manipulating the training data-creating multiple training sets by resampling the original data according to some sampling distribution and constructing a classifier for each training set(e.g. Bagging and Boosting)<br>· Manipulating the attributes-using a subset of input features(e.g.<br>Random Forest and Random Subspace)<br>· Manipulating the class labels -will not be covered(e.g. error-<br>correcting output coding)<br>· Manipulating the learning algorithm-e.g. building a set of classifiers with different parameters</p>
+<blockquote>
+<p>·有效的集成包括合理正确和多样化的基分类器(即。 独立)  </p>
+<p>·创建集成的方法侧重于在基分类器之间产生分歧，方法如下:  </p>
+<p>√对训练数据进行操作，根据某些抽样分布对原始数据进行重新采样，从而生成多个训练集，并为每个训练集构建分类器(例如: 装袋和提高)  </p>
+<p>·操纵属性——使用输入特征的子集(例如:  </p>
+<p>随机森林与随机子空间)  </p>
+<p>·不涉及类标签的操作(例如: 错误- - - - - -  </p>
+<p>纠正输出编码)  </p>
+<p>·操纵学习算法——例如: 建立一组具有不同参数的分类器  </p>
+</blockquote>
+<p>从训练集、属性、分类标签、 学习算法4个角度出发</p>
+<p>5318主要focus on 1 2</p>
+<p>1、创建更多训练集 从原来的训练集</p>
+<h1 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h1><p>· Bagging is also called bootstrap aggregation<br>·A bootstrap sample-definition:<br>· Given:a dataset D with n example(the original dataset)<br>· Bootstrap sample D’ from D: contains also n examples, randomly chosen from D with replacement(i.e. some examples from D will appear more than once in D’, some will not appear at all)<br>· For n=10, on average 65% of the examples in D will also appear in D’ as it can be shown that the probability to choose an example is 1-(1-1/n)n</p>
+<blockquote>
+<p>·Bagging又称bootstrap aggregation  </p>
+<p>·引导sample-definition:  </p>
+<p>·给定:一个包含n个示例的数据集D(原始数据集)  </p>
+<p>·从D中引导样本D’:也包含n个样本，随机从D中选择并替换(即 D中的一些例子会在D’中出现不止一次，有些则根本不会出现)  </p>
+<p>·对于n=10, D中平均65%的例子也会出现在D’中，可以看出选择一个例子的概率是1-(1-1/n)n  </p>
+</blockquote>
+<p>·Create M bootstrap samples<br>·Use each sample to build a classifier<br>·To classify a new example:get the predictions of each classifier and combine them with a majority vote<br>·i.e.the individual classifiers receive equal weights</p>
+<blockquote>
+<p>·创建M个引导样本  </p>
+<p>·使用每个样本构建一个分类器  </p>
+<p>·分类一个新的例子:得到每个分类器的预测，并将它们与多数投票相结合  </p>
+<p>即。 每个分类器得到相同的权重  </p>
+</blockquote>
+<p>· Typically performs significantly better than the single classifier and is never substantially worse<br>· Especially effective for unstable classifiers<br>· Unstable classifiers: small changes in the training set result in large changes in predictions,e.g. decision trees, neural networks are considered unstable classifiers<br>· Applying Bagging to regression tasks-the individual predictions are averaged</p>
+<blockquote>
+<p>·典型地表现明显优于单一分类器，并且从来没有实质上差过  </p>
+<p>·对于不稳定的分类器尤其有效  </p>
+<p>·不稳定的分类器:训练集的小变化会导致预测的大变化，例如: 决策树、神经网络被认为是不稳定的分类器  </p>
+<p>·将Bagging应用于回归任务——对个人预测进行平均  </p>
+</blockquote>
+<h1 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h1><p>·The most widely used ensemble method<br>·Idea:Make the classifiers complement each other<br>·How:The next classifier should be created using examples that were difficult for the previous classifiers<br>·Many boosting algorithms have been proposed,the most popular are AdaBoost and Gradient Boosting</p>
+<blockquote>
+<p>·使用最广泛的集成方法  </p>
+<p>·想法:使量词相互补充  </p>
+<p>·如何创建:下一个分类器应该使用前一个分类器难以创建的示例  </p>
+<p>·已经提出了很多boosting算法，最流行的是AdaBoost和Gradient boosting  </p>
+</blockquote>
+<h2 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h2><p>·Uses a weighed training set<br>·Each training example has an associated weight(20)<br>·The higher the weight,the more difficult the example was to classify by the previous classifiers<br>·Examples with higher weight will have a higher chance to be selected in the training set for the next classifier<br>·AdaBoost was proposed by Freund and Schapire in 1996</p>
+<blockquote>
+<p>·使用称重训练集  </p>
+<p>·每个训练示例都有一个相关的权重(20)  </p>
+<p>·权重越高，示例越难被之前的分类器分类  </p>
+<p>·权重越大的例子在下一个分类器的训练集中被选择的机会越大  </p>
+<p>·AdaBoost由Freund和Schapire于1996年提出  </p>
+</blockquote>
+<p>Initially all training examples have equal weights,e.g.1/m,m is the number of training examples From this set, the first classifier(hypothesis)h1 is generated It classifies some of the training examples correctly and some incorrectly We would like the next classifier to learn to classify the misclassified examples, so we increase the weights of the misclassified examples and decrease the weights of the correctly classified examples There is a mechanism for selecting examples for the training set of the next classifier; the ones with higher weight are more likely to be selected From this new weighed set, we generate classifier h2<br>Continue until M classifiers are generated Final ensemble: combine the M classifiers using a weighted vote based on how well the classifier performed on the training set</p>
+<blockquote>
+<p>最初，所有的训练示例都有相同的权重，例如。 1/m,m是训练示例的数量从这个集合中，第一个分类器(假设)h1被生成，它正确地分类了一些训练示例，而错误地分类了一些示例。 因此，我们增加了错误分类样本的权重，降低了正确分类样本的权重。 从这个新的加权集合中，我们生成分类器h2  </p>
+<p>最终集成:根据分类器在训练集上的表现，使用加权投票将M个分类器组合起来  </p>
+</blockquote>
+<h2 id="AdaBoost-theorem"><a href="#AdaBoost-theorem" class="headerlink" title="AdaBoost theorem"></a>AdaBoost theorem</h2><p>· If the base learners are weak learners, then AdaBoost will return an ensemble that classifies the training data perfectly for a large enough number of iterations (learners combined)M<br>· Weak learner is a classifier whose classification performance is slightly better than random guessing(i.e.50% for binary classification)<br>· Thus, AdaBoost boosts a set of weak learners into a strong learner<br>·=&gt;Boosting allows building a powerful combined classifier from very simple ones,e.g.1-level decision trees<br>· More theoretical results-Boosting works well:<br>· If base classifiers are not too complex<br>· Their errors do not become too large too quickly as more iterations are done<br>· The meaning of “too”is defined by Schapire et al.(1997)</p>
+<blockquote>
+<p>·如果基础学习者是弱学习者，那么AdaBoost将返回一个集合，该集合对训练数据进行完美分类，可以进行足够多的迭代(学习者组合)M  </p>
+<p>·弱学习者是一种分类器，其分类性能略优于随机猜测(即随机猜测)。 50%为二元分类)  </p>
+<p>·因此，AdaBoost将一组弱学习者提升为强学习者  </p>
+<p>Boosting允许从非常简单的分类器构建一个强大的组合分类器，例如: 1决策树  </p>
+<p>·更多的理论结果——助推效果很好:  </p>
+<p>·如果基分类器不太复杂  </p>
+<p>·当更多的迭代完成时，他们的错误不会很快变得太大  </p>
+<p>·“too”的含义由Schapire et al.(1997)定义。  </p>
+</blockquote>
+<p>Bagging 和 Boosting 比较</p>
+<p>Similarities<br>· Use voting(for classification) and averaging(for prediction) to combine the outputs of the individual-learners<br>· Combine classifiers of the same type, typically trees-e.g. decision stumps or decision trees<br>· Differences<br>· Creating base classifiers:<br>· Bagging-separately<br>· Boosting-iteratively-the new ones are encouraged to become experts for the misclassified examples by the previous base learners<br>(complementary expertise)<br>· Combination method<br>· Bagging-equal weighs to all base learners<br>· Boosting (AdaBoost)-different weights based on the performance on training data</p>
+<blockquote>
+<p>相似之处  </p>
+<p>·使用投票(用于分类)和平均(用于预测)来组合个体学习者的输出  </p>
+<p>·结合相同类型的分类器，典型的树类，例如。 决策树桩或决策树  </p>
+<p>·差异  </p>
+<p>·创建基分类器:  </p>
+<p>·Bagging-separately  </p>
+<p>·通过迭代的方式，鼓励新学习者成为先前基础学习者错误分类示例的专家  </p>
+<p>(补充专业知识)  </p>
+<p>·组合方法  </p>
+<p>·套袋——对所有基础学习者一视同仁  </p>
+<p>·助推(AdaBoost)——根据训练数据的表现进行不同的权重  </p>
+</blockquote>
+<h1 id="Random-forest"><a href="#Random-forest" class="headerlink" title="Random forest"></a>Random forest</h1><p>Creating ensembles by manipulating the attributes</p>
+<p>· Each base classifier uses only a subset of the features<br>·E.g. training data with K features, create an ensemble of M classifiers each using a smaller number of features L(L&lt;K)</p>
+<ol>
+<li><p>Create feature subsets by random selection from the original feature set=&gt; creating multiple versions of the training data, each containing only the selected features<br>·2) Build a classifier for each version of the training data<br>·4) Combine predictions with majority vote<br>· Example: Random Forest<br>· Combines decision trees<br>· Uses 1) bagging +2) subset of features(during decision tree building, when selecting the most important atribute)</p>
+</li>
+<li><blockquote>
+<p>通过操作属性创建集成  </p>
+<p>·每个基分类器只使用特征的一个子集  </p>
+<p>如。 使用K个特征训练数据，创建M个分类器的集合，每个分类器使用较少数量的特征L(L&lt;K)  </p>
+<p>1)从原始特征集中随机选择生成特征子集=&gt;，生成多个版本的训练数据，每个版本只包含选定的特征  </p>
+<p>·2)为每个版本的训练数据构建分类器  </p>
+<p>·4)将预测与多数投票相结合  </p>
+<p>·例子:随机森林  </p>
+<p>·组合决策树  </p>
+<p>·使用1)套袋+2)特征子集(在构建决策树时，选择最重要的贡品时)  </p>
+</blockquote>
+</li>
+</ol>
+<h2 id="Comments-on-Random-Forests"><a href="#Comments-on-Random-Forests" class="headerlink" title="Comments on Random Forests"></a>Comments on Random Forests</h2><p>·Performance depends on Accuracy of the individual trees(strength of the trees)<br>·LCorrelation between the trees<br>·Ideally:accurate individual trees but less correlated<br>·Bagging and random feature selection are used to generate diversity and reduce the correlation between the trees<br>·As the number of features k increases,both the strength and correlation increase<br>·Random Forest typically outperforms a single decision tree<br>·Robust to overfitting<br>·Fast as only a subset of the features are considered</p>
+<blockquote>
+<p>·性能取决于单个树的准确性(树的强度)  </p>
+<p>·树之间的相关性  </p>
+<p>·理想情况下:精确的单株树，但相关性较小  </p>
+<p>·利用套袋和随机特征选择来产生多样性，降低树木之间的相关性  </p>
+<p>·随着特征个数k的增加，强度和相关性都增加  </p>
+<p>·随机森林通常优于单一决策树  </p>
+<p>·健壮的过度拟合  </p>
+<p>·快速，只考虑功能的一个子集  </p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Gary Liu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://orange711.github.io.git/2021/11/15/5318week5/">https://orange711.github.io.git/2021/11/15/5318week5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://orange711.github.io.git" target="_blank">今でもあなたはわたしの光</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/15/5318week6/"><img class="prev-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">COMP5318 Week5 Review</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/15/5318week4/"><img class="next-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gary Liu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange711"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客仅个人学习使用，禁止非授权转载</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#COMP5318-Week5"><span class="toc-number">1.</span> <span class="toc-text">COMP5318 Week5</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">2.</span> <span class="toc-text">决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Entropy"><span class="toc-number">2.1.</span> <span class="toc-text">Entropy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E5%89%AA%E6%9E%9D"><span class="toc-number">2.2.</span> <span class="toc-text">决策树剪枝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pruning-by-sub-tree-replacement-idea"><span class="toc-number">2.2.1.</span> <span class="toc-text">Pruning by sub-tree replacement-idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Discretizing-numeric-atributes"><span class="toc-number">2.2.2.</span> <span class="toc-text">Discretizing numeric atributes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Highly-branching-attributes-are-problematic"><span class="toc-number">2.2.3.</span> <span class="toc-text">Highly branching attributes are problematic</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gain-ratio"><span class="toc-number">2.3.</span> <span class="toc-text">Gain ratio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Decision-trees-summary"><span class="toc-number">2.3.1.</span> <span class="toc-text">Decision trees-summary</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ensemble-methods"><span class="toc-number">3.</span> <span class="toc-text">Ensemble methods</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-an-ensemble-method"><span class="toc-number">3.1.</span> <span class="toc-text">What is an ensemble method?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Motivation-for-ensembles"><span class="toc-number">3.2.</span> <span class="toc-text">Motivation for ensembles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#When-ensembles-work-well"><span class="toc-number">3.3.</span> <span class="toc-text">When ensembles work well</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Methods-for-constructing-ensembles"><span class="toc-number">3.4.</span> <span class="toc-text">Methods for constructing ensembles</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Bagging"><span class="toc-number">4.</span> <span class="toc-text">Bagging</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Boosting"><span class="toc-number">5.</span> <span class="toc-text">Boosting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaBoost"><span class="toc-number">5.1.</span> <span class="toc-text">AdaBoost</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AdaBoost-theorem"><span class="toc-number">5.2.</span> <span class="toc-text">AdaBoost theorem</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Random-forest"><span class="toc-number">6.</span> <span class="toc-text">Random forest</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Comments-on-Random-Forests"><span class="toc-number">6.1.</span> <span class="toc-text">Comments on Random Forests</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week6/" title="COMP5318 Week5 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week5 Review"/></a><div class="content"><a class="title" href="/2021/11/15/5318week6/" title="COMP5318 Week5 Review">COMP5318 Week5 Review</a><time datetime="2021-11-15T08:27:09.238Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week5/" title="COMP5318 Week5 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week5 Review"/></a><div class="content"><a class="title" href="/2021/11/15/5318week5/" title="COMP5318 Week5 Review">COMP5318 Week5 Review</a><time datetime="2021-11-15T08:27:09.237Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week4/" title="无题"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2021/11/15/5318week4/" title="无题">无题</a><time datetime="2021-11-15T08:27:09.235Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/15/5318week3/" title="无题"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2021/11/15/5318week3/" title="无题">无题</a><time datetime="2021-11-15T08:27:09.233Z" title="发表于 2021-11-15 16:27:09">2021-11-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/13/5318week2/" title="COMP5318 Week2 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week2 Review"/></a><div class="content"><a class="title" href="/2021/11/13/5318week2/" title="COMP5318 Week2 Review">COMP5318 Week2 Review</a><time datetime="2021-11-13T06:54:03.352Z" title="发表于 2021-11-13 14:54:03">2021-11-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Gary Liu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
