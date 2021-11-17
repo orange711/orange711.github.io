@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>COMP5318 Week11 Review | 今でもあなたはわたしの光</title><meta name="author" content="Gary Liu"><meta name="copyright" content="Gary Liu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="COMP5318 Week 11Hidden Markov ModelSequential DataSequential Data:Any kind of data where the order matters·Time-series Data:Stock market price,Speech,Video Analysis   HMMHidden 代表你无法直接观察到它  HMM:The th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP5318 Week11 Review">
+<meta property="og:url" content="https://orange711.github.io.git/2021/11/17/5318week11/index.html">
+<meta property="og:site_name" content="今でもあなたはわたしの光">
+<meta property="og:description" content="COMP5318 Week 11Hidden Markov ModelSequential DataSequential Data:Any kind of data where the order matters·Time-series Data:Stock market price,Speech,Video Analysis   HMMHidden 代表你无法直接观察到它  HMM:The th">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
+<meta property="article:published_time" content="2021-11-17T04:38:51.333Z">
+<meta property="article:modified_time" content="2021-11-16T13:07:59.766Z">
+<meta property="article:author" content="Gary Liu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/11/17/5318week11/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'COMP5318 Week11 Review',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-16 21:07:59'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">COMP5318 Week11 Review</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-17T04:38:51.333Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-16T13:07:59.766Z" title="更新于 2021-11-16 21:07:59">2021-11-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="COMP5318 Week11 Review"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="COMP5318-Week-11"><a href="#COMP5318-Week-11" class="headerlink" title="COMP5318 Week 11"></a>COMP5318 Week 11</h1><h1 id="Hidden-Markov-Model"><a href="#Hidden-Markov-Model" class="headerlink" title="Hidden Markov Model"></a>Hidden Markov Model</h1><h2 id="Sequential-Data"><a href="#Sequential-Data" class="headerlink" title="Sequential Data"></a>Sequential Data</h2><p>Sequential Data:Any kind of data where the order matters<br>·Time-series Data:Stock market price,Speech,Video Analysis<img src="D:\MarkdownIMG\image-20211116183840914.png" alt="image-20211116183840914"></p>
+<p><img src="D:\MarkdownIMG\image-20211116191222727.png" alt="image-20211116191222727"></p>
+<p><img src="D:\MarkdownIMG\image-20211116200811902.png" alt="image-20211116200811902"></p>
+<h1 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h1><p>Hidden 代表你无法直接观察到它</p>
+<p><img src="D:\MarkdownIMG\image-20211116201104692.png" alt="image-20211116201104692"></p>
+<h2 id="HMM-The-three-main-questions-VEvaluation"><a href="#HMM-The-three-main-questions-VEvaluation" class="headerlink" title="HMM:The three main questions VEvaluation"></a>HMM:The three main questions VEvaluation</h2><p>·What is the probability of the otbserved sequence?)<br>VDecoding<br>·Given a model and a sequence of observations,what is the( most likely State observation?<br>PCxTDE0TT!<br>VLearning<br>·Under what pasameterization is the observed sequence most probable?</p>
+<p><img src="D:\MarkdownIMG\image-20211116202309426.png" alt="image-20211116202309426"></p>
+<h2 id="Foward算法"><a href="#Foward算法" class="headerlink" title="Foward算法"></a>Foward算法</h2><p>？？？递归？</p>
+<p>如图所示，这里讲得已经很清楚了，前向传播的思想比较简单。<br>举个例子，假设上一层结点i,j,k,…等一些结点与本层的结点w有连接，那么结点w的值怎么算呢？就是通过上一层的i,j,k等结点以及对应的连接权值进行加权和运算，最终结果再加上一个偏置项（图中为了简单省略了），最后在通过一个非线性函数（即激活函数），如ReLu，sigmoid等函数，最后得到的结果就是本层结点w的输出。<br>最终不断的通过这种方法一层层的运算，得到输出层结果。</p>
+<p>对于前向传播来说，不管维度多高，其过程都可以用如下公式表示：<br>a 2 = σ ( z 2 ) = σ ( a 1 ∗ W 2 + b 2 ) a^2 = \sigma(z^2) = \sigma(a^1 * W^2 + b^2)<em>a</em>2=<em>σ</em>(<em>z</em>2)=<em>σ</em>(<em>a</em>1∗<em>W</em>2+<em>b</em>2)</p>
+<p>其中，上标代表层数，星号表示卷积，b表示偏置项bias，σ \sigma<em>σ</em>表示激活函数。</p>
+<h2 id="Viterbi算法"><a href="#Viterbi算法" class="headerlink" title="Viterbi算法"></a>Viterbi算法</h2><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20136144">https://www.zhihu.com/question/20136144</a></p>
+<p>讲的太清楚了</p>
+<h2 id="HMM-Learning"><a href="#HMM-Learning" class="headerlink" title="HMM Learning"></a>HMM Learning</h2><p><img src="D:\MarkdownIMG\image-20211116210245229.png" alt="image-20211116210245229"></p>
+<p><strong>Principle:Expectation Maximization</strong></p>
+<h2 id="Relation-between-Forward-and-Viterbi"><a href="#Relation-between-Forward-and-Viterbi" class="headerlink" title="Relation between Forward and Viterbi"></a>Relation between Forward and Viterbi</h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Gary Liu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://orange711.github.io.git/2021/11/17/5318week11/">https://orange711.github.io.git/2021/11/17/5318week11/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://orange711.github.io.git" target="_blank">今でもあなたはわたしの光</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/11/17/5318week10/"><img class="next-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">COMP5318 Week10 Review</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gary Liu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange711"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客仅个人学习使用，禁止非授权转载</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#COMP5318-Week-11"><span class="toc-number">1.</span> <span class="toc-text">COMP5318 Week 11</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Hidden-Markov-Model"><span class="toc-number">2.</span> <span class="toc-text">Hidden Markov Model</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sequential-Data"><span class="toc-number">2.1.</span> <span class="toc-text">Sequential Data</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HMM"><span class="toc-number">3.</span> <span class="toc-text">HMM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HMM-The-three-main-questions-VEvaluation"><span class="toc-number">3.1.</span> <span class="toc-text">HMM:The three main questions VEvaluation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Foward%E7%AE%97%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">Foward算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Viterbi%E7%AE%97%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">Viterbi算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HMM-Learning"><span class="toc-number">3.4.</span> <span class="toc-text">HMM Learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relation-between-Forward-and-Viterbi"><span class="toc-number">3.5.</span> <span class="toc-text">Relation between Forward and Viterbi</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week11 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review">COMP5318 Week11 Review</a><time datetime="2021-11-17T04:38:51.333Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week10 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review">COMP5318 Week10 Review</a><time datetime="2021-11-17T04:38:51.332Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week9 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review">COMP5318 Week9 Review</a><time datetime="2021-11-17T04:38:51.330Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week8 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review">COMP5318 Week8 Review</a><time datetime="2021-11-17T04:38:51.328Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week7/" title="COMP5318 Week7 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week7 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week7/" title="COMP5318 Week7 Review">COMP5318 Week7 Review</a><time datetime="2021-11-17T04:38:51.326Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Gary Liu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

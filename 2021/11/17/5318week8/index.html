@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>COMP5318 Week8 Review | 今でもあなたはわたしの光</title><meta name="author" content="Gary Liu"><meta name="copyright" content="Gary Liu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="COMP5318 Week 8 Weight Initialisation  Weight Initialisation Tradlitionally, the weights of a neural network were set to small random numbers.The initialization of the weights of neural networks is a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP5318 Week8 Review">
+<meta property="og:url" content="https://orange711.github.io.git/2021/11/17/5318week8/index.html">
+<meta property="og:site_name" content="今でもあなたはわたしの光">
+<meta property="og:description" content="COMP5318 Week 8 Weight Initialisation  Weight Initialisation Tradlitionally, the weights of a neural network were set to small random numbers.The initialization of the weights of neural networks is a">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
+<meta property="article:published_time" content="2021-11-17T04:38:51.328Z">
+<meta property="article:modified_time" content="2021-11-15T14:11:13.045Z">
+<meta property="article:author" content="Gary Liu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/11/17/5318week8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'COMP5318 Week8 Review',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-15 22:11:13'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">COMP5318 Week8 Review</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-17T04:38:51.328Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-15T14:11:13.045Z" title="更新于 2021-11-15 22:11:13">2021-11-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="COMP5318 Week8 Review"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="COMP5318-Week-8"><a href="#COMP5318-Week-8" class="headerlink" title="COMP5318 Week 8"></a>COMP5318 Week 8</h1><ol>
+<li>Weight Initialisation</li>
+</ol>
+<p>Weight Initialisation Tradlitionally, the weights of a neural network were set to small random numbers.<br>The initialization of the weights of neural networks is a whole field of study as the careful initialization of the network can speed up the learning process.<br>Modern deep learning libraries, such as Keras, offer a host of network initialization methods, all are variations of initializing the weights with small random numbers.</p>
+<blockquote>
+<p>权值初始化传统上，神经网络的权值设置为小的随机数。  </p>
+<p>神经网络权值的初始化是一个完整的研究领域，谨慎的初始化网络可以加快学习过程。  </p>
+<p>现代的深度学习库，如Keras，提供了大量的网络初始化方法，都是用小随机数初始化权值的变体。  </p>
+</blockquote>
+<ol>
+<li>Epoch, Batches, and lteration</li>
+</ol>
+<p>Eooch<br>represents one pass over the entire dataset</p>
+<p>Batches<br>split the total data into many segments or batches</p>
+<p>Iterations<br>number of batches we need to compile one Epoch</p>
+<h2 id="Deep-Neural-Network"><a href="#Deep-Neural-Network" class="headerlink" title="Deep Neural Network"></a>Deep Neural Network</h2><p>Deep neural networks are distinguished from the more commonplace single-hidden-layer neural networks by their depth; that is, the number of node layers through which data must pass in a multistep process of pattern recognition.</p>
+<blockquote>
+<p>深度神经网络与常见的单隐层神经网络的区别在于其深度; 即在多步模式识别过程中，数据必须通过的节点层数。  </p>
+</blockquote>
+<h1 id="Convolutional-Neural-Networks-CNN-ConvNets"><a href="#Convolutional-Neural-Networks-CNN-ConvNets" class="headerlink" title="Convolutional Neural Networks(CNN/ ConvNets)"></a>Convolutional Neural Networks(CNN/ ConvNets)</h1><p>CNN architectures make the explicit assuraption that the inputs are images,which allows us to encode certain properties into the architecture</p>
+<blockquote>
+<p>CNN架构明确保证输入是图像，这允许我们将某些属性编码到架构中  </p>
+</blockquote>
+<p>Every layer of a ConvNet transforms the 3D input volume to a 3D output volume of neuron activations.<br>(In this example, the red input layer holds the image, so its width and height would be the dimensions of the image, and the depth would be 3 channels(RGB))</p>
+<blockquote>
+<p>卷积神经网络的每一层都将神经元激活的三维输入体积转换为三维输出体积。  </p>
+<p>(在这个例子中，红色的输入层保存图像，所以它的宽度和高度将是图像的尺寸，深度将是3通道(RGB))  </p>
+</blockquote>
+<p>CONV(Convolutional) layer Compute the output of neurons that are connected to local regions in the input, each computing a dot product between their weights(from the learnable filters) and a small region they are connected to in the input volume.</p>
+<blockquote>
+<p>CONV(卷积)层计算连接到输入局部区域的神经元的输出，每个神经元计算它们的权值(来自可学习滤波器)和输入体积中连接到的小区域之间的点积。  </p>
+</blockquote>
+<p>This may result in volume such as [32x 32x 12] if we decided to use 12 filters</p>
+<p>Compute the output of neurons that are connected to local regions in the input, each computing a dot product between their weights(from the learnable filters) and a small region they are connected to in the input volume.</p>
+<blockquote>
+<p>计算连接到输入局部区域的神经元的输出，每个神经元计算它们的权值(来自可学习滤波器)和输入体积中连接的小区域之间的点积</p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211115203312948.png" alt="image-20211115203312948"></p>
+<h2 id="ReLu"><a href="#ReLu" class="headerlink" title="ReLu"></a>ReLu</h2><p>RELU layer apply an elementwise activation function, such as the max(0,x) thresholding at zero. This leaves the size of the volume unchanged([32×32×12]) </p>
+<blockquote>
+<p>RELU层应用一个元素激活函数，例如在0处的max(0,x)阈值。 这将保持体积不变([32×32×12])  </p>
+</blockquote>
+<p><strong>2.为什么引入Relu?</strong></p>
+<p>第一，采用sigmoid等函数，算激活函数时候（指数运算），计算量大，反向传播求误差梯度时，求导涉及除法，计算量相当大，而采用Relu激活函数，整个过程的计算量节省很多</p>
+<p>第二，对于深层网络，sigmoid函数反向传播时，很容易就出现梯度消失的情况（在sigmoid函数接近饱和区时，变换太缓慢，导数趋于0，这种情况会造成信息丢失），从而无法完成深层网络的训练</p>
+<p>第三，Relu会使一部分神经元的输出为0，这样就造成了网络的稀疏性，并且减少了参数的相互依存关系，缓解了过拟合问题的发生</p>
+<h2 id="POOL"><a href="#POOL" class="headerlink" title="POOL"></a>POOL</h2><p>POOL (Pooling) layer perform a down-sampling operation along the spatial dimensions(width,height),resulting in volume such as[16×16×12]</p>
+<p>Pooling Layer It is common to periodically insert a Pooling layer in-between successive Conv layers.<br>· progressively reduce the spatial size of the representation to reduce the amount of parameters and computation in the network, and hence to also control overfiting.</p>
+<blockquote>
+<p>池化层在连续的转换层之间定期插入池化层是很常见的。  </p>
+<p>·逐步减小表示的空间大小，以减少网络中的参数和计算量，从而也控制过拟合。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211115210813640.png" alt="image-20211115210813640"></p>
+<h2 id="FLATTEN-Flattening-Layer"><a href="#FLATTEN-Flattening-Layer" class="headerlink" title="FLATTEN(Flattening) Layer"></a>FLATTEN(Flattening) Layer</h2><p>FLATTEN(Flattening) Layer In between the convolutional layer and the fully connected layer, there is a ‘ Flatten’ layer.<br>Flattening transforms a multi-dimensional matrix of features into a vector that can be fed into a fully connected neural network classifier.</p>
+<p>在卷积层和完全连接层之间，有一个“FLATTEN”层。  </p>
+<p>扁平化将一个多维特征矩阵转换成一个向量，这个向量可以被输入到一个完全连接的神经网络分类器中。  </p>
+<p><img src="D:\MarkdownIMG\image-20211115210908409.png" alt="image-20211115210908409"></p>
+<h1 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h1><p><img src="D:\MarkdownIMG\image-20211115215110020.png" alt="image-20211115215110020"></p>
+<p>神经网络+记忆</p>
+<blockquote>
+<h2 id="为什么需要RNN（循环神经网络）"><a href="#为什么需要RNN（循环神经网络）" class="headerlink" title="*为什么需要RNN（循环神经网络）*"></a>*<strong>为什么需要RNN（循环神经网络）*</strong></h2><p>他们都只能单独的取处理一个个的输入，前一个输入和后一个输入是完全没有关系的。但是，某些任务需要能够更好的处理<strong>序列</strong>的信息，即前面的输入和后面的输入是有关系的。</p>
+<blockquote>
+<p>*<strong>比如，当我们在理解一句话意思时，孤立的理解这句话的每个词是不够的，我们需要处理这些词连接起来的整个序列；*</strong> *<strong>当我们处理视频的时候，我们也不能只单独的去分析每一帧，而要分析这些帧连接起来的整个序列。*</strong></p>
+</blockquote>
+<p>*<strong>以nlp的一个最简单词性标注任务来说，将我 吃 苹果 三个单词标注词性为 我/nn 吃/v 苹果/nn。*</strong></p>
+<p>那么这个任务的输入就是：</p>
+<p>我 吃 苹果 （已经分词好的句子）</p>
+<p>这个任务的输出是：</p>
+<p><em>我/nn 吃/v 苹果/nn(词性标注好的句子)</em></p>
+<p>对于这个任务来说，我们当然可以直接用普通的神经网络来做，给网络的训练数据格式了就是我-&gt; 我/nn 这样的多个单独的单词-&gt;词性标注好的单词。</p>
+<p>*<strong>但是很明显，一个句子中，前一个单词其实对于当前单词的词性预测是有很大影响的，比如预测苹果的时候，由于前面的吃是一个动词，那么很显然苹果作为名词的概率就会远大于动词的概率，因为动词后面接名词很常见，而动词后面接动词很少见。*</strong></p>
+<p>所以为了解决一些这样类似的问题，能够更好的处理序列的信息，RNN就诞生了。</p>
+<p>@<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30844905">https://zhuanlan.zhihu.com/p/30844905</a></p>
+</blockquote>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Gary Liu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://orange711.github.io.git/2021/11/17/5318week8/">https://orange711.github.io.git/2021/11/17/5318week8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://orange711.github.io.git" target="_blank">今でもあなたはわたしの光</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/17/5318week9/"><img class="prev-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">COMP5318 Week9 Review</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/17/5318week7/"><img class="next-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">COMP5318 Week7 Review</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gary Liu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange711"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客仅个人学习使用，禁止非授权转载</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#COMP5318-Week-8"><span class="toc-number">1.</span> <span class="toc-text">COMP5318 Week 8</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Deep-Neural-Network"><span class="toc-number">1.1.</span> <span class="toc-text">Deep Neural Network</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Convolutional-Neural-Networks-CNN-ConvNets"><span class="toc-number">2.</span> <span class="toc-text">Convolutional Neural Networks(CNN&#x2F; ConvNets)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ReLu"><span class="toc-number">2.1.</span> <span class="toc-text">ReLu</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#POOL"><span class="toc-number">2.2.</span> <span class="toc-text">POOL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FLATTEN-Flattening-Layer"><span class="toc-number">2.3.</span> <span class="toc-text">FLATTEN(Flattening) Layer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RNN"><span class="toc-number">3.</span> <span class="toc-text">RNN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81RNN%EF%BC%88%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">*为什么需要RNN（循环神经网络）*</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week11 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review">COMP5318 Week11 Review</a><time datetime="2021-11-17T04:38:51.333Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week10 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review">COMP5318 Week10 Review</a><time datetime="2021-11-17T04:38:51.332Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week9 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review">COMP5318 Week9 Review</a><time datetime="2021-11-17T04:38:51.330Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week8 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review">COMP5318 Week8 Review</a><time datetime="2021-11-17T04:38:51.328Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week7/" title="COMP5318 Week7 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week7 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week7/" title="COMP5318 Week7 Review">COMP5318 Week7 Review</a><time datetime="2021-11-17T04:38:51.326Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Gary Liu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

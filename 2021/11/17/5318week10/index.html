@@ -1,0 +1,235 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>COMP5318 Week10 Review | 今でもあなたはわたしの光</title><meta name="author" content="Gary Liu"><meta name="copyright" content="Gary Liu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="COMP5318 Week 10Density-based MethodsPartitioning(e.g.K-means) are designed to find spherical-shaped clusters. It have difficulty finding clusters of arbitrary shape, such as S shape and oval clusters">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP5318 Week10 Review">
+<meta property="og:url" content="https://orange711.github.io.git/2021/11/17/5318week10/index.html">
+<meta property="og:site_name" content="今でもあなたはわたしの光">
+<meta property="og:description" content="COMP5318 Week 10Density-based MethodsPartitioning(e.g.K-means) are designed to find spherical-shaped clusters. It have difficulty finding clusters of arbitrary shape, such as S shape and oval clusters">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
+<meta property="article:published_time" content="2021-11-17T04:38:51.332Z">
+<meta property="article:modified_time" content="2021-11-16T10:13:52.498Z">
+<meta property="article:author" content="Gary Liu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/11/17/5318week10/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'COMP5318 Week10 Review',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-16 18:13:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">COMP5318 Week10 Review</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-17T04:38:51.332Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-16T10:13:52.498Z" title="更新于 2021-11-16 18:13:52">2021-11-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="COMP5318 Week10 Review"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="COMP5318-Week-10"><a href="#COMP5318-Week-10" class="headerlink" title="COMP5318 Week 10"></a>COMP5318 Week 10</h1><h1 id="Density-based-Methods"><a href="#Density-based-Methods" class="headerlink" title="Density-based Methods"></a>Density-based Methods</h1><p>Partitioning(e.g.K-means) are designed to find spherical-shaped clusters. It have difficulty finding clusters of arbitrary shape, such as S shape and oval clusters.</p>
+<p>Density-based Clustering Clustering based on density(a local cluster criterion), such as density-connected points.<br>Features and Characteristics of Density-based Clustering<br><strong>· Discover clusters of arbitrary shape</strong><br>· Handle noise<br>· One scan (only examine the local region to justify density)<br>· Need density parameters as termination condition</p>
+<blockquote>
+<p>基于密度(一种局部聚类准则)的聚类，如密度连通点。  </p>
+<p>基于密度聚类的特征和特点  </p>
+<p>·发现任意形状的簇  </p>
+<p>·处理噪音  </p>
+<p>·一次扫描(仅检查局部区域以证明密度)  </p>
+<p>·终止条件需要密度参数  </p>
+</blockquote>
+<p>Density-based clustering locates regions of high density that are separated from one another by regions of low density.</p>
+<blockquote>
+<p>基于密度的聚类定位密度高的区域，这些区域被密度低的区域分开。  </p>
+</blockquote>
+<h2 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a>DBSCAN</h2><p>DBSCAN is a simple and effective density-based clustering algorithm that illustrates a number of concepts that are important for any density-based clustering approach.</p>
+<blockquote>
+<p>DBSCAN是一种简单而有效的基于密度的聚类算法，它说明了许多对任何基于密度的聚类方法都很重要的概念。  </p>
+</blockquote>
+<p>A density-based notion of cluster<br>·A cluster Is defined as maximal set of density-connected points<br><strong>·Density=number of points within a specified radius(Eps)</strong></p>
+<blockquote>
+<p>基于密度的集群概念  </p>
+<p>·聚类定义为密度连通点的最大集合  </p>
+<p>·密度=指定半径内的点数(Eps)  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211116152816011.png" alt="image-20211116152816011"></p>
+<p>·A core point if it has at least a specified number of points(MinPts)within Eps<br>·These are points that are at the interior of a cluster<br>·Counts the point itself<br>·A border point is not a core point,but is in the neighborhood of a core point·A noise/outlier point is any point that is not a core point or a border point</p>
+<h3 id="如何选择半径和最小点数"><a href="#如何选择半径和最小点数" class="headerlink" title="如何选择半径和最小点数"></a>如何选择半径和最小点数</h3><p>Method for selecting DBSCAN parameters .<br>· Decide how many points you want ig a dense region: MinPts.<br>/Suppose we want core points to have at least k E-neighbors)<br>· Determine the distance from each point to its k-th nearest neighbor called the klist<br>· For points that belong to some cluster, the value of klist will be small lifk is not larger than the cluster sizel<br>· For points that are not in a cluster, such as noise points, the kdlist will be relatively large</p>
+<blockquote>
+<p>选择DBSCAN参数的方法。  </p>
+<p>决定一个密集区域需要多少个点:MinPts。  </p>
+<p>/假设我们希望核心点至少有k个e邻居)  </p>
+<p>·确定每个点到第k个最近邻(klist)的距离  </p>
+<p>·对于属于某个集群的点，klist的值较小，lifk不大于集群大小  </p>
+<p>·对于不在集群中的点，比如噪声点，kdlist会比较大  </p>
+</blockquote>
+<p>· If we compute the kdist for all the data points for some k, sort them in increasing order, and then plot the sorted values, we expect to see a sharp change at the value of kdist that corresponds to a suitable value of E.<br>· If we select this dividing distance as the e parameter and take the value of k as the MinPts parameter, then points for which kdist is less than e will be labeled as core points, while other points will be labeled as noise or border points.</p>
+<blockquote>
+<p>·如果我们计算某个k的所有数据点的kdist，对它们进行递增排序，然后绘制出排序后的值，我们期望在对应于合适的E值的kdist值处看到一个急剧的变化。  </p>
+<p>·选取该分割距离作为e参数，取k的值作为MinPts参数，则将kdist小于e的点标记为核心点，其他点标记为噪声点或边界点。  </p>
+</blockquote>
+<h3 id="Determining-EPS-and-MinPts"><a href="#Determining-EPS-and-MinPts" class="headerlink" title="Determining EPS and MinPts"></a>Determining EPS and MinPts</h3><p>·ldea is that for points in a cluster,their kth nearest neighbors are at roughly the same distance<br>·Noise points have the kth nearest neighbor at farther distance<br>·Hence,plot sorted distance of every point to its kth nearest neighbor</p>
+<blockquote>
+<p>想法是，对于一个星系团中的点，它们的第k近邻的距离大致相同  </p>
+<p>·噪声点在更远的距离有第k个最近邻  </p>
+<p>·因此，绘制每个点到其第k个最近邻的排序距离  </p>
+</blockquote>
+<p>DBSCAN can have trouble with density if the density of clusters varies widely.</p>
+<p><img src="D:\MarkdownIMG\image-20211116163043846.png" alt="image-20211116163043846"></p>
+<p>In this toy data, the density of the clusters and noise regions is indicated by their darkness. The noise around the pair of denser clusters,A and B, has the same density as clusters C and D.</p>
+<p>For a fixed MinPts, if the Eps threshold is chosen so that DBSCAN finds C and D as distinct clusters, with the points surrounding them as noise, then A and B and the points surrounding them will become a single cluster.<br>If the Eps threshold is set so that DBSCAN finds A and B as separate clusters, and the points surrounding them are marked as noise, then C,D, and the points surrounding them will also be marked as noise.</p>
+<blockquote>
+<p>在这个玩具数据中，星团和噪声区域的密度是由它们的黑暗来表示的。 这对密度较大的星团A和B周围的噪声与星团C和D的密度相同。  </p>
+<p>对于一个固定的MinPts，如果选择Eps阈值，使DBSCAN发现C和D是不同的聚类，其周围的点是噪声，那么a和B及其周围的点将成为一个单独的聚类。  </p>
+<p>如果设置Eps阈值，使DBSCAN将A和B作为单独的聚类，并将其周围的点标记为噪声，则C、D及其周围的点也将标记为噪声。  </p>
+</blockquote>
+<p>？？？？</p>
+<h1 id="Clustering-Algorithms-Grid-based-Clustering"><a href="#Clustering-Algorithms-Grid-based-Clustering" class="headerlink" title="Clustering Algorithms:Grid-based Clustering"></a>Clustering Algorithms:Grid-based Clustering</h1><p>Grid-based Clustering Method A grid is an efficient way to organize a set of data, at least in low dimensions.<br>Explore multi-resolution grid data structure in clustering<br>· Partition the data space into a finite number of cells to form a grid structure<br>· Find clusters(dense regions) from the cells in the grid structure</p>
+<blockquote>
+<p>网格是组织一组数据的有效方法，至少在低维情况下是这样。  </p>
+<p>探讨聚类中的多分辨率网格数据结构  </p>
+<p>·将数据空间划分为有限数量的单元，形成网格结构  </p>
+<p>·从网格结构中的细胞中寻找簇(密集区域)  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211116163246230.png" alt="image-20211116163246230"></p>
+<h2 id="Features-and-Challenges-of-a-typical-grid-based-algorithm"><a href="#Features-and-Challenges-of-a-typical-grid-based-algorithm" class="headerlink" title="Features and Challenges of a typical grid-based algorithm"></a>Features and Challenges of a typical grid-based algorithm</h2><p>·Efficiency and scalability:# of cells &lt;# of data points<br>·Uniformity:Uniform but hard to handle highly irregular data distributions<br>·Locality:Limited by pre-defined cell sizes,borders,and the density threshold<br>·Curse of dimensionality:Hard to cluster high-dimensional data</p>
+<blockquote>
+<p>·效率和可扩展性:单元数量&lt;数据点数量  </p>
+<p>·均匀性:均匀但难以处理高度不规则的数据分布  </p>
+<p>·局域性:受预定义的单元格大小、边界和密度阈值的限制  </p>
+<p>·维数诅咒:高维数据难以聚类  </p>
+</blockquote>
+<h2 id="Good-Clustering"><a href="#Good-Clustering" class="headerlink" title="Good Clustering?"></a>Good Clustering?</h2><p>A good clustering method will produce high quality clusters which should have<br>· High intra-class similarity: Cohesive within clusters<br>· Low inter-class similarity: Distinctive between clusters Quality function<br>· Usually a separate”quality”function that measure the “goodness”of a cluster<br>· Difficult to define “similar enough”or “good enough”) quite subjective..<br>Similarity measure is critical for cluster analysis<br>· What similarity measure would you use?</p>
+<h1 id="Clustering-Evaluation"><a href="#Clustering-Evaluation" class="headerlink" title="Clustering Evaluation"></a>Clustering Evaluation</h1><p>Clustering Evaluation: Evaluating the goodness of clustering results<br>· No commonly recognized best suitable measure in practice Three categorization of measures: External, internal, and relative</p>
+<ol>
+<li>External: Supervised, employ criteria not inherent to the dataset Compare a clustering against prior or expert-specified knowledge<br>(i.e., the ground truth) using certain clustering quality measure</li>
+<li>Internal: Unsupervised, criteria derived from data itself<br>· Evaluate the goodness of a clustering by considering how well the clusters are separated and how compact the clusters are<br>·e.g, silhouette coefficient, calinski-harabasz Index, Davies-Bouldin Index</li>
+<li>Relative: Directly compare different clusterings, usually those obtained via different parameter settings for the same algorithm</li>
+</ol>
+<blockquote>
+<p>聚类评价:评价聚类结果的优度  </p>
+<p>·实践中没有公认的最合适的措施三种措施:外部措施、内部措施和相对措施  </p>
+<p>\1.  将聚类与先前的或专家指定的知识进行比较  </p>
+<p>(即地面真实值)使用一定的聚类质量度量  </p>
+<p>\2.  内部:无监督的，从数据本身派生的标准  </p>
+<p>·通过考虑集群的分离情况和集群的紧凑程度来评估集群的优劣  </p>
+<p>·e。 g、剪影系数、calinski-harabasz指数、Davies-Bouldin指数  </p>
+<p>\3. 相对:直接比较不同的聚类，通常是同一算法通过不同参数设置得到的聚类  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211116171327822.png" alt="image-20211116171327822"></p>
+<p><img src="D:\MarkdownIMG\image-20211116181342218.png" alt="image-20211116181342218"></p>
+<p><img src="D:\MarkdownIMG\image-20211116181351830.png" alt="image-20211116181351830"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Gary Liu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://orange711.github.io.git/2021/11/17/5318week10/">https://orange711.github.io.git/2021/11/17/5318week10/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://orange711.github.io.git" target="_blank">今でもあなたはわたしの光</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/17/5318week11/"><img class="prev-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">COMP5318 Week11 Review</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/17/5318week9/"><img class="next-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">COMP5318 Week9 Review</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gary Liu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange711"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客仅个人学习使用，禁止非授权转载</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#COMP5318-Week-10"><span class="toc-number">1.</span> <span class="toc-text">COMP5318 Week 10</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Density-based-Methods"><span class="toc-number">2.</span> <span class="toc-text">Density-based Methods</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DBSCAN"><span class="toc-number">2.1.</span> <span class="toc-text">DBSCAN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%8D%8A%E5%BE%84%E5%92%8C%E6%9C%80%E5%B0%8F%E7%82%B9%E6%95%B0"><span class="toc-number">2.1.1.</span> <span class="toc-text">如何选择半径和最小点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Determining-EPS-and-MinPts"><span class="toc-number">2.1.2.</span> <span class="toc-text">Determining EPS and MinPts</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Clustering-Algorithms-Grid-based-Clustering"><span class="toc-number">3.</span> <span class="toc-text">Clustering Algorithms:Grid-based Clustering</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Features-and-Challenges-of-a-typical-grid-based-algorithm"><span class="toc-number">3.1.</span> <span class="toc-text">Features and Challenges of a typical grid-based algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Good-Clustering"><span class="toc-number">3.2.</span> <span class="toc-text">Good Clustering?</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Clustering-Evaluation"><span class="toc-number">4.</span> <span class="toc-text">Clustering Evaluation</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week11 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review">COMP5318 Week11 Review</a><time datetime="2021-11-17T04:38:51.333Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week10 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review">COMP5318 Week10 Review</a><time datetime="2021-11-17T04:38:51.332Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week9 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review">COMP5318 Week9 Review</a><time datetime="2021-11-17T04:38:51.330Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week8 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review">COMP5318 Week8 Review</a><time datetime="2021-11-17T04:38:51.328Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week7/" title="COMP5318 Week7 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week7 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week7/" title="COMP5318 Week7 Review">COMP5318 Week7 Review</a><time datetime="2021-11-17T04:38:51.326Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Gary Liu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
