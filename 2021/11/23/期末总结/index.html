@@ -1,0 +1,1182 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>COMP5048 期末全资料总结 | 今でもあなたはわたしの光</title><meta name="author" content="Gary Liu"><meta name="copyright" content="Gary Liu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Week 2Attribute of dataNominal Ordinal  Interval  Ratio Category data Integer data  real number data Dimensions of attributesscalar data vector data tensors Week 3PerceptionAxes&#x2F;arrangement符号学回头把图拿出来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP5048 期末全资料总结">
+<meta property="og:url" content="https://orange711.github.io.git/2021/11/23/%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="今でもあなたはわたしの光">
+<meta property="og:description" content="Week 2Attribute of dataNominal Ordinal  Interval  Ratio Category data Integer data  real number data Dimensions of attributesscalar data vector data tensors Week 3PerceptionAxes&#x2F;arrangement符号学回头把图拿出来">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
+<meta property="article:published_time" content="2021-11-23T14:12:47.936Z">
+<meta property="article:modified_time" content="2021-11-23T14:13:25.269Z">
+<meta property="article:author" content="Gary Liu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/11/23/%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'COMP5048 期末全资料总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-23 22:13:25'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">COMP5048 期末全资料总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-23T14:12:47.936Z" title="发表于 2021-11-23 22:12:47">2021-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-23T14:13:25.269Z" title="更新于 2021-11-23 22:13:25">2021-11-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="COMP5048 期末全资料总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h1><h1 id="Attribute-of-data"><a href="#Attribute-of-data" class="headerlink" title="Attribute of data"></a>Attribute of data</h1><p>Nominal</p>
+<p>Ordinal </p>
+<p>Interval </p>
+<p>Ratio</p>
+<p>Category data</p>
+<p>Integer data </p>
+<p>real number data</p>
+<h1 id="Dimensions-of-attributes"><a href="#Dimensions-of-attributes" class="headerlink" title="Dimensions of attributes"></a>Dimensions of attributes</h1><p>scalar data</p>
+<p>vector data</p>
+<p>tensors</p>
+<h1 id="Week-3"><a href="#Week-3" class="headerlink" title="Week 3"></a>Week 3</h1><h2 id="Perception"><a href="#Perception" class="headerlink" title="Perception"></a>Perception</h2><h2 id="Axes-arrangement"><a href="#Axes-arrangement" class="headerlink" title="Axes/arrangement"></a>Axes/arrangement</h2><h2 id="符号学"><a href="#符号学" class="headerlink" title="符号学"></a>符号学</h2><p>回头把图拿出来 因为这个必考</p>
+<h1 id="Week-4"><a href="#Week-4" class="headerlink" title="Week 4"></a>Week 4</h1><h2 id="User-interaction"><a href="#User-interaction" class="headerlink" title="User interaction"></a>User interaction</h2><p>Interaction ?<br>-Interaction with artificial obiects(including both physical and virtual)<br>-results of advances of Artificial Systems<br>-Artificial System:a set of components, each of which interacts with each other in an ordered manner.<br>-Advances in Computing and Networking markedly changed our society and how we interact with artificial systems.</p>
+<blockquote>
+<p>互动?  </p>
+<p>-与人工物品互动(包括物理和虚拟物品)  </p>
+<p>——人工系统发展的结果  </p>
+<p>-人工系统:一组组件，每个组件以有序的方式相互作用。  </p>
+<p>-计算机和网络的进步显著地改变了我们的社会，以及我们与人工系统的互动方式。  </p>
+</blockquote>
+<h2 id="Advances-of-Artificial-Systems’functionalities"><a href="#Advances-of-Artificial-Systems’functionalities" class="headerlink" title="Advances of Artificial Systems’functionalities"></a>Advances of Artificial Systems’functionalities</h2><p>-Computers allow us to design complex control systems, which consist of many complex elements interacting each other.<br>-Automobile assembly robots-artificial systems build other artificial systems<br>-Supply-chain system-geographically distributed product transport systems work as if it is a large living beast.</p>
+<blockquote>
+<p>计算机使我们能够设计由许多相互作用的复杂元素组成的复杂控制系统。  </p>
+<p>-汽车装配机器人-人工系统构建其他人工系统  </p>
+<p>-供应链系统-地理分布的产品运输系统工作起来就像一个巨大的活的野兽。  </p>
+</blockquote>
+<h2 id="Advancing-Human-Capabilities"><a href="#Advancing-Human-Capabilities" class="headerlink" title="Advancing Human Capabilities"></a>Advancing Human Capabilities</h2><p>-calculation(this is how it’s started.…)<br>-simple memorization<br>-associative memory<br>-language translation<br>-problem solving<br>-automatic proofing<br>-enhancing human cognitive capability(cognitive artificial systems)<br>-requires understanding of human activities.</p>
+<blockquote>
+<p>-计算(这是它如何开始….)  </p>
+<p>简单的记忆  </p>
+<p>联想记忆  </p>
+<p>沿途的翻译  </p>
+<p>靠内解决  </p>
+<p>自动防  </p>
+<p>-提高人类认知能力(认知人工系统)  </p>
+<p>——需要理解人类活动。  </p>
+</blockquote>
+<p>combined with advances of networking technologies provides new media for human-human communication<br>(computer mediated communication)<br>unlike a non-computer mediated communication, various services can be provided to enhance the communication.</p>
+<blockquote>
+<p>结合网络技术的进步，为人与人之间的交流提供了新的媒介  </p>
+<p>(计算机的通信)  </p>
+<p>与非计算机中介的通信不同，可以提供各种服务来增强通信。  </p>
+</blockquote>
+<h2 id="Advancing-Assistance-Capability"><a href="#Advancing-Assistance-Capability" class="headerlink" title="Advancing Assistance,Capability"></a>Advancing Assistance,Capability</h2><p>-Many audio/visual products can be interconnected with networks<br>-Various white-goods now have micro-controller<br>-Mobile/Wearable computing allow us to access networked computers anytime<br>-Perceptual user interfaces allow computers to sense our activities in order to provide adaptive services.<br>(Matthew Turk and George Robertson: Perceptual User Interfaces, Communications of the ACM, Vol.43, No.3,33-34,2000)</p>
+<blockquote>
+<p>-许多音像产品可以通过网络互连  </p>
+<p>-现在各种白色家电都有微控制器  </p>
+<p>-移动/可穿戴计算允许我们随时访问联网的计算机  </p>
+<p>-感知用户界面允许计算机感知我们的活动，以便提供适应性服务。  </p>
+<p>(Matthew Turk和George Robertson:感知用户界面，ACM通信，Vol.43, No.3,33-34,2000)  </p>
+</blockquote>
+<h2 id="Improving-Experiences"><a href="#Improving-Experiences" class="headerlink" title="Improving Experiences"></a>Improving Experiences</h2><p>-computer assisted/mediated artificial systems<br>-characterised not only by their functional capabilities<br>-but also by how they can improve our physical/mental experiences</p>
+<blockquote>
+<p>-计算机辅助/介导的人工系统  </p>
+<p>-不仅以其功能能力为特征  </p>
+<p>但也通过它们如何改善我们的身体/精神体验  </p>
+</blockquote>
+<h2 id="Types-of-Interactions"><a href="#Types-of-Interactions" class="headerlink" title="Types of Interactions"></a>Types of Interactions</h2><p>-Interactions occur between<br>-human and human(HHI)<br>-human and computer(HCI)<br>-human and machine(HMl)<br>-human and information(HIl)<br>-HxI covers all “Human-X”Interactions</p>
+<blockquote>
+<p>间发生的相互作用  </p>
+<p>载体和人类(HHI)  </p>
+<p>载体和计算机(HCI)  </p>
+<p>载体和机器(HMl)  </p>
+<p>载体和信息(边境)  </p>
+<p>-HxI涵盖了所有“人与x”的互动  </p>
+</blockquote>
+<h2 id="Modality-of-Interactions-Multimedia-Oriented"><a href="#Modality-of-Interactions-Multimedia-Oriented" class="headerlink" title="Modality of Interactions -Multimedia Oriented-"></a>Modality of Interactions -Multimedia Oriented-</h2><p>-Many different methods are used to represent pieces of information used in interactions<br>-Two basic representation media<br>-language:text,audio(voice)<br>-non-language:other media</p>
+<blockquote>
+<p>-许多不同的方法被用来表示在交互中使用的信息片段  </p>
+<p>-两种基本的表示媒体  </p>
+<p>回应:文本、音频(声音)  </p>
+<p>-non-language:其他媒体  </p>
+</blockquote>
+<h2 id="Language-Media"><a href="#Language-Media" class="headerlink" title="Language Media"></a>Language Media</h2><p>-Natural Language<br>-Artificial Language-convey the information in a simple and accurate manner<br>-Suited for describing complex information in an orderly manner using common grammar and syntax.</p>
+<blockquote>
+<p>自然语言  </p>
+<p>-人工语言-以简单准确的方式传递信息  </p>
+<p>-适合使用通用的语法和语法以有序的方式描述复杂的信息。  </p>
+</blockquote>
+<h2 id="Non-Language-Medias"><a href="#Non-Language-Medias" class="headerlink" title="Non-Language Medias"></a>Non-Language Medias</h2><p>-Examples:<br>-facial expression,body language<br>-pause during a conversation<br>-body movement<br>-Purpose<br>-support/control language media<br>-convey information,which cannot be easily expressed in language</p>
+<blockquote>
+<p>例子:  </p>
+<p>面部表情,肢体语言  </p>
+<p>-在谈话中停顿  </p>
+<p>身体运动  </p>
+<p>目的  </p>
+<p>支援/控制语言媒体  </p>
+<p>传达的信息是无法用语言轻易表达的  </p>
+</blockquote>
+<p>-Overall cognition precedes partial cognition<br>-You cannot figure what it is by looking at partial view,but can figure it out from the overall view<br>-Figure:cognitively apparent information<br>-Ground:background/ambient information<br>-conversation/gesture,which attract attentions-Figure<br>-atmosphere of conversation-Ground</p>
+<blockquote>
+<p>——整体认知先于部分认知  </p>
+<p>你不能从局部的观点来理解它，但可以从整体的观点来理解它  </p>
+<p>图:认知明显的信息  </p>
+<p>背景:背景/环境信息  </p>
+<p>谈话/姿态,吸引attentions-Figure  </p>
+<p>大气的conversation-Ground  </p>
+</blockquote>
+<h2 id="Nine-types-of-non-lang-media"><a href="#Nine-types-of-non-lang-media" class="headerlink" title="Nine types of non-lang.media"></a>Nine types of non-lang.media</h2><p>·Human body·Body contact<br>·Action.Territorial Space<br>·Eye<br>.Time<br>·Peripheral lang.<br>·Chroma<br>·Silence</p>
+<h3 id="Human-Body"><a href="#Human-Body" class="headerlink" title="Human Body"></a>Human Body</h3><p>-characteristics of human body expressed in its age, gender, physique, skin color, etc.<br>-Typically based on information recipients’ cultural background.</p>
+<h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><p>-Expression by posture and movement of human body. Facial expression also belong to this type.<br>-Actions might have different meanings depending on recipients’<br>culture.</p>
+<h3 id="Eye"><a href="#Eye" class="headerlink" title="Eye"></a>Eye</h3><p>-Includes<br>一eye contact<br>-expression in eye<br>-Under Information provider’s control</p>
+<h3 id="Peripheral-Lang"><a href="#Peripheral-Lang" class="headerlink" title="Peripheral Lang."></a>Peripheral Lang.</h3><p>-Features associated with conversational language(Tempo, volume, accent, etc.)<br>-feeling, personality can be conveyed(subiective)</p>
+<h3 id="Silence"><a href="#Silence" class="headerlink" title="Silence"></a>Silence</h3><p>-pause in conversations<br>-intentionally ignore</p>
+<h3 id="Body-contact"><a href="#Body-contact" class="headerlink" title="Body contact"></a>Body contact</h3><p>-Includes<br>-real body contact<br>-replacement of body contact, which is closely associated with the real body contact.</p>
+<h3 id="Territorial-Space"><a href="#Territorial-Space" class="headerlink" title="Territorial Space"></a>Territorial Space</h3><p>-interaction distances between humans<br>-spatial arrangement of participants<br>-could be culturally biased</p>
+<h3 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h3><p>-Temporal factors, which have significant influence on communication.<br>-factors based on actions<br>-timing of interruption in conversation<br>-factors based on biological rhythms<br>-timing to induce sleepiness</p>
+<h3 id="Chroma"><a href="#Chroma" class="headerlink" title="Chroma"></a>Chroma</h3><p>-Color in the environment<br>-Work on human perception<br>-Can be used to control communication and action</p>
+<h3 id="Eye-contact-amp-Facial-Expressions"><a href="#Eye-contact-amp-Facial-Expressions" class="headerlink" title="Eye contact &amp; Facial Expressions"></a>Eye contact &amp; Facial Expressions</h3><p>-Facial expressions represent many emotional states of users<br>-supported by gestures<br>-hard to control consciously<br>-differences in looking (active)and seeing(passive)<br>-looking in public space might be offensive</p>
+<h3 id="Body-Language"><a href="#Body-Language" class="headerlink" title="Body Language"></a>Body Language</h3><p>-Linguistic body language<br>-associated with an apparent message(sign language,common gestures)<br>-illustrative body language<br>-assists the conveyance of messages(gesture to emphasize the point of messages)</p>
+<h3 id="Territorial-Space-1"><a href="#Territorial-Space-1" class="headerlink" title="Territorial Space"></a>Territorial Space</h3><p>-In human communication,users are very sensitive to their own territorial space<br>-Territorial space can be violated by<br>-territorial pollution(verbal,physical)<br>-unsolicited space use<br>-overtaking the territory<br>-Personal Space defines the comfortable interaction space for individual</p>
+<p>-Stop-Distance method-measure the personal space<br>-an experimenter getting close to the subject,and the subject will indicate when the experimenter reaches the uncomfortable distance<br>-Artificial systems could modify the personal space<br>-use of mobile phone in the public space<br>-kids’long phone call at home<br>-online game</p>
+<blockquote>
+<p>在人类交流中，用户对自己的领地空间非常敏感  </p>
+<p>领土空间可以被侵犯  </p>
+<p>领土污染(口头、物理)  </p>
+<p>不请自来的空间使用  </p>
+<p>超越香港  </p>
+<p>-个人空间定义了个人舒适的互动空间  </p>
+<p>-停止-距离法-测量个人空间  </p>
+<p>当实验者接近被试者时，被试者会在实验者到达令人不舒服的距离时做出暗示  </p>
+<p>-人工系统可以修改个人空间  </p>
+<p>-在公共场所使用手机  </p>
+<p>-孩子们在家里的长途电话  </p>
+<p>网络游戏  </p>
+</blockquote>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>-Modality of Interaction from Multimedia’ point of view<br>-language vs. non-language<br>-Vargas’s Nine non-language media<br>-Gaze/Facial expression<br>-Body Language<br>-Territorial Space</p>
+<blockquote>
+<p>-从多媒体的角度看交互的形式  </p>
+<p>沿途与非语言  </p>
+<p>-瓦格斯的九种非语言媒体  </p>
+<p>凝视/面部表情  </p>
+<p>身体语言  </p>
+<p>领土空间  </p>
+</blockquote>
+<h1 id="Cognitive-Action"><a href="#Cognitive-Action" class="headerlink" title="Cognitive Action"></a>Cognitive Action</h1><p>-Understanding human cognitive action in Interaction<br>1.Human Information Processing Model<br>2.Ecological Model<br>3.Social Interaction Model</p>
+<blockquote>
+<p>-Understanding human cognitive action in Interaction </p>
+<ol>
+<li>Human Information Processing Model </li>
+<li>Ecological Model </li>
+<li>Social Interaction Model</li>
+</ol>
+</blockquote>
+<h2 id="Human-Information-Processing-Model"><a href="#Human-Information-Processing-Model" class="headerlink" title="Human Information Processing Model"></a>Human Information Processing Model</h2><p>-In cognitive psychology-the human is treated as an information processing unit<br>-cognitive process is modelled as a series of information processes on this IP unit<br>-understand human cognitive processes such as inference, problem solving,memory and learning</p>
+<blockquote>
+<p>在认知心理学中，人类被视为一个信息处理单元  </p>
+<p>认知过程被建模为该IP单元上的一系列信息过程  </p>
+<p>-理解人类的认知过程，如推理，解决问题，记忆和学习  </p>
+</blockquote>
+<h2 id="Human-as-an-information-processing-unit"><a href="#Human-as-an-information-processing-unit" class="headerlink" title="Human as an information processing unit"></a>Human as an information processing unit</h2><p>-Computer<br>-Input<br>-Central Processing Unit<br>-Output<br>-Human<br>-Five sensory devices(input)<br>-Brain:Memory &amp; CPU<br>-Body(including speech)(output)</p>
+<h2 id="Human-Memory-Unit"><a href="#Human-Memory-Unit" class="headerlink" title="Human Memory Unit"></a>Human Memory Unit</h2><p>-Sensory Register<br>-very short-time storage for five sensory devices<br>-Working Memory<br>-temporary information storage mechanism<br>-limited capacity and function(magic number 7)<br>-Long-term Memory<br>-Declaratory Memory<br>·episode memory(for events)<br>·semantic memory(for abstract concept)<br>-Procedural Memory</p>
+<h2 id="Pros-Cons-of-HIP-model"><a href="#Pros-Cons-of-HIP-model" class="headerlink" title="Pros/Cons of HIP model"></a>Pros/Cons of HIP model</h2><p>-Cons：<br>·very little biologically equivalent explanations<br>一Pros：<br>·can be simulated<br>·can be used to evaluate functions and performances of<br>human interaction</p>
+<h2 id="Minsky’s-Society-of-Mind"><a href="#Minsky’s-Society-of-Mind" class="headerlink" title="Minsky’s Society of Mind"></a>Minsky’s Society of Mind</h2><p>-Agent-based Model-<br>-Treat “Human Mind”as a group of inter-related agents<br>-It provides many interesting possibilities to build the model of<br>mind but has not been applied to the practical models</p>
+<blockquote>
+<p>基于行为人模型-  </p>
+<p>——把“人的心灵”看作是一组相互关联的中介  </p>
+<p>-为构建模型提供了许多有趣的可能性  </p>
+<p>但尚未被应用到实际模型中  </p>
+</blockquote>
+<h2 id="Ecological-Model"><a href="#Ecological-Model" class="headerlink" title="Ecological Model"></a>Ecological Model</h2><p>-Closely related to Rasmussen’s SRK-based decision making model<br>-Put its focus on the environment rather than the human as an information processing unit.<br>-Analyse how the environment offers relevant information to humans in order to assist any interaction</p>
+<blockquote>
+<p>-与Rasmussen的基于srk的决策模型密切相关  </p>
+<p>-把它的焦点放在环境而不是人类作为一个信息处理单元。  </p>
+<p>-分析环境如何为人类提供相关信息，以协助任何互动  </p>
+</blockquote>
+<h3 id="Ecological-Model-cont"><a href="#Ecological-Model-cont" class="headerlink" title="Ecological Model(cont.)"></a>Ecological Model(cont.)</h3><p>-It does not analyse(absolute) physical characteristics the environment has.<br>-It analyses<br>-How relevant information can be generated based on humans’ needs<br>-How humans obtain such information<br>-How humans apply such information to their actions<br>-Early works were founded upon research on human visual perception</p>
+<blockquote>
+<p>-不分析环境所具有的(绝对)物理特征。  </p>
+<p>——分析  </p>
+<p>-如何根据人类需求生成相关信息  </p>
+<p>-人类是如何获得这些信息的  </p>
+<p>-人类如何将这些信息应用于他们的行动  </p>
+<p>——早期的作品建立在对人类视觉感知的研究之上  </p>
+</blockquote>
+<h2 id="Affordance"><a href="#Affordance" class="headerlink" title="Affordance"></a>Affordance</h2><p>-A person will obtain pieces of information from the environment in order to assist its action plan.<br>-Affordance: the pieces of such information available in the environment<br>(James J. Gibson: The Ecological Approach to visual Perception, Houghton Muflin Co.,1979)</p>
+<blockquote>
+<p>-一个人将从环境中获取信息，以协助其行动计划。  </p>
+<p>-启示:环境中可用的信息片段  </p>
+<p>(James J. Gibson:视觉感知的生态学方法，Houghton Muflin Co.，1979)  </p>
+</blockquote>
+<h2 id="Affordance-Rich-non-Rich"><a href="#Affordance-Rich-non-Rich" class="headerlink" title="Affordance Rich/non-Rich"></a>Affordance Rich/non-Rich</h2><p>-Many pieces of affordance are available in an familiar environment<br>-In an unfamiliar environment,available affordance is limited<br>-Affordance is defined by the relationship between the subject and its environment</p>
+<blockquote>
+<p>-在熟悉的环境中可以获得许多功能支持  </p>
+<p>-在不熟悉的环境中，可用可用性是有限的  </p>
+<p>-可见性是由主体与其环境之间的关系来定义的  </p>
+</blockquote>
+<p>创造让观众更熟悉的可视化</p>
+<h2 id="Invariant-in-Affordance"><a href="#Invariant-in-Affordance" class="headerlink" title="Invariant in Affordance"></a>Invariant in Affordance</h2><p>-It is a pieces of information, which does not change depending on how the subject moves around the environment<br>-It allows the subject plan and achieve a stable action.<br>-In order to obtain such invariant, the subject is encourage to actively move around the environment.</p>
+<blockquote>
+<p>-这是一段信息，不会因为目标在环境中的移动而改变  </p>
+<p>-让主体计划和实现稳定的行动。  </p>
+<p>-为了获得这样的不变量，被试被鼓励在环境中积极地移动。  </p>
+</blockquote>
+<h2 id="Dynamic-Touch"><a href="#Dynamic-Touch" class="headerlink" title="Dynamic Touch"></a>Dynamic Touch</h2><p>-An action that the subiect actively apply to obiects in the environment in order to obtain invariant<br>-touching, shaking, hitting, etc.<br>-gentle to rough: Micro Activity/Action<br>-accumulate micro activities lead to tinding of invariant</p>
+<blockquote>
+<p>-主体主动应用于环境中的物体以获得不变性的动作  </p>
+<p>-触摸、摇晃、撞击等  </p>
+<p>-从温和到粗糙:微活动/动作  </p>
+<p>-累积的微活动导致不变的tinding  </p>
+</blockquote>
+<h2 id="Social-Interaction-Model"><a href="#Social-Interaction-Model" class="headerlink" title="Social Interaction Model"></a>Social Interaction Model</h2><p>-Human society consists of many small and large groups of people<br>-Such groups try to<br>-achieve common goals,<br>-solve common problems,<br>-assure the trust<br>-These activities are carried out through various interactions within the groups</p>
+<blockquote>
+<p>-人类社会由许多大大小小的群体组成  </p>
+<p>-这些团体试图  </p>
+<p>实现共同的目标,  </p>
+<p>解决共同的问题,  </p>
+<p>保证信托  </p>
+<p>-这些活动通过小组内的各种互动进行  </p>
+</blockquote>
+<h2 id="Features-of-Group-Community"><a href="#Features-of-Group-Community" class="headerlink" title="\Features of Group/Community"></a>\Features of Group/Community</h2><p>-There is a clear boundary to identify member and non-member<br>(some even have uniforms… boy/girl scouts)<br>-Through background knowledge and interests, they build strong associations<br>-There are formal and tacit rules and regulations</p>
+<blockquote>
+<p>-会员和非会员有明确的界限  </p>
+<p>(有些人甚至有制服…… 男/女童子军)  </p>
+<p>-通过背景知识和兴趣，他们建立了强大的联系  </p>
+<p>-有正式的和隐性的规章制度  </p>
+</blockquote>
+<h2 id="Role-of-Awareness"><a href="#Role-of-Awareness" class="headerlink" title="Role of Awareness"></a>Role of Awareness</h2><p>-Awareness is closely associated with tacit knowledge along with various pieces of background information in the environment.-Appropriate awareness will add positive information towards the successful completion of tasks in the group/community.<br>-Awareness-rich community will be highly likely to succeed.</p>
+<blockquote>
+<p>-意识与隐性知识以及环境中的各种背景信息密切相关。 -适当的意识将为成功完成小组/社区的任务增加积极的信息。  </p>
+<p>——意识丰富的社区很有可能成功。  </p>
+</blockquote>
+<h2 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h2><p>-Understand Interaction through Cognitive Action Models</p>
+<ol>
+<li>Human Information Processing Model</li>
+<li>Ecological Model(Affordance)、</li>
+<li>Social Interaction Model(Awareness)</li>
+</ol>
+<h2 id="Interface-Interaction-Method"><a href="#Interface-Interaction-Method" class="headerlink" title="Interface/Interaction Method?"></a>Interface/Interaction Method?</h2><p>-A user manipulate pieces of information within the computer by issuing a series of commands(pre-defined language)<br>-A user indirectly control the computer through intermediate representation Indirect Manipulation Interface</p>
+<blockquote>
+<p>-用户通过发出一系列命令(预定义的语言)来操作计算机中的信息片段  </p>
+<p>用户通过中间表示间接控制计算机的间接操作界面  </p>
+</blockquote>
+<h2 id="Pros-Cons-of-Command-line-Interface"><a href="#Pros-Cons-of-Command-line-Interface" class="headerlink" title="Pros/Cons of Command-line Interface"></a>Pros/Cons of Command-line Interface</h2><p>-Pros:<br>-can maximise the use of computing capability by issuing an efficient series of commands<br>-Cons:<br>-Cognitive load for casual users is high (easy to cause breakdown)<br>-Due to the advances in computing tech., the cost for developing<br>“easy to use”systems is more critical than run-time computing efficiency.</p>
+<blockquote>
+<p>优点:  </p>
+<p>-可以通过发出一系列有效的命令，最大限度地利用计算能力  </p>
+<p>缺点:  </p>
+<p>休闲用户的认知负荷很高(容易导致崩溃)  </p>
+<p>-由于计算机技术的进步，开发的成本  </p>
+<p>“易于使用”的系统比运行时计算效率更为关键。  </p>
+</blockquote>
+<h2 id="Use-of-Metaphor"><a href="#Use-of-Metaphor" class="headerlink" title="Use of Metaphor"></a>Use of Metaphor</h2><p>-the use of Metaphor and Direct Manipulation is the basic principal of WIMP.<br>-Metaphor in User Interface:-appropriate mapping between<br>· display structure and functions and<br>· structure of users’ familiar concept(s)</p>
+<blockquote>
+<p>-使用隐喻和直接操作是WIMP的基本原则。  </p>
+<p>-隐喻在用户界面:-适当的映射之间  </p>
+<p>·展示结构和功能  </p>
+<p>·用户熟悉概念的结构  </p>
+</blockquote>
+<h2 id="Then-why-metaphor"><a href="#Then-why-metaphor" class="headerlink" title="Then why metaphor?"></a>Then why metaphor?</h2><p>-Interface Metaphor allows users to have the consistent anticipation to possible object manipulations<br>-Increase affordance.<br>-Language-oriented Metaphor:represent knowledge by representing familiar concept using text and speech.</p>
+<blockquote>
+<p>-界面隐喻允许用户对可能的对象操作有一致的预期  </p>
+<p>身高给养。  </p>
+<p>-面向语言的隐喻:通过用文本和语音表示熟悉的概念来表示知识。  </p>
+</blockquote>
+<h2 id="Designing-Interface-Metaphor"><a href="#Designing-Interface-Metaphor" class="headerlink" title="Designing Interface Metaphor"></a>Designing Interface Metaphor</h2><p>-Interface Metaphor Design starts with “Conceptual Model”<br>-Users’ conceptual model:”User Model”<br>-Designers’ conceptual model:”Design Model”<br>-ldeal to make Design Model closer to User Model<br>-The maior aim of interface design is to build a system image, which appropriately map the design model to the user model.</p>
+<blockquote>
+<p>界面隐喻设计从“概念模型”开始  </p>
+<p>-用户概念模型:“用户模型”  </p>
+<p>-设计师概念模型:“设计模型”  </p>
+<p>-使设计模型更接近用户模型  </p>
+<p>-界面设计的主要目的是建立一个系统形象，将设计模型恰当地映射到用户模型。  </p>
+</blockquote>
+<h2 id="Good-Direct-Manipulation"><a href="#Good-Direct-Manipulation" class="headerlink" title="Good Direct Manipulation"></a>Good Direct Manipulation</h2><p>-Affordance:provide appropriate hints to users so that users<br>can find information easily<br>-Constraint:appropriately reflect constraints physical obiects<br>have in user interface<br>-Mapping:mapping from design’model to user model should be<br>natural and consistent<br>-Feedback:provide the results of user interaction in an<br>appropriate form</p>
+<blockquote>
+<p>-可视性:为用户提供适当的提示  </p>
+<p>可以很容易地找到信息  </p>
+<p>-约束:适当地反映约束物理对象  </p>
+<p>在用户界面  </p>
+<p>映射:从设计模型映射到用户模型  </p>
+<p>自然的和一致的  </p>
+<p>-反馈:提供用户交互的结果  </p>
+<p>适当的形式  </p>
+</blockquote>
+<h1 id="Week-5-Exploratory-Data-Analysis-l"><a href="#Week-5-Exploratory-Data-Analysis-l" class="headerlink" title="Week 5 -Exploratory Data Analysis (l)-"></a>Week 5 -Exploratory Data Analysis (l)-</h1><p>Exploratory Data Analysis<br>·Utilize data’s statistical attributes<br>·Temporal comparison<br>·Attributes comparison<br>·Ranking comparison<br>·Composition analysis<br>·Distributions analysis<br>·Variance analysis<br>·Correlation analysis<br>·Geographic analysis</p>
+<blockquote>
+<p>探索性数据分析  </p>
+<p>·利用数据的统计属性  </p>
+<p>·时间比较  </p>
+<p>·属性比较  </p>
+<p>·排名比较  </p>
+<p>·成分分析  </p>
+<p>·分布分析  </p>
+<p>·方差分析  </p>
+<p>·相关分析  </p>
+<p>·地理分析  </p>
+</blockquote>
+<h2 id="Temporal-analysis-comparison-r"><a href="#Temporal-analysis-comparison-r" class="headerlink" title="Temporal analysis/comparison r"></a>Temporal analysis/comparison r</h2><p>·Display how indices changes over a period of time<br>·Visualize<br>·Trend<br>·Pattern</p>
+<blockquote>
+<p>·显示指数在一段时间内如何变化  </p>
+<p>·可视化  </p>
+<p>·趋势  </p>
+<p>·模式  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211121202415513.png" alt="image-20211121202415513"></p>
+<p><img src="D:\MarkdownIMG\image-20211121203918157.png" alt="image-20211121203918157"></p>
+<p><img src="D:\MarkdownIMG\image-20211121204809373.png" alt="image-20211121204809373"></p>
+<p><img src="D:\MarkdownIMG\image-20211121205200593.png" alt="image-20211121205200593"></p>
+<p><img src="D:\MarkdownIMG\image-20211121205500245.png" alt="image-20211121205500245"></p>
+<p><img src="D:\MarkdownIMG\image-20211121205951766.png" alt="image-20211121205951766"></p>
+<p><img src="D:\MarkdownIMG\image-20211121210122523-16374996903461.png" alt="image-20211121210122523"></p>
+<h2 id="Summary-2"><a href="#Summary-2" class="headerlink" title="Summary"></a>Summary</h2><p>· Exploratory Visual Data Analysis: try to understand the data through visualization of various statistical data.<br>· Depending on what sort of analysis you would like to carry out, you should chose appropriate visualization.</p>
+<blockquote>
+<p>·探索性视觉数据分析:试图通过可视化各种统计数据来理解数据。  </p>
+<p>·根据您想要进行的分析类型，您应该选择适当的可视化。  </p>
+</blockquote>
+<h2 id="Week-6-Exploratory-Data-Analysis"><a href="#Week-6-Exploratory-Data-Analysis" class="headerlink" title="Week 6 -Exploratory Data Analysis()-"></a>Week 6 -Exploratory Data Analysis()-</h2><h2 id="Statistics-from-Data"><a href="#Statistics-from-Data" class="headerlink" title="Statistics from Data"></a>Statistics from Data</h2><p>-What sort of statistical feature can you get from the dataset?<br>-Average,<br>-Range(minimum and maximum)<br>-Median<br>-Variance<br>-Standard Deviation<br>-Quartile-Skewness-Kurtosis<br>-Etc.</p>
+<blockquote>
+<p>范围(最小和最大)  </p>
+<p>中位数  </p>
+<p>方差  </p>
+<p>标准偏差  </p>
+<p>四分位数  </p>
+<p>偏态,  </p>
+<p>峰度  </p>
+<p>等。  </p>
+</blockquote>
+<h2 id="Statistical-feature-to-Visualization"><a href="#Statistical-feature-to-Visualization" class="headerlink" title="Statistical feature to Visualization"></a>Statistical feature to Visualization</h2><p>-Visualization of Statistical feature assists EDA processes:<br>-Testing assumptions<br>-Selecting models<br>-Validating regression model<br>-Selecting estimator<br>-ldentifying relationships<br>-Detecting outlier<br>-Etc.</p>
+<blockquote>
+<p>-统计特征可视化帮助EDA处理:  </p>
+<p>测试的假设  </p>
+<p>:用模型  </p>
+<p>验证回归模型  </p>
+<p>:用估计量  </p>
+<p>-ldentifying关系  </p>
+<p>检测离群值  </p>
+<p>等。  </p>
+</blockquote>
+<h2 id="Psychophysical-Measure"><a href="#Psychophysical-Measure" class="headerlink" title="Psychophysical Measure"></a>Psychophysical Measure</h2><p>-Sensory Scaling<br>-map physically measurable to psychological continuum-old techniques are statistic-based:map psychological observation to unidimensional continuum using probability density function.</p>
+<blockquote>
+<p>感觉比例  </p>
+<p>旧的技术是基于统计的:用概率密度函数将心理观察映射到一维连续体。  </p>
+</blockquote>
+<p>例如在满意度中设置1-10</p>
+<p>像评分类似的东西 </p>
+<h2 id="Multidimensional-Scaling-MDS"><a href="#Multidimensional-Scaling-MDS" class="headerlink" title="Multidimensional Scaling (MDS)"></a>Multidimensional Scaling (MDS)</h2><p>-including both numerical and categorical observations<br>-number/detail of dimensions might be unknown<br>-Map data/states to multidimensional continuum</p>
+<blockquote>
+<p>-包括数值和绝对观察  </p>
+<p>尺寸的数量/细节可能未知  </p>
+<p>-将数据/状态映射到多维连续体  </p>
+</blockquote>
+<h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><p><img src="D:\MarkdownIMG\image-20211121230607597.png" alt="image-20211121230607597"></p>
+<h2 id="Metric-space"><a href="#Metric-space" class="headerlink" title="Metric space"></a>Metric space</h2><p>-To define similarities, you need a metric space<br>-typical one… Euclidean space<br>-Minkowski’s r-metric (Nonmetric Multidimensional Scaling)</p>
+<blockquote>
+<p>-定义相似性，你需要一个度量空间  </p>
+<p>典型的一个… 欧氏空间  </p>
+<p>-闵可夫斯基r-度量(非度量多维尺度)  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211121230810291.png" alt="image-20211121230810291"></p>
+<h2 id="Multidimensional-Scaling-as"><a href="#Multidimensional-Scaling-as" class="headerlink" title="Multidimensional Scaling as"></a>Multidimensional Scaling as</h2><p>Spatialization<br>-Observe target obiects<br>-Observed data could be<br>-Categorical<br>-Ordinal<br>-Numerical<br>-form a vector(n-dimension)<br>-use MDS to find 2D(or 3D)location</p>
+<blockquote>
+<p>空间化  </p>
+<p>观察目标种  </p>
+<p>-观测数据可能是  </p>
+<p>分类  </p>
+<p>序数  </p>
+<p>数值  </p>
+<p>—构成一个向量(n维)  </p>
+<p>使用MDS查找2D(或3D)位置  </p>
+</blockquote>
+<h2 id="Summary-3"><a href="#Summary-3" class="headerlink" title="Summary"></a>Summary</h2><p>·What statistics can be used for visualization<br>·Various statistical features can be mapped to visual attributes<br>·to assist EDA processes.<br>·Other techniques used in EDA.<br>·Various multi dimensional scaling methods can be used to place multi dimensional data point on the 2D/3D space to study the complex data.</p>
+<blockquote>
+<p>·哪些统计数据可以用于可视化  </p>
+<p>·各种统计特征可以映射到视觉属性  </p>
+<p>·协助EDA流程。  </p>
+<p>·EDA中使用的其他技术。  </p>
+<p>·可采用多种多维尺度变换方法，将多维数据点放置在二维/三维空间上，研究复杂数据。  </p>
+</blockquote>
+<h1 id="Week-7-Visual-Perception-and-Visualization"><a href="#Week-7-Visual-Perception-and-Visualization" class="headerlink" title="Week 7  -Visual Perception and Visualization-"></a>Week 7  -Visual Perception and Visualization-</h1><h2 id="Common-Visual-Attributes"><a href="#Common-Visual-Attributes" class="headerlink" title="Common Visual Attributes"></a>Common Visual Attributes</h2><p>·Position<br>·Length<br>·Direction<br>·Thickness<br>·Area<br>·Chroma(color)<br>·Hue(color)<br>·Shape</p>
+<blockquote>
+<p>·位置  </p>
+<p>·长度  </p>
+<p>·方向  </p>
+<p>·厚度  </p>
+<p>·区域  </p>
+<p>·色(颜色)  </p>
+<p>·色调(色)  </p>
+<p>·形状  </p>
+</blockquote>
+<h3 id="Position"><a href="#Position" class="headerlink" title="Position"></a>Position</h3><p>·A location in 1D,2D 3D spaces.<br>· Can be in discrete spaces,<br>· Can be in continuous spaces<br>· Compare the difference in data point’s location/position.<br>· Example?</p>
+<blockquote>
+<p>·在1D、2D、3D空间中的位置。  </p>
+<p>·可以在离散的空间，  </p>
+<p>·可以在连续的空间中  </p>
+<p>·比较数据点位置/位置的差异。  </p>
+</blockquote>
+<h3 id="Length"><a href="#Length" class="headerlink" title="Length"></a>Length</h3><p>·A length of a line or a bar.<br>· Compare the length of a line or a bar.<br>·(thickness of a line/bar should be the same)</p>
+<blockquote>
+<p>一条线或一杆的长度<br>比较一条线或一根棒的长度。<br>·(线/条的厚度应相同)  </p>
+</blockquote>
+<h3 id="Direction"><a href="#Direction" class="headerlink" title="Direction"></a>Direction</h3><p>· Which direction something is facing, or<br>· How much angle something has against something else.<br>· Compare the angle/direction of an obiect.</p>
+<blockquote>
+<p>某物所面对的方向，或者  </p>
+<p>某物相对于另一物的角度。  </p>
+<p>比较两幅画的角度/方向。  </p>
+</blockquote>
+<h3 id="Thickness"><a href="#Thickness" class="headerlink" title="Thickness"></a>Thickness</h3><p>·Thickness/Width of a line or a bar.<br>·We”feel”a thicker line/bar is emphasised.<br>·Compare the thickness an obiect.</p>
+<blockquote>
+<p>·线或条的粗细/宽度。  </p>
+<p>·我们“感觉”一条较粗的线/条被强调了。  </p>
+<p>比较两篇文章的厚度。  </p>
+</blockquote>
+<h3 id="Area-Size"><a href="#Area-Size" class="headerlink" title="Area/Size"></a>Area/Size</h3><p>· Area/Size of something.<br>· It is quite easy to identify large/small, but<br>· It is quite hard to iudge “how much”.<br>· Compare the area/size an obiect.</p>
+<blockquote>
+<p>·某物的面积/大小。  </p>
+<p>辨别大/小是很容易的，但是  </p>
+<p>很难判断“有多少”。  </p>
+<p>·比较讣告的面积/大小。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211121232354600.png" alt="image-20211121232354600"></p>
+<h3 id="Shape"><a href="#Shape" class="headerlink" title="Shape"></a>Shape</h3><p>· Unique geometrical shape.<br>· If shapes are different, we consider they are different,<br>· Compare the Shape an obiect.</p>
+<blockquote>
+<p>·独特的几何形状。  </p>
+<p>·如果形状不同，我们认为它们是不同的，  </p>
+<p>·比较讣告的形状。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211121232515978.png" alt="image-20211121232515978"></p>
+<h2 id="Gestalt-Principle格式塔原理"><a href="#Gestalt-Principle格式塔原理" class="headerlink" title="Gestalt Principle格式塔原理"></a>Gestalt Principle格式塔原理</h2><p>· From Gestalt Psychology<br>· Laws of how humans<br>· Group similar entities,<br>· Recognize patterns,<br>· Simplify complex entities.<br>· Key principles for Visualization<br>· Proximity<br>· Similarity<br>· Common Region<br>· Closure<br>· Continuity· Connection</p>
+<blockquote>
+<p>·来自完形心理学  </p>
+<p>·人类如何生存的法则  </p>
+<p>·对类似实体进行分组，  </p>
+<p>识别模式,  </p>
+<p>·简化复杂实体。  </p>
+<p>·可视化的关键原则  </p>
+<p>·接近  </p>
+<p>·相似  </p>
+<p>·常见的地区  </p>
+<p>·关闭  </p>
+<p>连续性··连接  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211121232948650.png" alt="image-20211121232948650"></p>
+<p><a target="_blank" rel="noopener" href="https://www.uisdc.com/gestalt-psychology-knowledge">https://www.uisdc.com/gestalt-psychology-knowledge</a></p>
+<p><img src="D:\MarkdownIMG\image-20211121233157683.png" alt="image-20211121233157683"></p>
+<h2 id="Visualization-Design-and-Representation-part-2"><a href="#Visualization-Design-and-Representation-part-2" class="headerlink" title="-Visualization Design and Representation- part 2"></a>-Visualization Design and Representation- part 2</h2><h3 id="Colour-1"><a href="#Colour-1" class="headerlink" title="Colour(1)"></a>Colour(1)</h3><p>·Use colour where you wish to highlight</p>
+<p>·Limit the number of colours</p>
+<p>·Prevent exaggeration with a low chroma.</p>
+<ul>
+<li>·用低色度防止夸张。</li>
+</ul>
+<p>·Lose focus with two separate hue.</p>
+<blockquote>
+<ul>
+<li>·用两个单独的色相失去焦点。</li>
+</ul>
+</blockquote>
+<p>·Use of colour can give different attention.</p>
+<p>·Utilise the perception associated with colours.</p>
+<p>·Do not assign different meaning to the same colour.</p>
+<p>·Consider visually impaired.</p>
+<blockquote>
+<ul>
+<li>·考虑视力受损。</li>
+</ul>
+</blockquote>
+<p>·Meaningful background.</p>
+<p><img src="D:\MarkdownIMG\image-20211121233646840.png" alt="image-20211121233646840"></p>
+<h2 id="Decoration-1"><a href="#Decoration-1" class="headerlink" title="Decoration (1)"></a>Decoration (1)</h2><p>·Remove unnecessary attention que.<img src="D:\MarkdownIMG\image-20211121233719817.png" alt="image-20211121233719817"></p>
+<p>·Remove unnecessary boundary lines.</p>
+<p>·Avoid unnecessary decoration.</p>
+<p><img src="D:\MarkdownIMG\image-20211121233751849.png" alt="image-20211121233751849"></p>
+<p>·Avoid unnecessary decoration.</p>
+<p><img src="D:\MarkdownIMG\image-20211121233804124.png" alt="image-20211121233804124"></p>
+<p>· Consider the appropriate use of thickness(vs white space).</p>
+<p><img src="D:\MarkdownIMG\image-20211121233835577.png" alt="image-20211121233835577"></p>
+<p>·Consider the appropriate use of thickness</p>
+<p><img src="D:\MarkdownIMG\image-20211121233900050.png" alt="image-20211121233900050"></p>
+<p>·Do not take away the attention.</p>
+<p><img src="D:\MarkdownIMG\image-20211121234044311.png" alt="image-20211121234044311"></p>
+<p>·Do not abuse “labelling”</p>
+<p><img src="D:\MarkdownIMG\image-20211121234032397.png" alt="image-20211121234032397"></p>
+<p>·Avoid 3D effect.</p>
+<p><img src="D:\MarkdownIMG\image-20211121234120962.png" alt="image-20211121234120962"></p>
+<h2 id="Bar-chat"><a href="#Bar-chat" class="headerlink" title="Bar chat"></a>Bar chat</h2><p>·Use a Bar chart for comparison.</p>
+<p>· Explicit reference point(Zero).</p>
+<blockquote>
+<ul>
+<li>·明确的参考点(零)。</li>
+</ul>
+</blockquote>
+<p>·Reduce the amount of comparison.</p>
+<blockquote>
+<p>·减少比较次数</p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211121234859479.png" alt="image-20211121234859479"></p>
+<h2 id="Line-graph-1"><a href="#Line-graph-1" class="headerlink" title="Line graph(1)"></a>Line graph(1)</h2><p>· Use a line graph for visualizing”trend”.</p>
+<p>· For visualizing “trend”, you may omit the reference point.</p>
+<blockquote>
+<p>·为了可视化“趋势”，可以省略参考点。  </p>
+</blockquote>
+<h2 id="Selecting-a-chart-1"><a href="#Selecting-a-chart-1" class="headerlink" title="Selecting a chart(1)"></a>Selecting a chart(1)</h2><p>·Hard to read the angled texts</p>
+<p><img src="D:\MarkdownIMG\image-20211121235046713.png" alt="image-20211121235046713"></p>
+<p>·If there is no continuity-&gt;no line graph</p>
+<blockquote>
+<ul>
+<li>·如果没有连续性-&gt;没有线形图</li>
+</ul>
+</blockquote>
+<p>·Detailed comparison is rather difficult with a Pi chart</p>
+<blockquote>
+<p>·用圆周率图进行详细比较是相当困难的  </p>
+</blockquote>
+<p>·Comparing value with the size/area of Glyph is difficult.</p>
+<blockquote>
+<p>·比较value和Glyph的大小/面积比较困难。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211121235310595.png" alt="image-20211121235310595"></p>
+<p>·”Trend”of”composition”also appreciates the use of a line graph.</p>
+<h2 id="Summary-4"><a href="#Summary-4" class="headerlink" title="Summary"></a>Summary</h2><p>· Design the visualisation considering:<br>· Selecting appropriate colours,<br>· Selecting an appropriate chart,<br>· Selecting an appropriate visual variables,<br>· Selecting appropriate decorative visual features.</p>
+<blockquote>
+<p>·设计可视化时考虑到:  </p>
+<p>·选择合适的颜色，  </p>
+<p>·选择合适的图表，  </p>
+<p>·选择合适的视觉变量，  </p>
+<p>·选择合适的装饰视觉特征。  </p>
+</blockquote>
+<h1 id="Week-8"><a href="#Week-8" class="headerlink" title="Week 8"></a>Week 8</h1><h2 id="What-to-Visualise"><a href="#What-to-Visualise" class="headerlink" title="What to Visualise ??"></a>What to Visualise ??</h2><p>· What to visualise is more important than how to visualise<br>· Statistical Analysis: GIGO(Garbage in, Garbage out)<br>· In Visual Analytics context: GIGO-&gt;you cannot get much out from inappropriate data being visualised.<br>· aim”Garbage in, Gold out”</p>
+<blockquote>
+<p>·想象什么比如何想象更重要  </p>
+<p>·统计分析:GIGO(Garbage in, Garbage out)  </p>
+<p>·在可视化分析环境中:GIGO-&gt;，你无法从可视化的不恰当数据中获得太多信息。  </p>
+<p>·以“垃圾进，黄金出”为目标  </p>
+</blockquote>
+<h2 id="Why-do-you-want-to-visualize"><a href="#Why-do-you-want-to-visualize" class="headerlink" title="Why do you want to visualize??"></a>Why do you want to visualize??</h2><p>·Understand/Explain Data<br>    ·organise/collate data and explain the trend/features of the data<br>    ·Not to instigate viewers.<br>    ·Letting the data speak.<br>·Obtain new hypotheses/insight<br>    ·use visualisation to assist getting new hypotheses<br>    ·Let users see the data from different viewpoints.</p>
+<blockquote>
+<p>理解和解释数据  </p>
+<p>·组织/整理数据，并解释数据的趋势/特征  </p>
+<p>·不是为了煽动观众。  </p>
+<p>·让数据说话。  </p>
+<p>·获得新的假说/洞察力  </p>
+<p>·使用可视化来帮助得到新的假设  </p>
+<p>·让用户从不同的角度看数据。  </p>
+</blockquote>
+<h2 id="KGI-and-KPI"><a href="#KGI-and-KPI" class="headerlink" title="KGI and KPI"></a>KGI and KPI</h2><p>· Once you have decided the target obiect/concept of your visualisation<br>· KGI(key goal indicator) and KPI (key performance indicator)<br>need to be set.<br>· KGI will quantitatively evaluate the obiect/concept to be visualised<br>· KPI is derived from KGI and describe what needs to be done to achieve KGl.<br>·e.g, Increase of Sales at EC site<br>· KGI: Increase sales,<br>· KPI: customer #, price/customer, customer persistence, etc.</p>
+<blockquote>
+<p>·一旦你确定了你的可视化的目标对象/概念  </p>
+<p>·KGI(关键目标指标)和KPI(关键绩效指标)  </p>
+<p>需要设置。  </p>
+<p>·KGI将对要可视化的对象/概念进行定量评估  </p>
+<p>·KPI源自KGI，描述为实现KGl需要做什么。  </p>
+<p>·e。 g，增加电子商务站点的销售额  </p>
+<p>·KGI:增加销售额，  </p>
+<p>·KPI:客户#、价格/客户、客户持久性等  </p>
+</blockquote>
+<h2 id="Details-of-KPI"><a href="#Details-of-KPI" class="headerlink" title="Details of KPI"></a>Details of KPI</h2><p>·Example: Web Service<br>·One of typical KPl:Customer Persistence<br>·How would you decide an appropriate definition of”Customer Persistence”?<br>·5d/week3,everyday?,1d/month(for expensive items)?<br>·Does the definition of persistence appropriate for the type of your web service?<br>·Any other examples?<br>·Health related?</p>
+<blockquote>
+<p>·例子:web服务  </p>
+<p>·典型的KPl之一:客户持久性  </p>
+<p>·您将如何恰当地定义“客户持续性”?  </p>
+<p>每天·5 d / week3吗? , 1 d /月(贵重物品的)?  </p>
+<p>·持久性的定义是否适合您的web服务类型?  </p>
+<p>·其他例子吗?  </p>
+<p>·健康有关吗?  </p>
+</blockquote>
+<h2 id="Modelling"><a href="#Modelling" class="headerlink" title="Modelling"></a>Modelling</h2><p>· Objective Variables:a variable to be explained using a model<br>· Sales of bottles of water<br>· Explanatory Variables: variables to explain the obiective variable<br>· temperature, price, season<br>· Instrumental/manipulated Variables: Explanatory Variables, whose values can be controlled(changed).<br>· price</p>
+<blockquote>
+<p>·目标变量:用模型来解释的变量  </p>
+<p>·瓶装水销售  </p>
+<p>·解释变量:解释客观变量的变量  </p>
+<p>·温度、价格、季节  </p>
+<p>·工具性/操纵性变量:解释性变量，其值可以控制(改变)。  </p>
+<p>·价格  </p>
+</blockquote>
+<p>Modelling<br>· Important to lifferentiate Instrumental variables from non-<br>instrumental<br>·1 deg increase in temperature yields 7% increase in W.B sales· but, you cannot manipulate the temperature… not useful to use this explanatory variables to intentionally increase the sales.<br>· price of W. Bs can be manipulated.<br>· Selecting appropriate Explanatory Variables is important to create and explore the data space through Interactive Visualisation.</p>
+<blockquote>
+<p>·区分工具变量和非变量很重要  </p>
+<p>仪器  </p>
+<p>·温度升高1℃，W.B销售量增加7%·但是，你无法控制温度…… 使用这种解释变量来有意增加销售是没有用的。  </p>
+<p>·W. b .价格可以操纵。  </p>
+<p>·选择适当的解释变量对于通过交互式可视化创建和探索数据空间非常重要。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211122002555522.png" alt="image-20211122002555522"></p>
+<h2 id="KGI-and-KPI-1"><a href="#KGI-and-KPI-1" class="headerlink" title="KGI and KPI"></a>KGI and KPI</h2><ol>
+<li>make sure to select KPIs, which directly related to KGI<br>· butterfly effect:<br>“Does the Flap of a Butterfly’s Wings in Brazil Set Off a Tornado in Texas?”-Edward Norton Lorenz(1972)</li>
+<li>for the change of value in KPI, unique explanation is associated<br>· ARPU(Average Revenue Per User): Sales/DAU(Dalily Active Users)<br>· if ARPU decreases, is that because<br>· total purchase has decreased?<br>· DAU spike due to certain promotion?</li>
+</ol>
+<blockquote>
+<p>\1.  确保选择与KGI直接相关的kpi  </p>
+<p>·蝴蝶效应:  </p>
+<p>“蝴蝶在巴西扇动翅膀会引发德克萨斯州的龙卷风吗?” -爱德华诺顿洛伦茨(1972)  </p>
+<p>\2.  对于KPI中值的更改，需要关联唯一的解释  </p>
+<p>·ARPU(每用户平均收益):销售额/DAU(日活跃用户)  </p>
+<p>·如果ARPU下降，是因为  </p>
+<p>·总采购减少了?  </p>
+<p>·DAU因某些推广而激增?  </p>
+</blockquote>
+<h2 id="Start-with-necessity-minimum"><a href="#Start-with-necessity-minimum" class="headerlink" title="Start with necessity minimum"></a>Start with necessity minimum</h2><ol>
+<li>Do not increase the # of KPIs(variables to visualise)</li>
+<li>A user can understand only small number of visual variables at the time<br>· If “Sales”is KGl, you would only need DAU, ARPPU and Conversion Rate</li>
+</ol>
+<blockquote>
+<p>\1.  不要增加kpi(要可视化的变量)  </p>
+<p>\2.  用户在同一时间只能理解少量的视觉变量  </p>
+<p>·如果“销售额”是KGl，你只需要DAU、ARPPU和转换率  </p>
+</blockquote>
+<h2 id="KPI-should-be-clearly-defined"><a href="#KPI-should-be-clearly-defined" class="headerlink" title="KPI should be clearly defined"></a>KPI should be clearly defined</h2><p>·Is”Page View”a good KPl?<br>·Page View:increment the count when the page is displayed<br>·how about pop-up?<br>·how about long page<br>·you might need record appropriate user activity logs<br>·Instead of Page View,what sort of information would you use?</p>
+<blockquote>
+<p>·“Page View”是一个好的KPl吗?  </p>
+<p>·页面视图:在页面显示时增加计数  </p>
+<p>·弹出怎么样?  </p>
+<p>长页怎么样  </p>
+<p>·您可能需要记录适当的用户活动日志  </p>
+<p>·除了Page View，你会使用什么类型的信息?  </p>
+</blockquote>
+<h2 id="Categorise-KPI-based-on-Data-Types"><a href="#Categorise-KPI-based-on-Data-Types" class="headerlink" title="Categorise KPI based on Data Types"></a>Categorise KPI based on Data Types</h2><p>·Back to<br>·Qualitative<br>·Quantitative<br>·Categorical<br>·Ordinal<br>·Interval(you can do+/-)<br>·Ratio(you can do+,-,*,/)</p>
+<blockquote>
+<p>‘·回  </p>
+<p>·定性  </p>
+<p>·定量  </p>
+<p>·分类  </p>
+<p>·序数  </p>
+<p>·间隔(你可以+ / -)  </p>
+<p>·比(+,-,*,/)  ‘</p>
+</blockquote>
+<h2 id="If-you-don’t-find-KPI-build-them"><a href="#If-you-don’t-find-KPI-build-them" class="headerlink" title="If you don’t find KPI,build them!"></a>If you don’t find KPI,build them!</h2><p>·If you do not have appropriate data for KPI in your original data set,consider deriving them using the existing data by:<br>·Combine data·Convert data<br>·Use Comparative metrics<br>·Use Summary Statistics</p>
+<blockquote>
+<p>·如果在您的原始数据集中没有适当的KPI数据，可以考虑使用现有数据，通过:  </p>
+<p>··转换数据结合起来  </p>
+<p>·使用相对指标  </p>
+<p>·使用汇总统计数据  </p>
+</blockquote>
+<p>For instance,to combine data:<br>·combine multiple data to create a new KPI<br>·BMI=weight/(height42)</p>
+<p>·Convert data<br>·Metric conversion<br>·Fee:$-&gt;high/middle/low·To Dimension less data<br>·ratio(percentage against the total)<br>·Issue?(winning rate,kill-death-ratio)<br>·Normalisation<br>·Standard score:fit the distribution to(Avg:50,std:10)</p>
+<h2 id="·Temporal-comparison-of-the-different-target-types"><a href="#·Temporal-comparison-of-the-different-target-types" class="headerlink" title="·Temporal comparison of the different target types:"></a>·Temporal comparison of the different target types:</h2><p>·Union negotiating the wage increase<br>·Increase in Company’s anual profit<br>·Increase in wage<br>·What KPI would Company use to avoid wage increase?<br>·What KPI should Union use to convince wage increase?</p>
+<blockquote>
+<p>·工会就增加工资进行谈判  </p>
+<p>·公司年度利润增加  </p>
+<p>·增加工资  </p>
+<p>·公司会使用什么KPI来避免工资上涨?  </p>
+<p>·工会应该使用什么KPI来说服加薪?  </p>
+</blockquote>
+<h2 id="Summary-5"><a href="#Summary-5" class="headerlink" title="Summary"></a>Summary</h2><p>·Determine/select KGI/KPI based on your objective<br>·Understand why you’re visualizing certain types of data<br>·Understand why you’re using certain visual variables/methods</p>
+<blockquote>
+<p>·根据您的目标确定/选择KGI/KPI  </p>
+<p>·理解为什么要可视化某些类型的数据  </p>
+<p>·理解为什么你要使用某些视觉变量/方法  </p>
+</blockquote>
+<h1 id="Week-9"><a href="#Week-9" class="headerlink" title="Week 9"></a>Week 9</h1><h2 id="Benefits-of-Visualization-Card-et-al"><a href="#Benefits-of-Visualization-Card-et-al" class="headerlink" title="Benefits of Visualization(Card et al.)"></a>Benefits of Visualization(Card et al.)</h2><p>· Increased resources<br>· Offload work to the perceptual system<br>· External memory<br>· Reduced search<br>· Grouping<br>· High data density<br>· Enhanced recognition<br>· Recognition instead of recall<br>· Abstraction and aggregation<br>· Manipulable medium </p>
+<blockquote>
+<p>·增加资源  </p>
+<p>·将工作转移到感知系统  </p>
+<p>·外部存储器  </p>
+<p>·减少搜索  </p>
+<p>·分组  </p>
+<p>·数据密度高  </p>
+<p>·增强识别  </p>
+<p>·识别而不是回忆  </p>
+<p>·抽象与聚合  </p>
+<p>·相比于媒介  </p>
+</blockquote>
+<h2 id="Evaluation…Benefits-have-been-provided"><a href="#Evaluation…Benefits-have-been-provided" class="headerlink" title="Evaluation…Benefits have been provided?"></a>Evaluation…Benefits have been provided?</h2><p>·Increased resources<br>·Offload work to the perceptual system<br>·External memory<br>·Reduced search<br>·Grouping<br>·High data density<br>·Enhanced recognition<br>·Recognition instead of recall<br>·Abstraction and aggregation<br>·Manipulable medium</p>
+<blockquote>
+<p>·增加资源  </p>
+<p>·将工作转移到感知系统  </p>
+<p>·外部存储器  </p>
+<p>·减少搜索  </p>
+<p>·分组  </p>
+<p>·高数据密度  </p>
+<p>·增强识别  </p>
+<p>·识别而不是回忆  </p>
+<p>·抽象和聚合  </p>
+<p>·相比于媒介  </p>
+</blockquote>
+<h2 id="Visualization-pretty-pictures"><a href="#Visualization-pretty-pictures" class="headerlink" title="Visualization ==pretty pictures?"></a>Visualization ==pretty pictures?</h2><p>· To make better visualization, we need to<br>· Know how people make sense of data<br>· Evaluate the visualizations.</p>
+<blockquote>
+<p>·为了更好地可视化，我们需要  </p>
+<p>·了解人们如何理解数据  </p>
+<p>·评估可视化效果。  </p>
+</blockquote>
+<p>·To make better visualization,we need to<br>·Know how people make sense of data Gestalt principles<br>·Similarity<br>·Proximity<br>·Common Region<br>·Closure<br>·Continuity·Connection</p>
+<blockquote>
+<p>·为了更好地可视化，我们需要  </p>
+<p>·了解人们如何理解数据格式塔原则  </p>
+<p>·相似  </p>
+<p>·接近  </p>
+<p>·常见的地区  </p>
+<p>·关闭  </p>
+<p>连续性··连接  </p>
+</blockquote>
+<h2 id="How-to-evaluate"><a href="#How-to-evaluate" class="headerlink" title="How to evaluate"></a>How to evaluate</h2><p>·Interview<br>·Questionnaire<br>·Analytic inspection<br>·Empirical evaluation</p>
+<h2 id="Interview"><a href="#Interview" class="headerlink" title="Interview"></a>Interview</h2><p>·Qualitative technique<br>·Gathering information about users by talking directly to them<br>·A method for discovering facts and opinions of the users<br>·Format:<br>·It is usually done by one interviewer speaking to one user at a time<br>·Structured interviews:a pre-defined set of questions and users<br>·Open-ended interviews:allows for an exploratory approach to uncover unexpected information<br>·Problems:<br>·The unstructured nature of the resulting data can be easily misinterpreted.</p>
+<blockquote>
+<p>·定性技术  </p>
+<p>·通过直接与用户对话来收集用户信息  </p>
+<p>·发现用户事实和意见的方法  </p>
+<p>·格式:  </p>
+<p>·这通常是由一个面试官一次和一个用户对话  </p>
+<p>·结构化面试:预先定义一组问题和用户  </p>
+<p>·开放式访谈:允许探索性的方法来发现意外的信息  </p>
+<p>·问题:  </p>
+<p>·结果数据的非结构化性质很容易被误解。  </p>
+</blockquote>
+<h2 id="Questionnaire"><a href="#Questionnaire" class="headerlink" title="Questionnaire"></a>Questionnaire</h2><p>· Qualitative technique<br>· But results can be quantified.(refer to the previous lecture)<br>· Preparation<br>· Keep questions simple, be clear and concise<br>· Group questions appropriately/give explanation<br>· Pilot questionnaire before distributing it<br>· It is still unreasonable to think that any one person can anticipate all the potential problems<br>· Problems:<br>· It is only as good as the questions it contains.</p>
+<blockquote>
+<p>·定性技术  </p>
+<p>·但结果可以量化。 (参考前一讲)  </p>
+<p>·准备  </p>
+<p>·保持问题简单，清晰和简洁  </p>
+<p>·恰当地分组问题/给出解释  </p>
+<p>·发放前先进行试点调查问卷  </p>
+<p>认为任何一个人都能预见到所有潜在的问题仍然是不合理的  </p>
+<p>·问题:  </p>
+<p>它的好坏取决于它所包含的问题。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211122222526689.png" alt="image-20211122222526689"></p>
+<p><img src="D:\MarkdownIMG\image-20211122222603595.png" alt="image-20211122222603595"></p>
+<p>Questionnaire<br>-Established questionnaires will give more reliable and repeatable results than ad-hoc questionnaires.<br>-Three questionnaires for assessing the perceived usability of an interactive system:</p>
+<blockquote>
+<p>-建立的问卷比特别问卷的结果更可靠和可重复。  </p>
+<p>-评估互动系统感知可用性的三份问卷:  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211122222752611.png" alt="image-20211122222752611"></p>
+<h2 id="Analytic-Inspection分析检验"><a href="#Analytic-Inspection分析检验" class="headerlink" title="Analytic Inspection分析检验"></a>Analytic Inspection分析检验</h2><p>-Benefits<br>-Generate results quickly with low cost<br>-Can be used early in the design phases<br>-Heuristic evaluation<br>-Experts review the systems against a list of principles<br>-Cognitive walkthrough<br>-Starts with a task analysis that specifies the sequence of steps or actions<br>required by a user to accomplish a task<br>-Then work through the steps</p>
+<blockquote>
+<p>好处  </p>
+<p>-低成本快速生成结果  </p>
+<p>-可以在早期设计阶段使用  </p>
+<p>启发式评估  </p>
+<p>-专家们根据一系列原则来评估这些系统  </p>
+<p>认知走查  </p>
+<p>-从指定步骤或操作顺序的任务分析开始  </p>
+<p>用户完成任务所必需的  </p>
+<p>-然后完成这些步骤  </p>
+</blockquote>
+<h2 id="Empirical-evaluation-经验评价"><a href="#Empirical-evaluation-经验评价" class="headerlink" title="Empirical evaluation 经验评价"></a>Empirical evaluation <strong>经验评价</strong></h2><p>-Usability test<br>-Think aloud,eye tracking<br>-Formative:helps/guides design<br>-Against the single Ul(visualization)<br>-Identify usability problems<br>-Qualitative feedback from users<br>-Controlled experiment<br>-Summative:measure the final result of the task<br>-Compare multiple UIs (visualizations)<br>-Quantitative results,statistical significance</p>
+<blockquote>
+<p>可用性测试  </p>
+<p>东东,眼睛跟踪  </p>
+<p>造型:帮助/指导设计  </p>
+<p>-针对单个Ul(可视化)  </p>
+<p>确定可用性问题  </p>
+<p>-用户的定性反馈  </p>
+<p>管理实验  </p>
+<p>-总结性:衡量任务的最终结果  </p>
+<p>-比较多个ui(可视化)  </p>
+<p>定量结果,统计学意义  </p>
+</blockquote>
+<h2 id="Case-study-Graph-Visualization"><a href="#Case-study-Graph-Visualization" class="headerlink" title="Case study(Graph Visualization)"></a>Case study(Graph Visualization)</h2><p>-Efficiency:<br>-The running time of algorithms should be reasonably fast<br>-Elegance:<br>-Algorithms should be easy to understand and easy to code;<br>-Final drawings should be beautiful<br>-Effectiveness<br>-Graph viewers should understand the underlying data quickly and correctly</p>
+<blockquote>
+<p>效率:  </p>
+<p>-算法的运行时间应该是合理的快  </p>
+<p>优雅:  </p>
+<p>-算法应该易于理解和编码;  </p>
+<p>-最终的图纸应该是美丽的  </p>
+<p>有效性  </p>
+<p>-图形观察者应该快速正确地理解底层数据  </p>
+</blockquote>
+<h2 id="Effectiveness"><a href="#Effectiveness" class="headerlink" title="Effectiveness"></a>Effectiveness</h2><p>-Visualization designers are often satisfied with the “coolness”of the technologies they introduced.<br>-technology that looks”cool”to the designer might be too complex or unneeded for real users<br>-It is assumed that graphs should be effective when drawn conforming to some predefined criteria.<br>-Maximise symmetry<br>-Minimise edge crosses<br>-Maximise angular resolution<br>-However, common senses and intuitions are not reliable.<br>-Users, data sets, tasks are different</p>
+<blockquote>
+<p>-可视化设计师通常对他们引入的技术的“酷”感到满意。  </p>
+<p>-对设计师来说看起来很酷的技术，对真正的用户来说可能太复杂或不需要  </p>
+<p>-假设图形应该是有效的，当绘制符合一些预定义的标准。  </p>
+<p>最大化对称  </p>
+<p>减少边缘穿过  </p>
+<p>最大化角分辨率  </p>
+<p>-但是，常识和直觉并不可靠。  </p>
+<p>-用户、数据集、任务不同  </p>
+</blockquote>
+<p>symmetry 对称 越对称越好，然后越少的交叉和弯曲</p>
+<h2 id="Design-and-analysis"><a href="#Design-and-analysis" class="headerlink" title="Design and analysis"></a>Design and analysis</h2><p>-On dense/sparse graph<br>-bends,crosses,symmetry<br>-high/medium/low presence<br>-accuracy in fixed time(45 seconds)<br>-Task:find the shortest path between two nodes<br>-Paper based,within-subjects,random order a “filler”task</p>
+<blockquote>
+<p>在茂密的/稀疏图  </p>
+<p>弯曲、十字架、对称  </p>
+<p>- /中/低的存在  </p>
+<p>-在固定时间内的精度(45秒)  </p>
+<p>任务:查找两个节点之间的最短路径  </p>
+<p>-以纸为基础，在主题内，随机排序一个“填充”任务  </p>
+</blockquote>
+<h2 id="Results-and-discussion"><a href="#Results-and-discussion" class="headerlink" title="Results and discussion"></a>Results and discussion</h2><p>-Bends and crossing are important<br>-Symmetry needs further examination</p>
+<p>-A pioneering work that provides empirical evidence for intuition-based aesthetic criteria</p>
+<blockquote>
+<p>-弯道和交叉很重要  </p>
+<p>-对称性需要进一步的研究  </p>
+<p>这是一项开创性的工作，为基于直觉的美学标准提供了经验证据  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211122225336153.png" alt="image-20211122225336153"></p>
+<h2 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h2><p>-Graphs are difficult to control<br>-Elements are interconnected to each other<br>-Change in one criterion can lead to change in another<br>-Ex.Making more crossings can also make more sharp turns on the path<br>-Gestalt principle of continuity</p>
+<blockquote>
+<p>图表很难控制  </p>
+<p>-元素相互连接  </p>
+<p>-一个标准的改变会导致另一个标准的改变  </p>
+<p>。 多做交叉也可以使道路更急转弯  </p>
+<p>-格式塔连续性原则  </p>
+</blockquote>
+<h2 id="Design-and-analysis-1"><a href="#Design-and-analysis-1" class="headerlink" title="Design and analysis"></a>Design and analysis</h2><p>-Create a set of random graphs, drawn with a spring algorithm<br>-Highlight two nodes, record the measurements of the predictor variables<br>-Continuity, number of crossings, crossing angles, number of branches, shortest path length……<br>-Record the response variable<br>-Response time<br>-Regress response variable on predictor variables to detect their relationships.<br>-Task: shortest path between two highlighted nodes<br>-Analysis: Correlation and multiple regression<br>-Finding: Path continuity and number of crossing on the shortest path are important factors.</p>
+<blockquote>
+<p>创建一组随机图，用弹簧算法绘制  </p>
+<p>-突出两个节点，记录预测变量的测量值  </p>
+<p>-连续性，交叉数量，交叉角度，分支数量，最短路径长度……  </p>
+<p>-记录响应变量  </p>
+<p>响应时间  </p>
+<p>-回归预测变量的响应变量，以检测它们的关系。  </p>
+<p>-Task:两个突出显示的节点之间的最短路径  </p>
+<p>-分析:相关和多元回归  </p>
+<p>-寻找:路径连续性和最短路径上的交叉次数是重要因素。  </p>
+</blockquote>
+<h2 id="Beyond-time-and-error"><a href="#Beyond-time-and-error" class="headerlink" title="Beyond time and error"></a>Beyond time and error</h2><p>-Where the time is spent and how the performance is impacted?<br>-What is the mechanism of crossings affecting performance?<br>-Time and error performance logging<br>-Treat the human as a “black box”,which tells us what but not how and why<br>-Eye tracking may give insight as to how<br>-Post-interview and questionnaire tell us why</p>
+<blockquote>
+<p>-时间花在哪里，对性能有什么影响?  </p>
+<p>交叉的机制会影响性能吗?  </p>
+<p>时间和错误性能日志记录  </p>
+<p>-把人当作一个“黑匣子”，它只告诉我们什么，而不告诉我们如何和为什么  </p>
+<p>-眼球追踪可能会让你洞察到这是如何发生的  </p>
+<p>-面试后和问卷告诉我们为什么  </p>
+</blockquote>
+<h2 id="Summary-6"><a href="#Summary-6" class="headerlink" title="Summary"></a>Summary</h2><p>·To make sure that visualization is effective,we need<br>·Principles and theories to guide the visualization design<br>·Once visualizations are produced,we need proper methods and measurements to evaluate them</p>
+<blockquote>
+<p>·为了确保可视化是有效的，我们需要  </p>
+<p>·指导可视化设计的原则和理论  </p>
+<p>·一旦产生了可视化，我们需要适当的方法和测量来评估它们  </p>
+</blockquote>
+<p><strong>一旦我们创建了一些可视化我们需要做一些测试来确认它效果如何！！！可能考</strong></p>
+<h1 id="Week-10-可视化关系"><a href="#Week-10-可视化关系" class="headerlink" title="Week 10  可视化关系"></a>Week 10  可视化关系</h1><h2 id="Relationships"><a href="#Relationships" class="headerlink" title="Relationships"></a>Relationships</h2><p>-Entities and relationships between them-Graph-mathematical and abstract concept<br>-flowchart,organisational chart,UML,etc-examples<br>-Any other examples of data containing relationships?</p>
+<blockquote>
+<p>-实体和它们之间的关系-图-数学和抽象概念  </p>
+<p>流程图、组织图、UML、etc-examples  </p>
+<p>-还有其他包含关系的数据例子吗?  </p>
+</blockquote>
+<h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><p>-V,E<br>-V:Nodes<br>-E:Edges(binary relationships between nodes)</p>
+<h2 id="Graph-Drawing"><a href="#Graph-Drawing" class="headerlink" title="Graph Drawing"></a>Graph Drawing</h2><p>·Graph<br>·(Nodes/and Edges<br>-A picture of a graph,that maps:<br>-a location for each node,and<br>-a curve/line to each edge</p>
+<h2 id="Planar"><a href="#Planar" class="headerlink" title="Planar"></a>Planar</h2><p>-A graph is planar if it can be drawn without edge crossings</p>
+<p><img src="D:\MarkdownIMG\image-20211122234757684.png" alt="image-20211122234757684"></p>
+<h2 id="Rules-in-Graph-Drawing"><a href="#Rules-in-Graph-Drawing" class="headerlink" title="Rules in Graph Drawing"></a>Rules in Graph Drawing</h2><p>-Semantic rules:derived from the meaning of vertices and edges,<br>-importance of a vertex,strength of relationships<br>-Structural rules:derived from graph-theoretic features</p>
+<blockquote>
+<p>-语义规则:从顶点和边的意义出发，  </p>
+<p>-顶点的重要性，关系的强度  </p>
+<p>-结构规则:源自图论特征  </p>
+</blockquote>
+<p>-4 classification criteria:<br>-Whether the solution to a rule can be obtained uniquely(U)or not (N)<br>-Whether the rule is<br>·topological(T)(specifying only the placement relationship between elements),<br>·shape-oriented(S)(specifying the direction also)or<br>·metric(M)(specifying distances as well)<br>-Whether the rule applies globaly,to the whole drawing (G)or locally,only to a part of the drawing(L)<br>-Whether the rule is hierarchical(H),or flat(F),or both(B)</p>
+<blockquote>
+<p>4分类标准:  </p>
+<p>是否可以唯一地获得规则的解决方案(U)或(N)  </p>
+<p>-是否规则是  </p>
+<p>·拓扑(T)(只指定元素之间的位置关系)，  </p>
+<p>·面向形状(S)(也指定方向)或  </p>
+<p>·metric(M)(也指定距离)  </p>
+<p>-规则是否适用于整体，整个图纸(G)或局部，仅适用于图纸的一部分(L)  </p>
+<p>-规则是层次化(H)，还是扁平化(F)，还是两者兼有(B)  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211122235521473.png" alt="image-20211122235521473"></p>
+<h2 id="Semantic-rules"><a href="#Semantic-rules" class="headerlink" title="Semantic rules"></a>Semantic rules</h2><table>
+<thead>
+<tr>
+<th>Drawing rules</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A specified sequence of vertices is placed on a straight line.</td>
+<td>USLB</td>
+</tr>
+<tr>
+<td>A specified sequence of vertices is placed on a specified curve.</td>
+<td>USLB</td>
+</tr>
+<tr>
+<td>Vertices are drawn with a specific size.</td>
+<td>UMLB</td>
+</tr>
+<tr>
+<td>A specified set of vertices is placed at the boundary of the drawing.</td>
+<td>NTLB</td>
+</tr>
+<tr>
+<td>A specified set of vertices are drawn near to each other.</td>
+<td>NTLB</td>
+</tr>
+<tr>
+<td>A specified set of vertices is placed near the center.</td>
+<td>NTLB</td>
+</tr>
+<tr>
+<td>An upper limit to the number of edge crossings is specified.</td>
+<td>NTLB</td>
+</tr>
+<tr>
+<td>An upper limit to the number of edge bends is specifyied.</td>
+<td>NSLF</td>
+</tr>
+<tr>
+<td>The lengths of specified edge have a specified upper limit.</td>
+<td>NMLF</td>
+</tr>
+</tbody></table>
+<p><img src="D:\MarkdownIMG\image-20211123004920528.png" alt="image-20211123004920528"></p>
+<p><img src="D:\MarkdownIMG\image-20211123005535865.png" alt="image-20211123005535865"></p>
+<p><img src="D:\MarkdownIMG\image-20211123010806952.png" alt="image-20211123010806952"></p>
+<h2 id="弹簧算法"><a href="#弹簧算法" class="headerlink" title="弹簧算法"></a><img src="D:\MarkdownIMG\image-20211123122433133.png" alt="image-20211123122433133">弹簧算法</h2><h2 id="Force-Directed-Layout"><a href="#Force-Directed-Layout" class="headerlink" title="Force Directed Layout"></a>Force Directed Layout</h2><p>-Adjacency vertices are placed near each other(closeness)<br>-Vertices are placed so as not to be too close to each other(smallest separation)<br>-Edge lengths are fixed(fixed edge length)<br>-Symmetry is clearly shown (symmetry)<br>-Within the given drawing frame,vertices are uniformly distributed(uniform distribution)<br>-The shape of the drawing is adapted to the drawing frame (adaptation to the frame)<br>-Edge crosings are minimised(edge crossing minimisation)</p>
+<blockquote>
+<p>-相邻顶点被放置在彼此附近(贴近度)  </p>
+<p>-顶点之间的距离不会太近(最小的间隔)  </p>
+<p>-边长是固定的(固定边长)  </p>
+<p>-对称清晰显示(对称)  </p>
+<p>-在给定画框内，顶点均匀分布(均匀分布)  </p>
+<p>-图纸形状与并条机相适应(适应并条机)  </p>
+<p>-边线交叉最小化(边线交叉最小化)  </p>
+</blockquote>
+<h2 id="Eades’Force-Directed-Layout-extra-conditions"><a href="#Eades’Force-Directed-Layout-extra-conditions" class="headerlink" title="Eades’Force Directed Layout (extra conditions)"></a>Eades’Force Directed Layout (extra conditions)</h2><p><img src="D:\MarkdownIMG\image-20211123122833987.png" alt="image-20211123122833987"></p>
+<p>1用钉子固定点</p>
+<p>2.用磁场和磁化弹簧进行对齐</p>
+<p>3.用引力聚类</p>
+<h2 id="Summary-7"><a href="#Summary-7" class="headerlink" title="Summary"></a>Summary</h2><p>· Graph based visualization can be used for describing relational information<br>· Force-directed methods account for 90% of commercial and free graph drawing software for undirected graphs.<br>· Very few scientific human experiments have been donw on the results of force directed methods<br>· Many informal(unscientific2) investigations have been donw<br>· Appeal to developer intuition<br>· Case studies in context</p>
+<blockquote>
+<p>·基于图的可视化可用于描述关系信息  </p>
+<p>·强制导向方法占商业和免费无向图制图软件的90%。  </p>
+<p>·很少有科学的人体实验对力定向方法的结果有所了解  </p>
+<p>许多非正式的(不科学的)调查已被查清  </p>
+<p>·吸引开发者的直觉  </p>
+<p>·背景案例研究  </p>
+</blockquote>
+<h1 id="Week-11"><a href="#Week-11" class="headerlink" title="Week 11"></a>Week 11</h1><h2 id="Spatialisation"><a href="#Spatialisation" class="headerlink" title="Spatialisation"></a>Spatialisation</h2><p>-find 2D or 3D position of data entries<br>-typically used to visualise similarities<br>-clustering</p>
+<blockquote>
+<p>-找到数据条目的2D或3D位置  </p>
+<p>——通常用来形象化相似点  </p>
+<p>聚类  </p>
+</blockquote>
+<h2 id="Multidimensional-Scaling-as-Spatialization"><a href="#Multidimensional-Scaling-as-Spatialization" class="headerlink" title="Multidimensional Scaling as Spatialization"></a>Multidimensional Scaling as Spatialization</h2><p>-Observe target obiects<br>-Observed data could be<br>-Categorical<br>-Ordinal<br>-Numerical<br>-Represent n-dimension space<br>-use MDS to find 2D(or 3D)location</p>
+<blockquote>
+<p>观察目标种  </p>
+<p>-观测数据可以  </p>
+<p>分类  </p>
+<p>序数  </p>
+<p>数值  </p>
+<p>质点n维空间  </p>
+<p>-使用MDS查找2D(或3D)位置  </p>
+</blockquote>
+<h2 id="Our-Approach"><a href="#Our-Approach" class="headerlink" title="Our Approach"></a>Our Approach</h2><p>-Spatialise n-dim data<br>-Use Self-Organizing Maps<br>一non-linear mapping<br>-topological mapping<br>-Create familiar visualisation:MAP</p>
+<blockquote>
+<p>-Spatialise n-dim数据  </p>
+<p>用自组织映射  </p>
+<p>一非线性映射  </p>
+<p>拓扑映射  </p>
+<p>——创造熟悉的可视化:地图  </p>
+</blockquote>
+<h2 id="Self-Organizing-Map"><a href="#Self-Organizing-Map" class="headerlink" title="Self-Organizing Map?"></a>Self-Organizing Map?</h2><p>The striate cortex of a cat Neurons respond to particular angles of light stripes</p>
+<blockquote>
+<p>自组织的地图</p>
+<p>神经元对光线条纹的特定角度做出反应  </p>
+</blockquote>
+<h2 id="Artificial-Model-of-Self-Organization"><a href="#Artificial-Model-of-Self-Organization" class="headerlink" title="Artificial Model of Self-Organization"></a>Artificial Model of Self-Organization</h2><p>-von der Malsburg(1973)<br>simulated feature extracting cells organizing in a 2D space<br>-lateral excitatory/inhibitory connections.</p>
+<blockquote>
+<p>模拟特征提取细胞组织在二维空间  </p>
+<p>横向兴奋或抑制性连接。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211123171927238.png" alt="image-20211123171927238"></p>
+<p>-Neurons are placed on a 2D grid.<br>-Each neuron has an n-dim. weight vector<br>(representing a point in the n-dim space-Through competitive learning algorithm, neurons update their weight vectors.<br>-Use a neighbourhood function to preserve<br> topology</p>
+<blockquote>
+<p>-神经元被放置在二维网格上。  </p>
+<p>-每个神经元有一个n-dim。 权向量  </p>
+<p>(表示n-dim空间中的一个点。通过竞争学习算法，神经元更新其权重向量。  </p>
+<p>-使用邻域函数进行保存  </p>
+<p>拓扑结构  </p>
+</blockquote>
+<p><img src="D:\笔记\image-20211123183847350.png" alt="image-20211123183847350"></p>
+<h2 id="SOM"><a href="#SOM" class="headerlink" title="SOM"></a>SOM</h2><p>(Input Data<br>-Multidimension<br>-Raw data(Table)do not reveal much<br>-Output<br>-mapped onto 2D(or 3D)<br>-similar features are mapped onto similar locations<br>-easy visual confirmation</p>
+<blockquote>
+<p>(输入数据  </p>
+<p>多维  </p>
+<p>-原始数据(表)不能透露太多  </p>
+<p>与产出  </p>
+<p>-映射到2D(或3D)  </p>
+<p>-相似的功能被映射到相似的位置  </p>
+<p>简单的可视化确认  </p>
+</blockquote>
+<h2 id="Pros-Cons"><a href="#Pros-Cons" class="headerlink" title="Pros/Cons"></a>Pros/Cons</h2><p>-Pros<br>-handle many dimensions<br>-simple computation<br>-visual inspection<br>-Cons<br>-mapping of massive data(labeling problem)<br>-computation</p>
+<blockquote>
+<p>优点  </p>
+<p>处理多个维度  </p>
+<p>简单的计算  </p>
+<p>人们检验  </p>
+<p>缺点  </p>
+<p>-海量数据映射(标注问题)  </p>
+<p>计算   </p>
+</blockquote>
+<h2 id="Problem-of-Simple-Spatialization"><a href="#Problem-of-Simple-Spatialization" class="headerlink" title="Problem of Simple Spatialization"></a>Problem of Simple Spatialization</h2><p>-Provides only relative distances and qualitative analyses<br>-The <strong>World is flat</strong> and there <strong>are edges of the world.</strong><br>-Distance and Direction do not mean much.<br>-However, <strong>we are good at utilizing “distance and direction”to build our mental maps.</strong></p>
+<blockquote>
+<p>-仅提供相对距离和定性分析  </p>
+<p>-世界是平的，世界有边缘。  </p>
+<p>-距离和方向并不意味着什么。  </p>
+<p>-然而，我们擅长利用“距离和方向”来构建我们的思维地图。  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211123195033191.png" alt="image-20211123195033191"></p>
+<h2 id="Border-Effect"><a href="#Border-Effect" class="headerlink" title="Border Effect"></a>Border Effect</h2><p>However, boundary units of the 2D grid have fewer neighbours than the units inside the map.-weight vectors of these units “collapse to the center of the input space”<br>-The self-organizing Map (SOM) takes much longer time to converge</p>
+<blockquote>
+<p>然而，2D网格的边界单元的邻居比地图内部的单元要少。 -这些单位的权重向量“坍缩到输入空间的中心”  </p>
+<p>——自组织地图(SOM)需要更长的时间  </p>
+</blockquote>
+<h2 id="Spherical-Self-Organizing-Map"><a href="#Spherical-Self-Organizing-Map" class="headerlink" title="Spherical Self-Organizing Map"></a>Spherical Self-Organizing Map</h2><p>-The border effect can be removed by implement the SOM on a spherical lattice<br>-However, the sphere cannot be tessellated into regular grids.<br>-Choose a spherical lattice which has the least variance in the number of neighbors and has approximately the same distance between direct neighbors</p>
+<blockquote>
+<p>边界效果可以通过在球形晶格上执行SOM来移除  </p>
+<p>-然而，球体不能镶嵌成规则网格。  </p>
+<p>-选择一个球形晶格，其邻居数方差最小，且直接邻居之间的距离大致相同 </p>
+</blockquote>
+<h2 id="The-lcosahedron-based-Geodesic-Dome"><a href="#The-lcosahedron-based-Geodesic-Dome" class="headerlink" title="The lcosahedron-based Geodesic Dome"></a>The lcosahedron-based Geodesic Dome</h2><p>-Obtained by tessellating the lcosahedron<br>-The vertices number: IVl 10f22<br>-Most of the vertices have the 6 direct neighbors<br>(except 5 vertices)<br>(r. es9y<br>-The edge lengths are similar </p>
+<blockquote>
+<p>-通过镶嵌二十面体获得  </p>
+<p>-顶点数:IVl 10f22  </p>
+<p>-大多数顶点有6个直接的邻居  </p>
+<p>(5点除外)  </p>
+<p>(r . es9y  </p>
+<p>-边长是相似的  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211123195532848.png" alt="image-20211123195532848"></p>
+<h3 id="Data-Structure"><a href="#Data-Structure" class="headerlink" title="Data Structure"></a>Data Structure</h3><p>-Unwrap the geodesic dome into 2D Grid<br>-Takes only O(n)space<br>-Easy to find direct neighbors<br>-Need to handle duplicate vertices and boundary<br>situation</p>
+<blockquote>
+<p>-展开网格圆顶成2D网格  </p>
+<p>人抗拒只O (n)空间  </p>
+<p>-容易找到直接的邻居  </p>
+<p>需要处理重复的顶点和边界  </p>
+<p>情况  </p>
+</blockquote>
+<h2 id="Truthful-Traiectory"><a href="#Truthful-Traiectory" class="headerlink" title="Truthful Traiectory"></a>Truthful Traiectory</h2><p>-Temporal analyses, Similarity analyses<br>-Need to have truthful traiectory on the SOM<br>-Euclidean distance is often used to<br>-in n-dim data(concept/knowledge) space<br>-on the SOM.</p>
+<blockquote>
+<p>-时间分析，相似性分析  </p>
+<p>-需要在SOM上有真实的轨迹  </p>
+<p>-欧几里得距离常用于  </p>
+<p>- n-dim数据(概念/知识)空间  </p>
+<p>在索姆。  </p>
+</blockquote>
+<h2 id="Shortest-Path-on-the-SOM"><a href="#Shortest-Path-on-the-SOM" class="headerlink" title="Shortest Path on the SOM"></a>Shortest Path on the SOM</h2><p><img src="D:\MarkdownIMG\image-20211123201002089.png" alt="image-20211123201002089"></p>
+<p><img src="D:\MarkdownIMG\image-20211123201212237.png" alt="image-20211123201212237"></p>
+<h1 id="Week12"><a href="#Week12" class="headerlink" title="Week12"></a>Week12</h1><h2 id="Exploratory-Data-Visualisation"><a href="#Exploratory-Data-Visualisation" class="headerlink" title="Exploratory Data Visualisation"></a>Exploratory Data Visualisation</h2><p>-Visual Data Mining:See Unexpected -rakatsuke &amp; cchegan(PsU)<br>·5 geological measurements<br>·4spectrum band reading from satellite images</p>
+<blockquote>
+<p>-可视化数据挖掘:参见Unexpected -rakatsuke &amp; cchegan(PsU)  </p>
+<p>5·地质测量  </p>
+<p>·从卫星图像读取4个光谱波段  </p>
+</blockquote>
+<h2 id="Visualising-Gentrification"><a href="#Visualising-Gentrification" class="headerlink" title="Visualising Gentrification"></a>Visualising Gentrification</h2><p>-Gentrification-renovation and improvement(esp.a house or district) so that it conforms to middle-class taste(from New Oxford American Dict.)</p>
+<blockquote>
+<p>-Gentrification-renovation和改进(esp。 房子或地区)，使其符合中产阶级的品味(来自新牛津美国词典)  </p>
+</blockquote>
+<p><img src="D:\MarkdownIMG\image-20211123204944548.png" alt="image-20211123204944548"></p>
+<h2 id="Visualizing-Knowledge"><a href="#Visualizing-Knowledge" class="headerlink" title="Visualizing Knowledge?"></a>Visualizing Knowledge?</h2><p>-Knowledge<br>-Externalizable<br>-Non-externalizable-tacit knowledge<br>· Often it is inside someone’s head<br>·y=f(x0,×1..…… xn)<br>-dy/dt:y(t+1)-y(t)<br>-deltay: yif(t)-yit(t)</p>
+<p><img src="D:\MarkdownIMG\image-20211123211357273.png" alt="image-20211123211357273"></p>
+<h2 id="Explicit-Knowledge-Encoding"><a href="#Explicit-Knowledge-Encoding" class="headerlink" title="Explicit Knowledge Encoding"></a>Explicit Knowledge Encoding</h2><p>15×15 SOM<br>/each neuron represents a certain combination of geological properties<br>-a concept is represented as a set of activated neurons.</p>
+<p><img src="D:\MarkdownIMG\image-20211123213226257.png" alt="image-20211123213226257"></p>
+<h2 id="Attributes"><a href="#Attributes" class="headerlink" title="Attributes"></a>Attributes</h2><p>-Population(millions)<br>-Total CO2 emission<br>-Per capita emissions<br>-Emissions from petroleum<br>-Emissions from natural gas<br>-Emissions from coal<br>-Total primary energy production<br>-Total primary energy consumption</p>
+<h2 id="Dev-of-Molecular-Mechanics-B-Courcot-A-J-Bridgemyaj-M-Takatsuka-School-of-Cheaissy"><a href="#Dev-of-Molecular-Mechanics-B-Courcot-A-J-Bridgemyaj-M-Takatsuka-School-of-Cheaissy" class="headerlink" title="Dev of Molecular Mechanics B. Courcot,A.J. Bridgemyaj,M. Takatsuka School of Cheaissy"></a>Dev of Molecular Mechanics B. Courcot,A.J. Bridgemyaj,M. Takatsuka School of Cheaissy</h2><p>-Molecular mechanics force field optimisation<br>-Genetie Algorith~<br>-Scientists wish to improve the GA process<br>-Visual inspection of the GA process<br>-Influence GA process through Vis</p>
+<h2 id="Summary-8"><a href="#Summary-8" class="headerlink" title="Summary"></a>Summary</h2><p>·Visualization can be used to confirm your prior knowledge or<br>hypotheses<br>·Visualization can be used to assist generating hypotheses</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Gary Liu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://orange711.github.io.git/2021/11/23/%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/">https://orange711.github.io.git/2021/11/23/%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://orange711.github.io.git" target="_blank">今でもあなたはわたしの光</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/default_top_img.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/11/17/5318week11/"><img class="next-cover" src="/img/default_top_img.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">COMP5318 Week11 Review</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Gary Liu</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/orange711"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">本博客仅个人学习使用，禁止非授权转载</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-2"><span class="toc-number">1.</span> <span class="toc-text">Week 2</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attribute-of-data"><span class="toc-number">2.</span> <span class="toc-text">Attribute of data</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dimensions-of-attributes"><span class="toc-number">3.</span> <span class="toc-text">Dimensions of attributes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-3"><span class="toc-number">4.</span> <span class="toc-text">Week 3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Perception"><span class="toc-number">4.1.</span> <span class="toc-text">Perception</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Axes-arrangement"><span class="toc-number">4.2.</span> <span class="toc-text">Axes&#x2F;arrangement</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%AD%A6"><span class="toc-number">4.3.</span> <span class="toc-text">符号学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-4"><span class="toc-number">5.</span> <span class="toc-text">Week 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#User-interaction"><span class="toc-number">5.1.</span> <span class="toc-text">User interaction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advances-of-Artificial-Systems%E2%80%99functionalities"><span class="toc-number">5.2.</span> <span class="toc-text">Advances of Artificial Systems’functionalities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advancing-Human-Capabilities"><span class="toc-number">5.3.</span> <span class="toc-text">Advancing Human Capabilities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advancing-Assistance-Capability"><span class="toc-number">5.4.</span> <span class="toc-text">Advancing Assistance,Capability</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Improving-Experiences"><span class="toc-number">5.5.</span> <span class="toc-text">Improving Experiences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Types-of-Interactions"><span class="toc-number">5.6.</span> <span class="toc-text">Types of Interactions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Modality-of-Interactions-Multimedia-Oriented"><span class="toc-number">5.7.</span> <span class="toc-text">Modality of Interactions -Multimedia Oriented-</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Language-Media"><span class="toc-number">5.8.</span> <span class="toc-text">Language Media</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Non-Language-Medias"><span class="toc-number">5.9.</span> <span class="toc-text">Non-Language Medias</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nine-types-of-non-lang-media"><span class="toc-number">5.10.</span> <span class="toc-text">Nine types of non-lang.media</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Human-Body"><span class="toc-number">5.10.1.</span> <span class="toc-text">Human Body</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Action"><span class="toc-number">5.10.2.</span> <span class="toc-text">Action</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eye"><span class="toc-number">5.10.3.</span> <span class="toc-text">Eye</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Peripheral-Lang"><span class="toc-number">5.10.4.</span> <span class="toc-text">Peripheral Lang.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Silence"><span class="toc-number">5.10.5.</span> <span class="toc-text">Silence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Body-contact"><span class="toc-number">5.10.6.</span> <span class="toc-text">Body contact</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Territorial-Space"><span class="toc-number">5.10.7.</span> <span class="toc-text">Territorial Space</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Time"><span class="toc-number">5.10.8.</span> <span class="toc-text">Time</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chroma"><span class="toc-number">5.10.9.</span> <span class="toc-text">Chroma</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Eye-contact-amp-Facial-Expressions"><span class="toc-number">5.10.10.</span> <span class="toc-text">Eye contact &amp; Facial Expressions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Body-Language"><span class="toc-number">5.10.11.</span> <span class="toc-text">Body Language</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Territorial-Space-1"><span class="toc-number">5.10.12.</span> <span class="toc-text">Territorial Space</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">5.11.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Cognitive-Action"><span class="toc-number">6.</span> <span class="toc-text">Cognitive Action</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Human-Information-Processing-Model"><span class="toc-number">6.1.</span> <span class="toc-text">Human Information Processing Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Human-as-an-information-processing-unit"><span class="toc-number">6.2.</span> <span class="toc-text">Human as an information processing unit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Human-Memory-Unit"><span class="toc-number">6.3.</span> <span class="toc-text">Human Memory Unit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pros-Cons-of-HIP-model"><span class="toc-number">6.4.</span> <span class="toc-text">Pros&#x2F;Cons of HIP model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Minsky%E2%80%99s-Society-of-Mind"><span class="toc-number">6.5.</span> <span class="toc-text">Minsky’s Society of Mind</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ecological-Model"><span class="toc-number">6.6.</span> <span class="toc-text">Ecological Model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ecological-Model-cont"><span class="toc-number">6.6.1.</span> <span class="toc-text">Ecological Model(cont.)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Affordance"><span class="toc-number">6.7.</span> <span class="toc-text">Affordance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Affordance-Rich-non-Rich"><span class="toc-number">6.8.</span> <span class="toc-text">Affordance Rich&#x2F;non-Rich</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Invariant-in-Affordance"><span class="toc-number">6.9.</span> <span class="toc-text">Invariant in Affordance</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dynamic-Touch"><span class="toc-number">6.10.</span> <span class="toc-text">Dynamic Touch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Social-Interaction-Model"><span class="toc-number">6.11.</span> <span class="toc-text">Social Interaction Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Features-of-Group-Community"><span class="toc-number">6.12.</span> <span class="toc-text">\Features of Group&#x2F;Community</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Role-of-Awareness"><span class="toc-number">6.13.</span> <span class="toc-text">Role of Awareness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-1"><span class="toc-number">6.14.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Interaction-Method"><span class="toc-number">6.15.</span> <span class="toc-text">Interface&#x2F;Interaction Method?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pros-Cons-of-Command-line-Interface"><span class="toc-number">6.16.</span> <span class="toc-text">Pros&#x2F;Cons of Command-line Interface</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-of-Metaphor"><span class="toc-number">6.17.</span> <span class="toc-text">Use of Metaphor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Then-why-metaphor"><span class="toc-number">6.18.</span> <span class="toc-text">Then why metaphor?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Designing-Interface-Metaphor"><span class="toc-number">6.19.</span> <span class="toc-text">Designing Interface Metaphor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Good-Direct-Manipulation"><span class="toc-number">6.20.</span> <span class="toc-text">Good Direct Manipulation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-5-Exploratory-Data-Analysis-l"><span class="toc-number">7.</span> <span class="toc-text">Week 5 -Exploratory Data Analysis (l)-</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Temporal-analysis-comparison-r"><span class="toc-number">7.1.</span> <span class="toc-text">Temporal analysis&#x2F;comparison r</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-2"><span class="toc-number">7.2.</span> <span class="toc-text">Summary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Week-6-Exploratory-Data-Analysis"><span class="toc-number">7.3.</span> <span class="toc-text">Week 6 -Exploratory Data Analysis()-</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Statistics-from-Data"><span class="toc-number">7.4.</span> <span class="toc-text">Statistics from Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Statistical-feature-to-Visualization"><span class="toc-number">7.5.</span> <span class="toc-text">Statistical feature to Visualization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Psychophysical-Measure"><span class="toc-number">7.6.</span> <span class="toc-text">Psychophysical Measure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multidimensional-Scaling-MDS"><span class="toc-number">7.7.</span> <span class="toc-text">Multidimensional Scaling (MDS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCA"><span class="toc-number">7.8.</span> <span class="toc-text">PCA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Metric-space"><span class="toc-number">7.9.</span> <span class="toc-text">Metric space</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multidimensional-Scaling-as"><span class="toc-number">7.10.</span> <span class="toc-text">Multidimensional Scaling as</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-3"><span class="toc-number">7.11.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-7-Visual-Perception-and-Visualization"><span class="toc-number">8.</span> <span class="toc-text">Week 7  -Visual Perception and Visualization-</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Visual-Attributes"><span class="toc-number">8.1.</span> <span class="toc-text">Common Visual Attributes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Position"><span class="toc-number">8.1.1.</span> <span class="toc-text">Position</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Length"><span class="toc-number">8.1.2.</span> <span class="toc-text">Length</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Direction"><span class="toc-number">8.1.3.</span> <span class="toc-text">Direction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thickness"><span class="toc-number">8.1.4.</span> <span class="toc-text">Thickness</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Area-Size"><span class="toc-number">8.1.5.</span> <span class="toc-text">Area&#x2F;Size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shape"><span class="toc-number">8.1.6.</span> <span class="toc-text">Shape</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gestalt-Principle%E6%A0%BC%E5%BC%8F%E5%A1%94%E5%8E%9F%E7%90%86"><span class="toc-number">8.2.</span> <span class="toc-text">Gestalt Principle格式塔原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visualization-Design-and-Representation-part-2"><span class="toc-number">8.3.</span> <span class="toc-text">-Visualization Design and Representation- part 2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Colour-1"><span class="toc-number">8.3.1.</span> <span class="toc-text">Colour(1)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Decoration-1"><span class="toc-number">8.4.</span> <span class="toc-text">Decoration (1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bar-chat"><span class="toc-number">8.5.</span> <span class="toc-text">Bar chat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Line-graph-1"><span class="toc-number">8.6.</span> <span class="toc-text">Line graph(1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Selecting-a-chart-1"><span class="toc-number">8.7.</span> <span class="toc-text">Selecting a chart(1)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-4"><span class="toc-number">8.8.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-8"><span class="toc-number">9.</span> <span class="toc-text">Week 8</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-to-Visualise"><span class="toc-number">9.1.</span> <span class="toc-text">What to Visualise ??</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-do-you-want-to-visualize"><span class="toc-number">9.2.</span> <span class="toc-text">Why do you want to visualize??</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KGI-and-KPI"><span class="toc-number">9.3.</span> <span class="toc-text">KGI and KPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Details-of-KPI"><span class="toc-number">9.4.</span> <span class="toc-text">Details of KPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Modelling"><span class="toc-number">9.5.</span> <span class="toc-text">Modelling</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KGI-and-KPI-1"><span class="toc-number">9.6.</span> <span class="toc-text">KGI and KPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-with-necessity-minimum"><span class="toc-number">9.7.</span> <span class="toc-text">Start with necessity minimum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#KPI-should-be-clearly-defined"><span class="toc-number">9.8.</span> <span class="toc-text">KPI should be clearly defined</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Categorise-KPI-based-on-Data-Types"><span class="toc-number">9.9.</span> <span class="toc-text">Categorise KPI based on Data Types</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#If-you-don%E2%80%99t-find-KPI-build-them"><span class="toc-number">9.10.</span> <span class="toc-text">If you don’t find KPI,build them!</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%C2%B7Temporal-comparison-of-the-different-target-types"><span class="toc-number">9.11.</span> <span class="toc-text">·Temporal comparison of the different target types:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-5"><span class="toc-number">9.12.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-9"><span class="toc-number">10.</span> <span class="toc-text">Week 9</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Benefits-of-Visualization-Card-et-al"><span class="toc-number">10.1.</span> <span class="toc-text">Benefits of Visualization(Card et al.)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evaluation%E2%80%A6Benefits-have-been-provided"><span class="toc-number">10.2.</span> <span class="toc-text">Evaluation…Benefits have been provided?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visualization-pretty-pictures"><span class="toc-number">10.3.</span> <span class="toc-text">Visualization &#x3D;&#x3D;pretty pictures?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-evaluate"><span class="toc-number">10.4.</span> <span class="toc-text">How to evaluate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interview"><span class="toc-number">10.5.</span> <span class="toc-text">Interview</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Questionnaire"><span class="toc-number">10.6.</span> <span class="toc-text">Questionnaire</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Analytic-Inspection%E5%88%86%E6%9E%90%E6%A3%80%E9%AA%8C"><span class="toc-number">10.7.</span> <span class="toc-text">Analytic Inspection分析检验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Empirical-evaluation-%E7%BB%8F%E9%AA%8C%E8%AF%84%E4%BB%B7"><span class="toc-number">10.8.</span> <span class="toc-text">Empirical evaluation 经验评价</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Case-study-Graph-Visualization"><span class="toc-number">10.9.</span> <span class="toc-text">Case study(Graph Visualization)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Effectiveness"><span class="toc-number">10.10.</span> <span class="toc-text">Effectiveness</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-and-analysis"><span class="toc-number">10.11.</span> <span class="toc-text">Design and analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Results-and-discussion"><span class="toc-number">10.12.</span> <span class="toc-text">Results and discussion</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Limitations"><span class="toc-number">10.13.</span> <span class="toc-text">Limitations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Design-and-analysis-1"><span class="toc-number">10.14.</span> <span class="toc-text">Design and analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beyond-time-and-error"><span class="toc-number">10.15.</span> <span class="toc-text">Beyond time and error</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-6"><span class="toc-number">10.16.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-10-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%85%B3%E7%B3%BB"><span class="toc-number">11.</span> <span class="toc-text">Week 10  可视化关系</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Relationships"><span class="toc-number">11.1.</span> <span class="toc-text">Relationships</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph"><span class="toc-number">11.2.</span> <span class="toc-text">Graph</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph-Drawing"><span class="toc-number">11.3.</span> <span class="toc-text">Graph Drawing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Planar"><span class="toc-number">11.4.</span> <span class="toc-text">Planar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rules-in-Graph-Drawing"><span class="toc-number">11.5.</span> <span class="toc-text">Rules in Graph Drawing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Semantic-rules"><span class="toc-number">11.6.</span> <span class="toc-text">Semantic rules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%B9%E7%B0%A7%E7%AE%97%E6%B3%95"><span class="toc-number">11.7.</span> <span class="toc-text">弹簧算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Force-Directed-Layout"><span class="toc-number">11.8.</span> <span class="toc-text">Force Directed Layout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Eades%E2%80%99Force-Directed-Layout-extra-conditions"><span class="toc-number">11.9.</span> <span class="toc-text">Eades’Force Directed Layout (extra conditions)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-7"><span class="toc-number">11.10.</span> <span class="toc-text">Summary</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-11"><span class="toc-number">12.</span> <span class="toc-text">Week 11</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spatialisation"><span class="toc-number">12.1.</span> <span class="toc-text">Spatialisation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Multidimensional-Scaling-as-Spatialization"><span class="toc-number">12.2.</span> <span class="toc-text">Multidimensional Scaling as Spatialization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Our-Approach"><span class="toc-number">12.3.</span> <span class="toc-text">Our Approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Self-Organizing-Map"><span class="toc-number">12.4.</span> <span class="toc-text">Self-Organizing Map?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Artificial-Model-of-Self-Organization"><span class="toc-number">12.5.</span> <span class="toc-text">Artificial Model of Self-Organization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SOM"><span class="toc-number">12.6.</span> <span class="toc-text">SOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pros-Cons"><span class="toc-number">12.7.</span> <span class="toc-text">Pros&#x2F;Cons</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-of-Simple-Spatialization"><span class="toc-number">12.8.</span> <span class="toc-text">Problem of Simple Spatialization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Border-Effect"><span class="toc-number">12.9.</span> <span class="toc-text">Border Effect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spherical-Self-Organizing-Map"><span class="toc-number">12.10.</span> <span class="toc-text">Spherical Self-Organizing Map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-lcosahedron-based-Geodesic-Dome"><span class="toc-number">12.11.</span> <span class="toc-text">The lcosahedron-based Geodesic Dome</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Structure"><span class="toc-number">12.11.1.</span> <span class="toc-text">Data Structure</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Truthful-Traiectory"><span class="toc-number">12.12.</span> <span class="toc-text">Truthful Traiectory</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shortest-Path-on-the-SOM"><span class="toc-number">12.13.</span> <span class="toc-text">Shortest Path on the SOM</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Week12"><span class="toc-number">13.</span> <span class="toc-text">Week12</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Exploratory-Data-Visualisation"><span class="toc-number">13.1.</span> <span class="toc-text">Exploratory Data Visualisation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visualising-Gentrification"><span class="toc-number">13.2.</span> <span class="toc-text">Visualising Gentrification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visualizing-Knowledge"><span class="toc-number">13.3.</span> <span class="toc-text">Visualizing Knowledge?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Explicit-Knowledge-Encoding"><span class="toc-number">13.4.</span> <span class="toc-text">Explicit Knowledge Encoding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attributes"><span class="toc-number">13.5.</span> <span class="toc-text">Attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dev-of-Molecular-Mechanics-B-Courcot-A-J-Bridgemyaj-M-Takatsuka-School-of-Cheaissy"><span class="toc-number">13.6.</span> <span class="toc-text">Dev of Molecular Mechanics B. Courcot,A.J. Bridgemyaj,M. Takatsuka School of Cheaissy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-8"><span class="toc-number">13.7.</span> <span class="toc-text">Summary</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/23/%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/" title="COMP5048 期末全资料总结"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5048 期末全资料总结"/></a><div class="content"><a class="title" href="/2021/11/23/%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93/" title="COMP5048 期末全资料总结">COMP5048 期末全资料总结</a><time datetime="2021-11-23T14:12:47.936Z" title="发表于 2021-11-23 22:12:47">2021-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week11 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week11/" title="COMP5318 Week11 Review">COMP5318 Week11 Review</a><time datetime="2021-11-17T04:38:51.333Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week10 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week10/" title="COMP5318 Week10 Review">COMP5318 Week10 Review</a><time datetime="2021-11-17T04:38:51.332Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week9 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week9/" title="COMP5318 Week9 Review">COMP5318 Week9 Review</a><time datetime="2021-11-17T04:38:51.330Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review"><img src="/img/default_top_img.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="COMP5318 Week8 Review"/></a><div class="content"><a class="title" href="/2021/11/17/5318week8/" title="COMP5318 Week8 Review">COMP5318 Week8 Review</a><time datetime="2021-11-17T04:38:51.328Z" title="发表于 2021-11-17 12:38:51">2021-11-17</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Gary Liu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
