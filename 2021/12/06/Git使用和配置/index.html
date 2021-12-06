@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://orange711.github.io.git/img/default_top_img.png">
 <meta property="article:published_time" content="2021-12-06T07:43:12.418Z">
-<meta property="article:modified_time" content="2021-12-06T07:44:14.125Z">
+<meta property="article:modified_time" content="2021-12-06T07:48:49.796Z">
 <meta property="article:author" content="Gary Liu">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://orange711.github.io.git/img/default_top_img.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://orange711.github.io.git/2021/12/06/Git%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -52,7 +52,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2021-12-06 15:44:14'
+  postUpdate: '2021-12-06 15:48:49'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -141,9 +141,9 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git从无到有</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-06T07:43:12.418Z" title="发表于 2021-12-06 15:43:12">2021-12-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-06T07:44:14.125Z" title="更新于 2021-12-06 15:44:14">2021-12-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git从无到有"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Git从无到有"><a href="#Git从无到有" class="headerlink" title="Git从无到有"></a>Git从无到有</h1><h2 id="1-1配置Git"><a href="#1-1配置Git" class="headerlink" title="1.1配置Git"></a>1.1配置Git</h2><p>Git安装完毕后，进行用户配置 </p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/default_top_img.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">今でもあなたはわたしの光</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 博文</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git从无到有</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-06T07:43:12.418Z" title="发表于 2021-12-06 15:43:12">2021-12-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-06T07:48:49.796Z" title="更新于 2021-12-06 15:48:49">2021-12-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git从无到有"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Git从无到有"><a href="#Git从无到有" class="headerlink" title="Git从无到有"></a>Git从无到有</h1><h2 id="1-1配置Git"><a href="#1-1配置Git" class="headerlink" title="1.1配置Git"></a>1.1配置Git</h2><p>Git安装完毕后，进行用户配置 </p>
 <p>如果右键没有Git bash 重装Git可能能解决问题</p>
-<p>git bash（仿Linux操作）<img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210821193918459.png" alt="image-20210821193918459"></p>
+<p>git bash（仿Linux操作）<img src="https://github.com/orange711/orange711.github.io/blob/main/img/image-20210821193918459.png?raw=true" alt="image-20210821193918459"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git --global user.name <span class="string">&quot;user&quot;</span></span><br><span class="line">//</span><br><span class="line">git --global user.email <span class="string">&quot;XX@XX&quot;</span></span><br></pre></td></tr></table></figure>
 
 
@@ -179,7 +179,7 @@
 
 
 
-<h2 id="1-7忽略文件"><a href="#1-7忽略文件" class="headerlink" title="1.7忽略文件"></a>1.7忽略文件</h2><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210821203114708.png" alt="image-20210821203114708"></p>
+<h2 id="1-7忽略文件"><a href="#1-7忽略文件" class="headerlink" title="1.7忽略文件"></a>1.7忽略文件</h2><p><img src="https://github.com/orange711/orange711.github.io/blob/main/img/image-20210821203114708.png?raw=true" alt="image-20210821203114708"></p>
 <h2 id="1-8ssh公钥"><a href="#1-8ssh公钥" class="headerlink" title="1.8ssh公钥"></a>1.8ssh公钥</h2><p>在该文件夹下生成公钥</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\.ssh</span><br></pre></td></tr></table></figure>
 
@@ -188,13 +188,13 @@
 
 <p>将公钥信息注册到账户中</p>
 <p>打开id_rsa.pub 将其中代码复制到New SSH key即可</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210821204342495.png" alt="image-20210821204342495"></p>
+<p><img src="https://github.com/orange711/orange711.github.io/blob/main/img/image-20210821204342495.png?raw=true" alt="image-20210821204342495"></p>
 <h2 id="1-9IDEA使用Git"><a href="#1-9IDEA使用Git" class="headerlink" title="1.9IDEA使用Git"></a>1.9IDEA使用Git</h2><p>==（IDEA注意事项！如果显示Cannot run Git 请到File -&gt;Setting -&gt;version control 中配置git path）==</p>
 <p>1、新建项目，绑定git</p>
 <p>将远程git文件目录拷贝到项目中即可</p>
 <p>2、在远程目录下创建同名项目</p>
 <p>Idea中的一些骚操作</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210821213345323.png" alt="image-20210821213345323"></p>
+<p><img src="https://github.com/orange711/orange711.github.io/blob/main/img/image-20210821213345323.png?raw=true" alt="image-20210821213345323"></p>
 <p>可视化add commit push</p>
 <p>终端中找不到bash。？？大概是IDEA版本问题</p>
 <p>window CMD操作略有不同、</p>
